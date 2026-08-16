@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
+
     <!-- Homepage -->
     <url>
         <loc>https://savingstactic.com/</loc>
@@ -49,9 +49,17 @@
         <priority>0.9</priority>
     </url>
 
-    <!-- Article 5: Receipt Apps vs Consumer Panels (NEW) -->
+    <!-- Article 5: Receipt Apps vs Consumer Panels -->
     <url>
         <loc>https://savingstactic.com/blog/receipt-apps-vs-consumer-panels.html</loc>
+        <lastmod>2026-08-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 6: Dollar General Penny Shopping Clearance List (NEW) -->
+    <url>
+        <loc>https://savingstactic.com/blog/dollar-general-penny-shopping-clearance-list.html</loc>
         <lastmod>2026-08-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>

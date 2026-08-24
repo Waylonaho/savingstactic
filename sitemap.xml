@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://savingstactic.com/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -71,6 +71,22 @@
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Article 8: Walgreens Cash Spend Deals Stacking -->
+  <url>
+    <loc>https://savingstactic.com/blog/how-to-use-walgreens-cash-on-spend-deals.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Article 9: Target Circle Free Gift Cards Hack -->
+  <url>
+    <loc>https://savingstactic.com/blog/how-to-get-free-target-gift-cards-target-circle.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

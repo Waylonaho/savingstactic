@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://savingstactic.com/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -74,7 +74,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- New Articles -->
   <url>
     <loc>https://savingstactic.com/blog/how-to-use-walgreens-cash-on-spend-deals.html</loc>
     <lastmod>2026-10-03</lastmod>
@@ -117,5 +116,19 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Newly Added Articles -->
+  <url>
+    <loc>https://savingstactic.com/blog/ibotta-vs-fetch-for-grocery-receipts.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://savingstactic.com/blog/publix-bogo-coupon-stacking.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
 </urlset>

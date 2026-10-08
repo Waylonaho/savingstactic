@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVS Digital Coupon Not Working? A Receipt-First Troubleshooting Guide (2026)</title>
+    <meta name="description" content="CVS digital coupon not working at checkout? Learn how to diagnose missing discounts from your paper receipt, fix ExtraCare app sync delays, and correct cashier errors.">
+    <link rel="canonical" href="https://www.savingstactic.com/blog/cvs-digital-coupon-not-working.html">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .pulse-subtle { animation: pulseGlow 2s infinite; }
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+    </style>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "CVS Digital Coupon Not Working? A Receipt-First Troubleshooting Guide",
+      "description": "A receipt-first diagnostic workflow to troubleshoot missing digital coupons and register failures at CVS Pharmacy.",
+      "author": {
+        "@type": "Organization",
+        "name": "Savings Tactic Editorial Team",
+        "url": "https://www.savingstactic.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Savings Tactic",
+        "url": "https://www.savingstactic.com/"
+      },
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
+            </a>
+            <a href="/" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                ← Back to All Guides
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
+
+        <article class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-10 space-y-7">
+            
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="bg-rose-100 text-rose-800 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                        CVS Checkout Diagnostics
+                    </span>
+                    <span class="text-xs text-gray-400">• 5 Min Read</span>
+                </div>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                    CVS Digital Coupon Not Working? A Receipt-First Troubleshooting Guide
+                </h1>
+                <p class="text-xs text-gray-500">
+                    By Savings Tactic Editorial Team • Published October 8, 2026
+                </p>
+            </div>
+
+            <div class="text-base text-gray-700 leading-relaxed space-y-3">
+                <p>
+                    You clipped a high-value $3.00 manufacturer coupon, scanned your ExtraCare card at checkout, paid your total, and glanced at your receipt only to see full price. If your <strong>CVS digital coupon is not working</strong>, you are not alone.
+                </p>
+                <p>
+                    Rather than guessing what went wrong, your printed register receipt contains line-by-line evidence that reveals whether the failure was caused by an account mismatch, a package size restriction, or a register order-of-operations conflict.
+                </p>
+            </div>
+
+            <!-- Pre-Qualification Micro Survey Widget -->
+            <div id="survey-card" class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                <div class="text-center mb-6">
+                    <span class="bg-blue-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Shopper Study Panel
+                    </span>
+                    <h2 class="text-xl font-black text-gray-900 mt-3">
+                        Check Retail & Grocery Reward Card Eligibility
+                    </h2>
+                    <p class="text-xs text-gray-600 max-w-md mx-auto mt-1.5">
+                        Answer 3 quick consumer questions to check your eligibility for active $500 retail card promotions and shopping feedback studies.
+                    </p>
+                </div>
+
+                <div class="w-full bg-blue-200 rounded-full h-1.5 mb-6">
+                    <div id="survey-progress" class="bg-blue-600 h-1.5 rounded-full transition-all duration-300" style="width: 33%;"></div>
+                </div>
+
+                <!-- Step 1 -->
+                <div id="step-1" class="fade-in space-y-4">
+                    <div class="flex justify-between items-center text-xs font-bold text-blue-700">
+                        <span>QUESTION 1 OF 3</span>
+                        <span>33% Completed</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900">
+                        How often do you use digital app coupons at CVS Pharmacy?
+                    </h3>
+                    <div class="space-y-2.5">
+                        <button onclick="nextStep(2, 66)" class="w-full text-left bg-white hover:bg-blue-600 hover:text-white border border-gray-300 hover:border-blue-600 p-3.5 rounded-xl text-sm font-semibold transition flex justify-between items-center group">
+                            <span>Every single shopping trip</span>
+                            <span class="text-gray-400 group-hover:text-white font-bold">→</span>
+                        </button>
+                        <button onclick="nextStep(2, 66)" class="w-full text-left bg-white hover:bg-blue-600 hover:text-white border border-gray-300 hover:border-blue-600 p-3.5 rounded-xl text-sm font-semibold transition flex justify-between items-center group">
+                            <span>1–2 times per month for essentials</span>
+                            <span class="text-gray-400 group-hover:text-white font-bold">→</span>
+                        </button>
+                        <button onclick="nextStep(2, 66)" class="w-full text-left bg-white hover:bg-blue-600 hover:text-white border border-gray-300 hover:border-blue-600 p-3.5 rounded-xl text-sm font-semibold transition flex justify-between items-center group">
+                            <span>Rarely, because coupons frequently fail</span>
+                            <span class="text-gray-400 group-hover:text-white font-bold">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step-2" class="hidden fade-in space-y-4">
+                    <div class="flex justify-between items-center text-xs font-bold text-blue-700">
+                        <span>QUESTION 2 OF 3</span>
+                        <span>66% Completed</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900">
+                        Which spending category would you most like to offset with rewards?
+                    </h3>
+                    <div class="space-y-2.5">
+                        <button onclick="nextStep(3, 100)" class="w-full text-left bg-white hover:bg-blue-600 hover:text-white border border-gray-300 hover:border-blue-600 p-3.5 rounded-xl text-sm font-semibold transition flex justify-between items-center group">
+                            <span>Pharmacy, Beauty & Personal Care Goods</span>
+                            <span class="text-gray-400 group-hover:text-white font-bold">→</span>
+                        </button>
+                        <button onclick="nextStep(3, 100)" class="w-full text-left bg-white hover:bg-blue-600 hover:text-white border border-gray-300 hover:border-blue-600 p-3.5 rounded-xl text-sm font-semibold transition flex justify-between items-center group">
+                            <span>Supermarket Food & Household Paper Products</span>
+                            <span class="text-gray-400 group-hover:text-white font-bold">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step-3" class="hidden fade-in space-y-4">
+                    <div class="flex justify-between items-center text-xs font-bold text-blue-700">
+                        <span>QUESTION 3 OF 3</span>
+                        <span>99% Completed</span>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900">
+                        Are you currently a legal resident of the United States?
+                    </h3>
+                    <p class="text-xs text-gray-500">Required by research sponsors to verify regional reward eligibility.</p>
+                    <div class="space-y-2.5">
+                        <button onclick="finishSurvey()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold p-4 rounded-xl text-sm text-center shadow-md transition pulse-subtle">
+                            Yes, I am a US Resident (Check Openings)
+                        </button>
+                        <button onclick="finishSurvey()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium p-3 rounded-xl text-xs text-center transition">
+                            No / Other Location
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="step-loading" class="hidden fade-in text-center py-8 space-y-3">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
+                    <p class="text-sm font-bold text-gray-800">Verifying 2026 retail panel allocations...</p>
+                    <p class="text-xs text-gray-500">Connecting with ConsumersConnect partner network...</p>
+                </div>
+
+                <!-- Result CTA -->
+                <div id="step-result" class="hidden fade-in text-center space-y-4 py-2">
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-emerald-100 text-emerald-600 text-2xl font-bold rounded-full shadow-inner">
+                        ✓
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black text-gray-900">Eligibility Confirmed!</h3>
+                        <p class="text-sm text-gray-600 mt-1 max-w-md mx-auto">
+                            You have matched with the active <strong class="text-gray-900">ConsumersConnect CVS $500 Reward Card Entry</strong> study.
+                        </p>
+                    </div>
+
+                    <p class="text-[11px] text-gray-500">Sponsored Link: We may receive compensation if you participate via partner programs.</p>
+
+                    <div class="pt-2">
+                        <a id="offer-link" href="https://afflat3c1.com/trk/lnk/7B0AB65A-EF2F-426C-947C-1F6BC3D334DF/?o=25402&c=918277&a=802074&k=0147836160AD92B88036EA03E631A8B4&l=26611" target="_blank" rel="nofollow sponsored noopener" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+                            Continue to Official Entry Page →
+                        </a>
+                    </div>
+                    <p class="text-[11px] text-gray-400">Takes less than 60 seconds. Single opt-in qualification applies on partner page.</p>
+                </div>
+            </div>
+
+            <!-- Receipt-First Troubleshooting Steps -->
+            <div class="space-y-6 text-sm text-gray-700 leading-relaxed border-t border-gray-100 pt-6">
+                <div>
+                    <h2 class="text-xl font-extrabold text-gray-900">1. How to Read Your Receipt's Coupon Section</h2>
+                    <p class="mt-2">
+                        At the bottom of every CVS receipt, just above the subtotal, you will find a dedicated section titled <strong>"COUPONS APPLIED"</strong>. 
+                    </p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1.5">
+                        <li><strong>MFG COUPONS:</strong> Shows all clipped digital and paper manufacturer coupons. If your manufacturer discount is missing here, the register never recognized the product barcode as an eligible match.</li>
+                        <li><strong>CVS COUPONS:</strong> Displays store coupons (CRTs), app bonuses, and percentage-off discounts.</li>
+                        <li><strong>EXTRACARE REWARDS:</strong> Details any ExtraBucks applied as cash tender. If your rewards expired, see our recovery checklist on <a href="/blog/cvs-extrabucks-expired-what-to-do.html" class="text-blue-600 font-semibold hover:underline">What to Do When CVS ExtraBucks Expire</a>.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-extrabold text-gray-900">2. The Top 4 Causes of Missing Digital Discounts</h2>
+                    <div class="overflow-x-auto my-3">
+                        <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
+                            <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
+                                <tr>
+                                    <th class="py-3 px-4">Problem</th>
+                                    <th class="py-3 px-4">Receipt Symptom</th>
+                                    <th class="py-3 px-4">Immediate Fix</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-700">
+                                <tr class="hover:bg-white">
+                                    <td class="py-3 px-4 font-bold text-gray-900">Account Desync</td>
+                                    <td class="py-3 px-4">Card number on receipt doesn't match App Card ID</td>
+                                    <td class="py-3 px-4">Check for duplicate family accounts linked to your phone number.</td>
+                                </tr>
+                                <tr class="hover:bg-white">
+                                    <td class="py-3 px-4 font-bold text-gray-900">Size Exclusions</td>
+                                    <td class="py-3 px-4">Item rings up at full shelf price with no MFG line</td>
+                                    <td class="py-3 px-4">Scan item barcode in CVS app prior to checkout to verify eligibility.</td>
+                                </tr>
+                                <tr class="hover:bg-white bg-blue-50/50">
+                                    <td class="py-3 px-4 font-bold text-blue-950">Threshold Deficit</td>
+                                    <td class="py-3 px-4">Store sale price dropped total below coupon threshold</td>
+                                    <td class="py-3 px-4">Add a small filler item to hit the pre-tax threshold requirement.</td>
+                                </tr>
+                                <tr class="hover:bg-white">
+                                    <td class="py-3 px-4 font-bold text-gray-900">Clipping Lag</td>
+                                    <td class="py-3 px-4">Coupon appears clipped in app but absent on receipt</td>
+                                    <td class="py-3 px-4">Clip coupons at least 15 minutes before approaching the register.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-extrabold text-gray-900">3. How to Request an Immediate Post-Checkout Adjustment</h2>
+                    <p class="mt-2">
+                        If you notice a clipped digital coupon failed to attach while standing at the register, do not leave the store:
+                    </p>
+                    <ol class="list-decimal pl-5 mt-2 space-y-1.5">
+                        <li>Show the cashier the clipped coupon on your active CVS app screen showing the eligible barcode.</li>
+                        <li>Cashiers can issue a manual manufacturer coupon credit or apply a supervisor courtesy adjustment right at the register.</li>
+                        <li>If an item must be refunded, review our guide on <a href="/blog/how-to-get-cvs-extrabucks-back-after-refund.html" class="text-blue-600 font-semibold hover:underline">How Returns and ExtraBucks Refunds Work</a> so you don't lose prorated rewards in the process.</li>
+                    </ol>
+                    <p class="mt-2">
+                        For broader multi-store register errors, review our comprehensive guide on <a href="/blog/digital-coupon-not-working.html" class="text-blue-600 font-semibold hover:underline">Digital Coupons Failing at Checkout</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl p-4 text-xs text-gray-600 flex items-center justify-between">
+                <span>Written by <strong>Savings Tactic Editorial Team</strong></span>
+                <span>Verified for 2026 CVS POS Systems</span>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                <strong>Advertiser & Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher. We provide retail loyalty tutorials and referral links to third-party consumer reward studies. We may earn a commission when you participate through sponsored links. All trademarks belong to their respective owners.
+            </p>
+            <div class="flex justify-center space-x-6 text-xs text-gray-500">
+                <a href="/" class="hover:underline font-semibold">Home</a>
+                <span>•</span>
+                <a href="/privacy.html" class="hover:underline font-semibold">Privacy Policy</a>
+                <span>•</span>
+                <a href="/terms.html" class="hover:underline font-semibold">Terms of Service</a>
+            </div>
+            <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Survey JS Logic -->
+    <script>
+        function nextStep(stepNumber, progressPercent) {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.add('hidden');
+            document.getElementById('step-3').classList.add('hidden');
+            
+            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+            document.getElementById('survey-progress').style.width = `${progressPercent}%`;
+        }
+
+        function finishSurvey() {
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('step-loading').classList.remove('hidden');
+            document.getElementById('survey-progress').style.width = '100%';
+
+            setTimeout(() => {
+                document.getElementById('step-loading').classList.add('hidden');
+                document.getElementById('step-result').classList.remove('hidden');
+            }, 900);
+        }
+    </script>
+</body>
+</html>

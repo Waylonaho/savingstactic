@@ -180,4 +180,21 @@
     <priority>0.9</priority>
   </url>
 
+    <!-- Article: Walgreens Coupon Missing on Pickup Order -->
+  <url>
+    <loc>https://www.savingstactic.com/blog/walgreens-digital-coupon-not-applying-pickup-order.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Article: Walgreens Register Rewards Expiration Date -->
+  <url>
+    <loc>https://www.savingstactic.com/blog/walgreens-register-rewards-expiration-date.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
 </urlset>

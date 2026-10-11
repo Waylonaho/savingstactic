@@ -195,6 +195,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+    <!-- Newly Added Articles (Oct 11, 2026) -->
+  <url>
+    <loc>https://www.savingstactic.com/blog/walgreens-manufacturer-vs-store-register-rewards.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.savingstactic.com/blog/target-circle-360-vs-free-target-circle.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 
 
 </urlset>

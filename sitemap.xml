@@ -263,6 +263,22 @@
     <priority>0.9</priority>
   </url>
 
+    <!-- Newly Added Articles (Oct 15, 2026) -->
+  <url>
+    <loc>https://www.savingstactic.com/blog/walmart-digital-coupons-disappeared-from-app.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.savingstactic.com/blog/can-you-use-paper-and-digital-coupons-together-publix.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
 
 
 

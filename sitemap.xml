@@ -308,6 +308,15 @@
     <priority>0.9</priority>
   </url>
 
+    <!-- Interactive Grocery Unit Price Tool -->
+  <url>
+    <loc>https://www.savingstactic.com/blog/grocery-unit-price-calculator.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+
 
 
 

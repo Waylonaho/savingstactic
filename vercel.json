@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "savingstactic.com"
+        }
+      ],
+      "destination": "https://www.savingstactic.com/$1",
+      "permanent": true
+    },
+    {
       "source": "/how-to-get-free-publix-gift-cards-legit.html",
       "destination": "/blog/how-to-get-free-publix-gift-cards-legit.html",
       "permanent": true

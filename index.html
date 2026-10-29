@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savings Tactic | Smart Consumer Guides, Retail Hacks & Reward Insights</title>
-    <meta name="description" content="Master grocery budgets, drugstore coupon stacking, receipt rebate apps, and download our free 2026 grocery price-book template.">
+    <title>Savings Tactic | Grocery Unit Price Calculators, Coupon Rules & Drugstore Stacking</title>
+    <meta name="description" content="Free grocery unit price calculators, household rebate ledgers, printable price-book templates, and verified 2026 coupon stacking guides for CVS, Walgreens, Kroger, Publix, Target, and Walmart.">
     <link rel="canonical" href="https://www.savingstactic.com/">
-    <meta name="p:domain_verify" content="f8ba3fc950afd6fcba12d2632ec6d26a"/>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .fade-in { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     </style>
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data: WebSite + Organization + ItemList + FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -23,7 +23,7 @@
           "@id": "https://www.savingstactic.com/#website",
           "url": "https://www.savingstactic.com/",
           "name": "Savings Tactic",
-          "description": "Smart Consumer Guides, Retail Markdowns & Reward Insights",
+          "description": "Independent consumer savings publication offering grocery unit-price calculators, rebate ledgers, printable price books, and official retailer coupon policy guides.",
           "publisher": {
             "@type": "Organization",
             "name": "Savings Tactic",
@@ -31,23 +31,69 @@
           }
         },
         {
+          "@type": "CollectionPage",
+          "@id": "https://www.savingstactic.com/#collection",
+          "url": "https://www.savingstactic.com/",
+          "name": "Savings Tactic Grocery Calculators & Retailer Coupon Hubs",
+          "isPartOf": { "@id": "https://www.savingstactic.com/#website" },
+          "dateModified": "2026-10-29"
+        },
+        {
+          "@type": "ItemList",
+          "name": "Interactive Grocery Savings Tools & Calculators",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Grocery Unit Price & Size Comparison Calculator",
+              "url": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Household Grocery Rebate & Out-of-Pocket Savings Ledger",
+              "url": "https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Pickup vs. In-Store Digital Coupon Diagnostic Tree",
+              "url": "https://www.savingstactic.com/blog/pickup-vs-in-store-digital-coupon-rules.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Free 2026 Grocery Price-Book Template & Stacking Cheat Sheet",
+              "url": "https://www.savingstactic.com/blog/free-grocery-price-book-template.html"
+            }
+          ]
+        },
+        {
           "@type": "FAQPage",
           "@id": "https://www.savingstactic.com/#faq",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do consumer feedback rewards panels work?",
+              "name": "How do you calculate the true unit price when comparing different grocery package sizes?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Market research aggregators partner with retailers to gauge shopper sentiment. Participants can enter drawings or complete survey opportunities after submitting contact and preference details on partner platforms."
+                "text": "Convert both items to the identical base unit (such as ounces, fluid ounces, load count, or per 100 sheets), subtract only confirmed instant register coupons from the shelf price, and divide by the total base quantity. Track pending post-checkout cashback rebates separately until approved and paid."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the fastest way to earn and stack ExtraBucks at drugstores?",
+              "name": "When do Walgreens Cash rewards expire in 2026?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Combining weekly store circular promotions with clipped digital manufacturer coupons allows shoppers to trigger store rewards instantly at checkout, which can then be rolled into subsequent transactions."
+                "text": "Under official myWalgreens terms (checked October 29, 2026), general Walgreens Cash rewards expire 12 months after they are earned, or after 6 months of account inactivity. For myWalgreens Credit Card rewards, points earned before January 31, 2026 retain a rolling 12-month expiry, whereas points earned on or after January 31, 2026 carry a rolling 24-month expiration window."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does Walmart Cash reverse overlapping Ibotta rebates?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Per Ibotta's official Walmart guidance, a manufacturer digital offer pays only once per item purchased. The platform where you clip the offer determines where the reward routes, and redeeming Walmart Cash at checkout will reverse an overlapping Ibotta rebate claim for the same item."
               }
             }
           ]
@@ -58,602 +104,687 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header Navigation -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Sticky Header & Hub Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap justify-between items-center gap-3">
             <a href="/" class="flex items-center space-x-2">
                 <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
                 <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
             </a>
-            <div class="flex items-center space-x-4">
-                <a href="#walgreens-hub" class="text-xs font-semibold text-gray-600 hover:text-blue-600 hidden sm:inline">Walgreens</a>
-                <a href="#cvs-hub" class="text-xs font-semibold text-gray-600 hover:text-blue-600 hidden sm:inline">CVS</a>
-                <a href="#grocery-hub" class="text-xs font-semibold text-gray-600 hover:text-blue-600 hidden sm:inline">Grocery & Rebates</a>
-                <span class="text-xs bg-emerald-100 text-emerald-800 font-medium px-2.5 py-1 rounded-full border border-emerald-200">
-                    Updated for 2026
-                </span>
-            </div>
+            <nav aria-label="Primary Hub Navigation" class="flex flex-wrap items-center gap-4 text-xs font-bold text-gray-600">
+                <a href="#tools-hub" class="text-emerald-700 hover:text-emerald-900 transition">Calculators & Price-Book</a>
+                <a href="#cvs-hub" class="hover:text-blue-600 transition">CVS Hub</a>
+                <a href="#walgreens-hub" class="hover:text-blue-600 transition">Walgreens Hub</a>
+                <a href="#grocery-hub" class="hover:text-blue-600 transition">Supermarket Rules</a>
+                <a href="#rebates-hub" class="hover:text-blue-600 transition">Rebate Apps</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-12">
 
-        <!-- Editorial Hero & Lead Magnet -->
-        <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
-            <div class="max-w-2xl">
-                <span class="text-blue-600 font-bold text-xs uppercase tracking-widest">Independent Consumer Guides</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-1 tracking-tight">
-                    Smart Shopping Guides, Coupon Stacking & Rebate Rules
-                </h1>
-                <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed">
-                    Clear, rule-based breakdowns for Walgreens Cash, CVS ExtraBucks, grocery rebate apps, and retail price policies. Verified against official store terms and real receipt calculations.
-                </p>
-            </div>
-
-            <div class="mt-8 bg-gradient-to-br from-emerald-50 via-teal-50 to-white p-6 rounded-xl border border-emerald-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="space-y-1">
-                    <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Free Printable Tool</span>
-                    <h2 class="text-lg font-bold text-gray-900">2026 Grocery Price-Book & Coupon Stacking Cheat Sheet</h2>
-                    <p class="text-xs text-gray-600 max-w-xl">
-                        A 12-page printable guide with rock-bottom unit price targets for meat, produce, and pantry staples, plus store-by-store stacking cheat sheets.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-                    <a href="/blog/free-grocery-price-book-template.html" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm text-center transition">View Guide Hub →</a>
-                    <a href="/downloads/2026-grocery-price-book-coupon-stacking-cheat-sheet.pdf" download class="bg-white hover:bg-gray-100 text-emerald-800 border border-emerald-300 font-bold text-xs py-2.5 px-4 rounded-lg text-center transition">Direct PDF File ↓</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Transparent Sponsored Opportunity Module -->
-        <section class="bg-gray-100 rounded-2xl border border-gray-200 p-6">
-            <div class="max-w-2xl mx-auto text-center space-y-2 mb-6">
-                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Sponsored Partner Program</span>
-                <h2 class="text-xl font-bold text-gray-900">Third-Party Consumer Feedback Study Opportunities</h2>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    Independent market research aggregators partner with retailers to gauge shopper habits. Interested participants can explore drawing entries and market studies on partner platforms.
-                </p>
-            </div>
-
-            <div id="survey-card" class="bg-white border border-gray-200 rounded-xl p-6 max-w-xl mx-auto shadow-sm">
+        <!-- Hero Section: Utility & Owned Product First -->
+        <section class="bg-white rounded-3xl border border-gray-200 p-6 md:p-10 shadow-sm space-y-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- Question 1 -->
-                <div id="step-1" class="fade-in space-y-4">
-                    <div class="flex justify-between text-xs font-semibold text-gray-400">
-                        <span>QUESTION 1 OF 3</span>
-                        <span>33% Complete</span>
+                <!-- Left Column: Core Value Proposition & Primary Tool CTAs -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex flex-wrap items-center gap-2">
+                        <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                            Evidence-Backed Grocery Math & Policy Guides
+                        </span>
+                        <span class="text-xs text-gray-500 font-semibold">• Rules Checked Oct 29, 2026</span>
                     </div>
-                    <h3 class="text-sm font-bold text-gray-900">Where do you perform most of your routine shopping?</h3>
-                    <div class="space-y-2">
-                        <button onclick="nextStep(2)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Pharmacies & Drugstores (CVS, Walgreens)</button>
-                        <button onclick="nextStep(2)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Supermarkets & Regional Grocery Chains</button>
-                        <button onclick="nextStep(2)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Big-Box & Online Retailers</button>
-                    </div>
-                </div>
-
-                <!-- Question 2 -->
-                <div id="step-2" class="hidden fade-in space-y-4">
-                    <div class="flex justify-between text-xs font-semibold text-gray-400">
-                        <span>QUESTION 2 OF 3</span>
-                        <span>66% Complete</span>
-                    </div>
-                    <h3 class="text-sm font-bold text-gray-900">What reward program format do you use most?</h3>
-                    <div class="space-y-2">
-                        <button onclick="nextStep(3)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Digital Cash-Back & Gift Card Apps</button>
-                        <button onclick="nextStep(3)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Store Instant Savings Points</button>
-                        <button onclick="nextStep(3)" class="w-full text-left bg-gray-50 hover:bg-blue-50 hover:border-blue-500 border border-gray-200 p-3 rounded-lg font-medium text-xs transition">Online Research & Consumer Studies</button>
-                    </div>
-                </div>
-
-                <!-- Question 3 -->
-                <div id="step-3" class="hidden fade-in space-y-4">
-                    <div class="flex justify-between text-xs font-semibold text-gray-400">
-                        <span>QUESTION 3 OF 3</span>
-                        <span>99% Complete</span>
-                    </div>
-                    <h3 class="text-sm font-bold text-gray-900">Are you currently a legal resident of the United States?</h3>
-                    <p class="text-[11px] text-gray-500 leading-tight">Partner sweepstakes programs require US residency for promotional drawing fulfillment.</p>
-                    <div class="space-y-2">
-                        <button onclick="finishSurvey(true)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold p-3 rounded-lg text-xs text-center transition">Yes, I am a US Resident</button>
-                        <button onclick="finishSurvey(false)" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium p-3 rounded-lg text-xs text-center transition">No / Outside United States</button>
-                    </div>
-                </div>
-
-                <!-- Loading State -->
-                <div id="step-loading" class="hidden fade-in text-center py-6 space-y-2">
-                    <div class="inline-block animate-spin rounded-full h-6 w-6 border-2 border-blue-600 border-t-transparent"></div>
-                    <p class="text-xs font-semibold text-gray-600">Connecting to partner program details...</p>
-                </div>
-
-                <!-- Result / Partner Handoff Card -->
-                <div id="step-result" class="hidden fade-in text-center space-y-3">
-                    <h3 class="text-base font-bold text-gray-900" id="result-title">Partner Sweepstakes Entry</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed max-w-sm mx-auto" id="result-desc">
-                        Explore active survey promotions and retail gift card drawing entries provided by ConsumersConnect. Participation requires email registration and completion of sponsor survey questions.
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Stop Guessing at the Register. Calculate Your True Unit Cost.
+                    </h1>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        Store shelf tags, "2 for $6" signs, and shrinkflation package cuts make it hard to spot a real deal. Use our free browser calculators, printable price-book worksheets, and first-party sourced coupon guides to separate <strong>instant register discounts</strong> from <strong>pending cashback</strong>.
                     </p>
-                    
-                    <p class="text-[10px] text-gray-500">Sponsored Link: SavingsTactic receives compensation when visitors interact with partner programs.</p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="/blog/grocery-unit-price-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs md:text-sm py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition">
+                            Open Unit Price Calculator →
+                        </a>
+                        <a href="/blog/grocery-rebate-and-savings-ledger.html" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs md:text-sm py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition">
+                            Launch Rebate & OOP Ledger →
+                        </a>
+                        <a href="/blog/free-grocery-price-book-template.html" class="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-300 font-bold text-xs md:text-sm py-3.5 px-5 rounded-xl transition">
+                            Free 12-Page Price-Book PDF ↓
+                        </a>
+                    </div>
+                </div>
 
-                    <a id="offer-link" href="https://afflat3c1.com/trk/lnk/7B0AB65A-EF2F-426C-947C-1F6BC3D334DF/?o=25402&c=918277&a=802074&k=0147836160AD92B88036EA03E631A8B4&l=26611" target="_blank" rel="nofollow sponsored noopener" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-xs transition">
-                        View Sponsor Entry Page & Terms →
-                    </a>
-                    
-                    <p class="text-[10px] text-gray-400">External Partner Site • View official terms, privacy policy, and rules upon arrival.</p>
+                <!-- Right Column: Featured Printable + Editable Workbook Card -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-emerald-50 via-teal-50 to-white border-2 border-emerald-400 rounded-2xl p-6 space-y-4 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">2026 Household Toolkit</span>
+                        <span class="text-xs font-bold text-emerald-800">PDF + Google Sheets</span>
+                    </div>
+                    <h2 class="text-xl font-black text-gray-900 leading-snug">
+                        2026 Grocery Price-Book & Automated Stacking Workbook
+                    </h2>
+                    <p class="text-xs text-gray-700 leading-relaxed">
+                        Start with our free 12-page printable reference PDF, or upgrade to the editable 4-tab Google Sheets & Excel workbook ($7) featuring auto-calculating unit costs, stock-up triggers, and a CVS 98% spend calculator.
+                    </p>
+                    <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                        <li>✓ Normalizes $/oz, $/lb, $/fl oz, and $/100 sheets</li>
+                        <li>✓ Separates instant register coupons from pending rebates</li>
+                        <li>✓ Pre-built CVS & Walgreens spend threshold checker</li>
+                    </ul>
+                    <div class="grid sm:grid-cols-2 gap-2.5 pt-2">
+                        <a href="/downloads/2026-grocery-price-book-coupon-stacking-cheat-sheet.pdf" download class="bg-white hover:bg-gray-50 text-emerald-800 border border-emerald-400 font-bold text-xs py-3 px-4 rounded-xl text-center transition">
+                            Download Free PDF ↓
+                        </a>
+                        <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-3 px-4 rounded-xl text-center shadow-sm transition">
+                            Editable Sheet ($7) →
+                        </a>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- TOPICAL HUB 1: WALGREENS LOYALTY CLUSTER -->
-        <section id="walgreens-hub" class="space-y-4">
-            <div class="border-b border-gray-200 pb-2">
-                <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Retailer Hub</span>
-                <h2 class="text-xl font-bold text-gray-900">myWalgreens Rewards & Register Guides</h2>
+        <!--HUB 1: INTERACTIVE GROCERY TOOLS & PRICE-BOOK CLUSTER -->
+        <section id="tools-hub" class="space-y-4 scroll-mt-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-3 gap-2">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Cluster 1 • Interactive Utilities & Grocery Math</span>
+                    <h2 class="text-2xl font-black text-gray-900">Calculators, Price-Books & Diagnostic Wizards</h2>
+                </div>
+                <p class="text-xs text-gray-500">100% browser-based tools • Zero account login or receipt uploads required</p>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-4">
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Calculator -->
+                <article class="bg-gradient-to-br from-emerald-50 to-white p-5 rounded-2xl border-2 border-emerald-400 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Coupon Stacking</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Use Walgreens Cash on Spend Deals Without Voiding Rewards</h3>
-                        <p class="text-gray-600 text-xs mt-2">Master Spend Deals vs. Buy Deals, prevent voiding booster bonuses, and stack manufacturer coupons correctly.</p>
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Interactive Utility</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-2">Grocery Unit Price & Package Size Comparison Calculator</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Compare weight, liquid volume, item counts, and paper sheets across different package sizes. Separates instant coupons from pending cashback.</p>
                     </div>
-                    <a href="/blog/how-to-use-walgreens-cash-on-spend-deals.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Stacking Rules →</a>
+                    <a href="/blog/grocery-unit-price-calculator.html" class="text-xs font-extrabold text-emerald-700 hover:underline mt-4 inline-block">Launch Unit Calculator →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Rebate Ledger (NEW) -->
+                <article class="bg-gradient-to-br from-emerald-50 to-white p-5 rounded-2xl border-2 border-emerald-400 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Pickup Troubleshooting</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Coupon Missing on a Pickup Order? Check These Rules</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn why coupons detach from curbside orders, the post-coupon $10 minimum spend trap, and substitution policies.</p>
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Local Browser Ledger</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-2">Household Grocery Rebate & Out-of-Pocket Savings Ledger</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Track register out-of-pocket spend separately from pending, approved, paid, or reversed app rebates. Includes a 3-store comparison grid.</p>
                     </div>
-                    <a href="/blog/walgreens-digital-coupon-not-applying-pickup-order.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Pickup Rules →</a>
+                    <a href="/blog/grocery-rebate-and-savings-ledger.html" class="text-xs font-extrabold text-emerald-700 hover:underline mt-4 inline-block">Open Rebate Ledger Tool →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Pickup vs In-Store Diagnostic (NEW) -->
+                <article class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-2xl border-2 border-blue-400 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Pickup Cancellation</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Can You Cancel a Walgreens Curbside Order After Coupons Apply?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn the 15-minute grace period, 72-hour auto-void timeline, and how clipped digital manufacturer coupons get unlocked.</p>
+                        <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Diagnostic Wizard</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-2">Do Pickup & Delivery Orders Follow In-Store Coupon Rules?</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Interactive decision tree and channel matrix comparing in-store registers, curbside pickup, and 3rd-party delivery coupon exclusions.</p>
                     </div>
-                    <a href="/blog/can-you-cancel-walgreens-curbside-order-after-coupons.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Cancellation Rules →</a>
+                    <a href="/blog/pickup-vs-in-store-digital-coupon-rules.html" class="text-xs font-extrabold text-blue-700 hover:underline mt-4 inline-block">Run Coupon Diagnostic →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Free Price-Book Guide -->
+                <article class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Unclaimed Orders</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Did Not Pick Up Walgreens Order? What Happens to Points & Coupons</h3>
-                        <p class="text-gray-600 text-xs mt-2">Discover the 72-hour restock void procedure, point restoration timelines, and digital coupon release windows.</p>
+                        <span class="text-xs text-emerald-700 font-bold uppercase">Printable Resource</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Free 2026 Grocery Price-Book Template & Stacking Cheat Sheet</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Download our 12-page printable reference guide with unit tracking sheets and drugstore coupon layering rules.</p>
                     </div>
-                    <a href="/blog/did-not-pick-up-walgreens-order-what-happens.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Unclaimed Order Guide →</a>
+                    <a href="/blog/free-grocery-price-book-template.html" class="text-xs font-semibold text-emerald-700 hover:underline mt-4 inline-block">Get Free Price-Book PDF →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Shrinkflation Math (Previously Orphaned - Now Connected) -->
+                <article class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Expiration Rules</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">When Do Walgreens Cash Rewards Expire? Dates & Inactivity Rules</h3>
-                        <p class="text-gray-600 text-xs mt-2">Navigate the 12-month rolling expiration schedule and prevent total account forfeiture under the 6-month inactivity rule[span_25](start_span)[span_25](end_span).</p>
+                        <span class="text-xs text-emerald-700 font-bold uppercase">Consumer Economics</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Calculate Shrinkflation: The Math Behind Smaller Packages</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Use the unit-price percentage increase formula to spot stealth price hikes when brands reduce package weights.</p>
                     </div>
-                    <a href="/blog/when-do-walgreens-cash-rewards-expire.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Expiration Guide →</a>
+                    <a href="/blog/how-to-calculate-shrinkflation.html" class="text-xs font-semibold text-emerald-700 hover:underline mt-4 inline-block">Read Shrinkflation Formula →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Digital Coupons Fail at Register (Previously Orphaned - Now Connected) -->
+                <article class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Catalina Vouchers</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Register Rewards Expiration: Dates & Redemption Rules</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn where to check the printed date on paper Catalina vouchers, local POS cutoffs, and using filler items.</p>
+                        <span class="text-xs text-blue-600 font-bold uppercase">Checkout Troubleshooting</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Why Digital Coupons Fail at the Register (And How to Fix Glitches)</h3>
+                        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Understand cloud-to-register sync delays, UPC size mismatches, and how to request customer service adjustments.</p>
                     </div>
-                    <a href="/blog/walgreens-register-rewards-expiration-date.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Register Rewards Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Register Rules</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Manufacturer vs Store Register Rewards: How to Tell the Difference</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn how to read the Catalina slip header, manage the 1:1 item-to-coupon ratio, and avoid beeps at checkout[span_26](start_span)[span_26](end_span).</p>
-                    </div>
-                    <a href="/blog/walgreens-manufacturer-vs-store-register-rewards.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Reward Comparison →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Reward Rolling</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Roll Walgreens Register Rewards Without Voiding New Coupons</h3>
-                        <p class="text-gray-600 text-xs mt-2">Master cross-brand transaction chaining, bypass Catalina promotion blocks, and maintain rolling reward balance.</p>
-                    </div>
-                    <a href="/blog/how-to-roll-walgreens-register-rewards.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Rolling Guide →</a>
+                    <a href="/blog/why-digital-coupons-fail-at-register.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4 inline-block">Read Troubleshooting Guide →</a>
                 </article>
             </div>
         </section>
 
-        <!-- TOPICAL HUB 2: CVS EXTRACARE CLUSTER -->
-        <section id="cvs-hub" class="space-y-4">
-            <div class="border-b border-gray-200 pb-2">
-                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Retailer Hub</span>
-                <h2 class="text-xl font-bold text-gray-900">CVS ExtraCare Stacking, Clearance & Returns</h2>
+        <!-- Instant Live Guide Filter Bar -->
+        <section aria-label="Search and filter guides" class="bg-white border border-gray-200 rounded-2xl p-4 md:p-5 shadow-sm">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="w-full md:w-2/3">
+                    <label for="guide-search" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Instant Library Filter (Search All 46 Guides & Tools)</label>
+                    <input type="search" id="guide-search" oninput="filterGuides()" placeholder="Type a store or topic (e.g. Walgreens Cash, ExtraBucks, Kroger 5X, Publix BOGO, Ibotta, ALDI)..." class="w-full bg-gray-50 border border-gray-300 rounded-xl p-3 text-xs md:text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none">
+                </div>
+                <div class="w-full md:w-1/3 flex flex-wrap gap-1.5 justify-start md:justify-end text-[11px] font-bold">
+                    <button type="button" onclick="quickFilter('')" class="px-2.5 py-1.5 rounded-lg bg-gray-900 text-white">Show All</button>
+                    <button type="button" onclick="quickFilter('CVS')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">CVS</button>
+                    <button type="button" onclick="quickFilter('Walgreens')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Walgreens</button>
+                    <button type="button" onclick="quickFilter('Kroger')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Kroger</button>
+                    <button type="button" onclick="quickFilter('Publix')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Publix</button>
+                    <button type="button" onclick="quickFilter('Ibotta')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Ibotta</button>
+                </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-4">
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+            <p id="filter-status" class="hidden text-xs font-bold text-blue-600 mt-2"></p>
+        </section>
+
+        <!-- HUB 2: CVS EXTRACARE & COUPON STACKING HUB -->
+        <section id="cvs-hub" class="space-y-4 scroll-mt-20 guide-section">
+            <div class="border-b border-gray-200 pb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-rose-600">Cluster 2 • CVS Pharmacy</span>
+                <h2 class="text-2xl font-black text-gray-900">CVS ExtraCare Stacking, Spend Thresholds & Returns</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Coupon Stacking</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraBucks Hacks 2026: How to Stack Coupons for Maximum Savings</h3>
-                        <p class="text-gray-600 text-xs mt-2">Step-by-step breakdown on stacking CVS coupons with ExtraBucks and earning rewards fast on household items.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Core Stacking System</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraBucks Hacks 2026: How to Stack Coupons & Earn Fast</h3>
+                        <p class="text-gray-600 text-xs mt-2">Layer manufacturer coupons with store CRTs and ExtraBucks rewards to lower out-of-pocket costs on household essentials.</p>
                     </div>
                     <a href="/blog/cvs-extrabucks-hacks.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read ExtraBucks Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-rose-600 font-semibold uppercase">Clearance Secrets</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS Clearance Markdown Schedule 2026: Secret Days for 75%–90% Off</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn the exact corporate schedule when beauty, seasonal, and grocery items drop to 90% off.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Spend Calculations</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Do CVS Coupons Count Toward ExtraBucks Spend Deals? (98% Rule)</h3>
+                        <p class="text-gray-600 text-xs mt-2">Learn how manufacturer coupons count toward pre-tax thresholds and how the 98% spend rule calculates at in-store registers.</p>
                     </div>
-                    <a href="/blog/cvs-clearance-markdown-schedule.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Markdown Schedule →</a>
+                    <a href="/blog/do-cvs-coupons-count-toward-spend-deals.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Spend Threshold Rules →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Gift Card Rules</span>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Exclusions Policy</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">Can You Use CVS ExtraBucks on Gift Cards? 2026 Exclusion Rules</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn corporate exclusions for retail, prepaid, and Amazon gift cards, plus promotions that legitimately earn rewards.</p>
+                        <p class="text-gray-600 text-xs mt-2">Official CVS ExtraCare terms on gift cards, prescriptions, milk, and how to roll ExtraBucks into consumable groceries instead.</p>
                     </div>
-                    <a href="/blog/can-you-use-cvs-extrabucks-on-gift-cards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Gift Card Rules →</a>
+                    <a href="/blog/can-you-use-cvs-extrabucks-on-gift-cards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Exclusions Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Spend Calculations</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Do CVS Coupons Count Toward ExtraBucks Spend Deals? 2026 Rules</h3>
-                        <p class="text-gray-600 text-xs mt-2">See how manufacturer coupons count toward pre-tax spend thresholds and calculate the 98% rule at checkout.</p>
-                    </div>
-                    <a href="/blog/do-cvs-coupons-count-toward-extrabucks-spend-deals.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Threshold Rules →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-purple-600 font-semibold uppercase">Returns & Clawbacks</span>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Returns & Clawbacks</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">What Happens to CVS ExtraBucks When You Return an Item?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Find out what happens when you return an item paid for with ExtraBucks and when earned rewards get reversed.</p>
+                        <p class="text-gray-600 text-xs mt-2">Understand the difference between returning an item that earned ExtraBucks vs. an item paid for using ExtraBucks tender.</p>
                     </div>
-                    <a href="/blog/cvs-returns-extrabucks-reversed.html" class="text-xs font-semibold text-purple-600 hover:underline mt-4">Read Return Rules →</a>
+                    <a href="/blog/cvs-returns-extrabucks-reversed.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Return Rules →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-purple-600 font-semibold uppercase">Refund Recovery</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Get CVS ExtraBucks Back After a Refund or Order Return</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn how register systems reissue spent rewards, proration mechanics, and customer care adjustments.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Refund Mechanics</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Do You Get ExtraBucks Back If You Return an Item at CVS?</h3>
+                        <p class="text-gray-600 text-xs mt-2">See how replacement ExtraBucks print on return receipts and what happens during partial threshold bundle refunds.</p>
                     </div>
-                    <a href="/blog/how-to-get-cvs-extrabucks-back-after-refund.html" class="text-xs font-semibold text-purple-600 hover:underline mt-4">Read Refund Guide →</a>
+                    <a href="/blog/do-you-get-extrabucks-back-if-you-return-an-item.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Refund Breakdown →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-red-600 font-semibold uppercase">Reward Recovery</span>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Reward Recovery</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraBucks Expired? What to Do Before You Give Up</h3>
-                        <p class="text-gray-600 text-xs mt-2">How to check your digital account, verify scanner errors vs. true expiration dates, and request customer service courtesy points.</p>
+                        <p class="text-gray-600 text-xs mt-2">How to verify account sync errors vs. true expiration dates and check customer service options.</p>
                     </div>
-                    <a href="/blog/cvs-extrabucks-expired-what-to-do.html" class="text-xs font-semibold text-red-600 hover:underline mt-4">Read Recovery Guide →</a>
+                    <a href="/blog/cvs-extrabucks-expired-what-to-do.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Recovery Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
                         <span class="text-xs text-rose-600 font-semibold uppercase">Receipt Diagnostics</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">CVS Digital Coupon Not Working? A Receipt-First Troubleshooting Guide</h3>
-                        <p class="text-gray-600 text-xs mt-2">Diagnose missing discounts directly from your paper receipt, fix ExtraCare app sync delays, and correct cashier errors.</p>
+                        <p class="text-gray-600 text-xs mt-2">Diagnose missing discounts directly from your paper receipt and prevent ExtraCare app sync delays.</p>
                     </div>
-                    <a href="/blog/cvs-digital-coupon-not-working.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Receipt Guide →</a>
+                    <a href="/blog/cvs-digital-coupon-not-working.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Receipt Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-rose-600 font-semibold uppercase">Self-Checkout Issues</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraBucks Not Printing at Self-Checkout? What to Check</h3>
-                        <p class="text-gray-600 text-xs mt-2">Inspect digital receipt auto-load settings, 98% rule threshold shortfalls, printer paper jams, and cashier reissue steps.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Clearance Cycles</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS Clearance Markdown Schedule 2026: Seasonal & Weekly Drops</h3>
+                        <p class="text-gray-600 text-xs mt-2">Learn how seasonal markdowns progress from 50% to 90% off and how to verify unmarked clearance at the price scanner.</p>
                     </div>
-                    <a href="/blog/cvs-extrabucks-not-printing-self-checkout.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Self-Checkout Guide →</a>
+                    <a href="/blog/cvs-clearance-markdown-schedule.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Markdown Schedule →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Kiosk Diagnostics</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS Coupon Center Not Printing Coupons? 5 Quick Fixes</h3>
-                        <p class="text-gray-600 text-xs mt-2">Solve RedBox kiosk print suppression, digital paperless overrides, Sunday server reloads, and scan loops.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Program Showdown</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraCare vs. myWalgreens Rewards: 2026 Comparison</h3>
+                        <p class="text-gray-600 text-xs mt-2">Side-by-side comparison of rolling rewards, spend thresholds, store-brand earn rates, and expiration windows.</p>
                     </div>
-                    <a href="/blog/cvs-coupon-center-not-printing.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read RedBox Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between md:col-span-2">
-                    <div>
-                        <span class="text-xs text-purple-600 font-semibold uppercase">Program Showdown</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">CVS ExtraCare vs. Walgreens Rewards: Which Drugstore Program Wins?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Compare rolling reward mechanics, the 98% spend threshold policy, cash-out timelines, and monthly point expiration windows.</p>
-                    </div>
-                    <a href="/blog/cvs-extracare-vs-walgreens-rewards.html" class="text-xs font-semibold text-purple-600 hover:underline mt-4">Read Drugstore Showdown →</a>
+                    <a href="/blog/cvs-extracare-vs-walgreens-rewards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Program Comparison →</a>
                 </article>
             </div>
         </section>
 
-        <!-- TOPICAL HUB 3: GROCERY REBATES, FUEL & BIG-BOX SAVINGS -->
-        <section id="grocery-hub" class="space-y-4">
-            <div class="border-b border-gray-200 pb-2">
-                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Regional & Big-Box Hub</span>
-                <h2 class="text-xl font-bold text-gray-900">Grocery Loyalty, Gas Points & Rebate Apps</h2>
+        <!-- HUB 3: WALGREENS CASH, REGISTER REWARDS & PICKUP HUB -->
+        <section id="walgreens-hub" class="space-y-4 scroll-mt-20 guide-section">
+            <div class="border-b border-gray-200 pb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600">Cluster 3 • Walgreens & Catalina Systems</span>
+                <h2 class="text-2xl font-black text-gray-900">myWalgreens Cash, Register Rewards & Curbside Pickup Rules</h2>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-4">
-                <!-- Featured Ibotta Deals Card -->
-                <article class="bg-emerald-50/70 p-5 rounded-xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between md:col-span-2">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Active Matchups</span>
-                            <span class="text-xs text-emerald-800 font-semibold">• Updated Weekly</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mt-1">Best Ibotta Deals & Freebies This Week: 2026 Moneymakers</h3>
-                        <p class="text-gray-600 text-xs mt-2">Current 100% cash-back freebies, Walmart moneymaker stacks, and welcome bonus steps with referral code <strong>jiiycks</strong>.</p>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Spend Deal Math</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Use Walgreens Cash on Spend Deals Without Voiding Rewards</h3>
+                        <p class="text-gray-600 text-xs mt-2">Understand the difference between "Spend $20" and "Buy 2" deals so redeeming Walgreens Cash doesn't forfeit your booster.</p>
                     </div>
-                    <a href="/blog/ibotta-freebies-moneymakers-this-week.html" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm transition text-center w-full sm:w-auto mt-4 self-start">See Active Ibotta Freebies →</a>
+                    <a href="/blog/how-to-use-walgreens-cash-on-spend-deals.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Spend Deal Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix Matchups</span>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Stacking Mechanics</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Cash & Register Rewards: Complete 2026 Stacking Guide</h3>
+                        <p class="text-gray-600 text-xs mt-2">Learn how digital Walgreens Cash interacts with printed Catalina coupons and manufacturer discounts.</p>
+                    </div>
+                    <a href="/blog/walgreens-cash-rewards-hacks.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Walgreens Cash Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Catalina Slip Rules</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Manufacturer vs. Store Register Rewards: The 1:1 Rule</h3>
+                        <p class="text-gray-600 text-xs mt-2">How to read the top of your Catalina slip and when to add a cheap filler item to prevent register rejection beeps.</p>
+                    </div>
+                    <a href="/blog/walgreens-manufacturer-vs-store-register-rewards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Catalina Rules →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Rolling Strategy</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Roll Walgreens Register Rewards Without Voiding Deals</h3>
+                        <p class="text-gray-600 text-xs mt-2">Why rolling a Register Reward into the exact same promotion can block a new slip from printing, and how to rotate brands safely.</p>
+                    </div>
+                    <a href="/blog/how-to-roll-walgreens-register-rewards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Rolling Strategy →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Catalina Troubleshooting</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Register Rewards Not Printing? How to Fix & Claim</h3>
+                        <p class="text-gray-600 text-xs mt-2">Steps to take when the Catalina printer is out of paper, jammed, or fails to print your earned reward slip.</p>
+                    </div>
+                    <a href="/blog/walgreens-register-rewards-not-printing.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Printer Fix Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Paper Slip Expiry</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Register Rewards Expiration: Dates & Redemption Rules</h3>
+                        <p class="text-gray-600 text-xs mt-2">Where to find the exact 7-to-14 day expiration timestamp on printed slips and why POS terminals lock out at 11:59 PM.</p>
+                    </div>
+                    <a href="/blog/walgreens-register-rewards-expiration-date.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Slip Expiry Rules →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Digital Expiry & Credit Card Exception</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">When Do Walgreens Cash Rewards Expire? 12-Month & 24-Month Rules</h3>
+                        <p class="text-gray-600 text-xs mt-2">Covers the 12-month standard expiry, 6-month inactivity rule, and the Jan 31, 2026 credit card 24-month rolling expiration exception.</p>
+                    </div>
+                    <a href="/blog/when-do-walgreens-cash-rewards-expire.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Cash Expiry Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Pickup Hold Window</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Pickup Order Not Picked Up? The 72-Hour Hold Rule</h3>
+                        <p class="text-gray-600 text-xs mt-2">Confirmed 72-hour pickup window and automatic cancellation rules when you cannot collect a curbside order on time.</p>
+                    </div>
+                    <a href="/blog/walgreens-pickup-order-not-picked-up.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read 72-Hour Hold Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Uncollected Order Points</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Did Not Pick Up Walgreens Order? What Happens to Points & Coupons</h3>
+                        <p class="text-gray-600 text-xs mt-2">What is confirmed vs. unverified regarding Walgreens Cash refunds and single-use digital coupon restoration after cancellation.</p>
+                    </div>
+                    <a href="/blog/did-not-pick-up-walgreens-order-what-happens.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Point Refund Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Curbside Cancellations</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Can You Cancel a Walgreens Curbside Order After Coupons Apply?</h3>
+                        <p class="text-gray-600 text-xs mt-2">How pending authorization holds release and how to check if clipped offers unlock after canceling an online order.</p>
+                    </div>
+                    <a href="/blog/can-you-cancel-walgreens-curbside-order-after-coupons.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Cancellation Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Pickup Troubleshooting</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walgreens Digital Coupon Not Working on Pickup Order?</h3>
+                        <p class="text-gray-600 text-xs mt-2">Why item substitutions, out-of-stock adjustments, and store-brand IVC deductions affect online pickup totals.</p>
+                    </div>
+                    <a href="/blog/walgreens-digital-coupon-not-working-pickup-order.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Pickup Coupon Guide →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- HUB 4: SUPERMARKET, TARGET, WHOLESALE & DOLLAR STORE RULES -->
+        <section id="grocery-hub" class="space-y-4 scroll-mt-20 guide-section">
+            <div class="border-b border-gray-200 pb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600">Cluster 4 • Supermarkets, Target & Wholesale Clubs</span>
+                <h2 class="text-2xl font-black text-gray-900">Publix, Kroger, Target Circle, ALDI, Sam's Club & Dollar General</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix BOGO Math</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">Publix BOGO Coupon Stacking: 2026 Weekly Ad Matching Checklist</h3>
-                        <p class="text-gray-600 text-xs mt-2">Master true BOGO vs. half-price state rules, apply two coupons to a BOGO pair, and pair Club Publix digital coupons.</p>
+                        <p class="text-gray-600 text-xs mt-2">True BOGO vs. half-price state rules, applying two manufacturer coupons to a BOGO pair, and Club Publix perks.</p>
                     </div>
-                    <a href="/blog/publix-bogo-coupon-stacking.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Publix Checklist →</a>
+                    <a href="/blog/publix-bogo-coupon-stacking.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Publix BOGO Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix Stacking</span>
+                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix Paper + Digital</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">Can You Use Paper and Digital Coupons Together at Publix?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Master the 1-manufacturer-coupon-per-item rule[span_27](start_span)[span_27](end_span), store coupon stacking allowances, and BOGO pair calculations.</p>
+                        <p class="text-gray-600 text-xs mt-2">Understand the 1 manufacturer coupon per item rule and how to pair a Publix store coupon with a manufacturer digital clip.</p>
                     </div>
                     <a href="/blog/can-you-use-paper-and-digital-coupons-together-publix.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Publix Stacking Rules →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix Rewards</span>
+                        <span class="text-xs text-emerald-600 font-semibold uppercase">Publix Rewards & Perks</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">How to Get Free Publix Gift Cards Legit: 2026 Shopper's Guide</h3>
-                        <p class="text-gray-600 text-xs mt-2">Discover verified methods to earn Publix grocery gift cards, partner coupon vouchers, and fuel card bonus promos.</p>
+                        <p class="text-gray-600 text-xs mt-2">Combine Club Publix perks, seasonal prescription transfer promotions, and receipt cashback apps to lower checkout totals.</p>
                     </div>
                     <a href="/blog/how-to-get-free-publix-gift-cards-legit.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Publix Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Rebate Mechanics</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Walmart Cash and Ibotta Together: Can You Stack in 2026?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn how Ibotta powers Walmart Cash behind the scenes and avoid dual-claim barcode rejection penalties.</p>
-                    </div>
-                    <a href="/blog/walmart-cash-and-ibotta-together.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Walmart Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Walmart Diagnostics</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Walmart Digital Coupons Disappeared From App? How to Get Them Back</h3>
-                        <p class="text-gray-600 text-xs mt-2">Understand national manufacturer budget quota limits[span_28](start_span)[span_28](end_span), Ibotta dual-claim suppresses, and cache clearing steps.</p>
-                    </div>
-                    <a href="/blog/walmart-digital-coupons-disappeared-from-app.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Walmart App Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-indigo-600 font-semibold uppercase">App Showdown</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Ibotta vs. Fetch for Grocery Receipts: Which Pays More in 2026?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Compare manual item-clipping vs. automatic receipt-scanning, payout minimums, and the double-scan strategy[span_29](start_span)[span_29](end_span)[span_30](start_span)[span_30](end_span).</p>
-                    </div>
-                    <a href="/blog/ibotta-vs-fetch-for-grocery-receipts.html" class="text-xs font-semibold text-indigo-600 hover:underline mt-4">Read App Comparison →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-emerald-600 font-semibold uppercase">Fuel Savings</span>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Kroger Fuel Points</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">How Do Kroger Fuel Points Work? 2026 Gas Savings Breakdown</h3>
-                        <p class="text-gray-600 text-xs mt-2">Redeem points for up to $1.00/gallon off, trigger 4x gift card accelerators, and manage monthly expiration schedules.</p>
+                        <p class="text-gray-600 text-xs mt-2">Redeem points for up to $1.00/gallon off, activate 4X gift card promotions, and track end-of-month expiration dates.</p>
                     </div>
-                    <a href="/blog/how-do-kroger-fuel-points-work.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Gas Guide →</a>
+                    <a href="/blog/how-do-kroger-fuel-points-work.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Kroger Gas Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Kroger Diagnostics</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Kroger Digital Coupons Not Working at Checkout? How to Fix It</h3>
-                        <p class="text-gray-600 text-xs mt-2">Diagnose missing ecpn receipt discounts, fix Alt ID desyncs, and navigate single-transaction 5X digital coupon limits.</p>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Kroger 5X Events</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Kroger Digital Coupons Not Working? 5X Event & App Fixes</h3>
+                        <p class="text-gray-600 text-xs mt-2">Why qualifying 5X event coupons must be redeemed in a single transaction and how to fix Alt-ID phone number mismatches.</p>
                     </div>
-                    <a href="/blog/kroger-digital-coupons-not-working.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Kroger Guide →</a>
+                    <a href="/blog/kroger-digital-coupons-not-working.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Kroger 5X Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-emerald-600 font-semibold uppercase">Gas App Diagnostics</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Upside App Not Tracking Gas Cash Back? 5 Receipt & Card Fixes</h3>
-                        <p class="text-gray-600 text-xs mt-2">Fix Apple Pay virtual card token mismatches, handle 4-hour claim expiries, and submit direct receipt appeals[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span).</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Target Circle Stacking</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Get Free Target Gift Cards With Target Circle (2026)</h3>
+                        <p class="text-gray-600 text-xs mt-2">Trigger household department gift card promotions, activate Target Circle Bonus missions, and stack manufacturer offers.</p>
                     </div>
-                    <a href="/blog/upside-app-not-tracking-gas-cash-back.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read Upside Guide →</a>
+                    <a href="/blog/how-to-get-free-target-gift-cards-target-circle.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Target Gift Card Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-rose-600 font-semibold uppercase">Target Stacking</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Get Free Target Gift Cards With Target Circle: Stacking Guide</h3>
-                        <p class="text-gray-600 text-xs mt-2">Trigger department gift card promotions, complete Target Circle Bonus missions, and combine retail research panels.</p>
+                        <span class="text-xs text-rose-600 font-semibold uppercase">Target Return Rules</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">What Happens to Target Circle Bonuses When You Return an Item?</h3>
+                        <p class="text-gray-600 text-xs mt-2">Understand bonus mission progress reversals, reward clawbacks, and prorated promotional gift card deductions on returns.</p>
                     </div>
-                    <a href="/blog/how-to-get-free-target-gift-cards-target-circle.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Target Guide →</a>
+                    <a href="/blog/what-happens-to-target-circle-bonus-when-you-return.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Target Return Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
                         <span class="text-xs text-rose-600 font-semibold uppercase">Target Membership</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Target Circle 360 vs Free Target Circle: Is the $99 Fee Worth It?</h3>
-                        <p class="text-gray-600 text-xs mt-2">Compare Shipt same-day delivery, automatic deals, Drive Up, and whether the paid tier saves money for couponers[span_33](start_span)[span_33](end_span).</p>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Target Circle 360 vs. Free Target Circle: Is the $99 Fee Worth It?</h3>
+                        <p class="text-gray-600 text-xs mt-2">Compare same-day delivery vs. free Drive Up, automatic deal application, and return window extensions.</p>
                     </div>
-                    <a href="/blog/target-circle-360-vs-free-target-circle.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Tier Breakdown →</a>
+                    <a href="/blog/target-circle-360-vs-free-target-circle.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Tier Comparison →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-amber-600 font-semibold uppercase">Penny Shopping</span>
+                        <span class="text-xs text-indigo-600 font-semibold uppercase">Wholesale Clubs</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Does Sam's Club Take Manufacturer Coupons? Instant Savings & Rebates</h3>
+                        <p class="text-gray-600 text-xs mt-2">Why Sam's Club rejects paper coupons, how Instant Savings load automatically, and how to submit receipts to Ibotta.</p>
+                    </div>
+                    <a href="/blog/does-sams-club-take-manufacturer-coupons.html" class="text-xs font-semibold text-indigo-600 hover:underline mt-4">Read Sam's Club Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-600 font-semibold uppercase">Discount Grocer Rules</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Does ALDI Take Coupons or Price Match? 2026 Policy Breakdown</h3>
+                        <p class="text-gray-600 text-xs mt-2">Why private-label inventory prevents manufacturer coupon scanning at ALDI and how to compare unit prices against BOGO sales.</p>
+                    </div>
+                    <a href="/blog/does-aldi-take-coupons-or-price-match.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read ALDI Policy Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-amber-700 font-semibold uppercase">Dollar General Clearance</span>
                         <h3 class="text-base font-bold text-gray-900 mt-1">Dollar General Penny Shopping Clearance List 2026: Tuesday Schedule</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn how to find 1-cent items at Dollar General, decode tag symbols, and calibrate the DG app scanner.</p>
+                        <p class="text-gray-600 text-xs mt-2">How inventory lifecycles reach $0.01 on Tuesdays, how to use the DG app barcode scanner, and $5 off $25 Saturday rules.</p>
                     </div>
-                    <a href="/blog/dollar-general-penny-shopping-clearance-list.html" class="text-xs font-semibold text-amber-600 hover:underline mt-4">Read Penny Guide →</a>
+                    <a href="/blog/dollar-general-penny-shopping-clearance-list.html" class="text-xs font-semibold text-amber-700 hover:underline mt-4">Read DG Clearance Guide →</a>
                 </article>
 
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <span class="text-xs text-amber-600 font-semibold uppercase">DG Price Disputes</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Dollar General App Price Higher at Checkout? How to Get the Shelf Price</h3>
-                        <p class="text-gray-600 text-xs mt-2">Resolve in-store scanner vs register discrepancies, fix store location pin errors, and request cashier price overrides.</p>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Household Budgeting</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Stretch Your Grocery Budget With Retail Gift Cards (2026)</h3>
+                        <p class="text-gray-600 text-xs mt-2">Pair discounted gift cards, supermarket fuel point multipliers, and unit-price tracking to cut monthly food spending.</p>
                     </div>
-                    <a href="/blog/dollar-general-app-price-higher-at-checkout.html" class="text-xs font-semibold text-amber-600 hover:underline mt-4">Read DG Price Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-indigo-600 font-semibold uppercase">Wholesale Club Rules</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Does Sam's Club Take Manufacturer Coupons? Digital Perks & Rebates</h3>
-                        <p class="text-gray-600 text-xs mt-2">Learn why paper manufacturer coupons are refused, how Instant Savings apply, and how to get cash back with Ibotta.</p>
-                    </div>
-                    <a href="/blog/does-sams-club-take-manufacturer-coupons.html" class="text-xs font-semibold text-indigo-600 hover:underline mt-4">Read Wholesale Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-amber-600 font-semibold uppercase">Coupon Troubleshooting</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Digital Coupon Not Working? 7 Reasons It Failed at Checkout</h3>
-                        <p class="text-gray-600 text-xs mt-2">Troubleshoot server sync latency, size/scent barcode mismatches, spend thresholds, and manufacturer limits.</p>
-                    </div>
-                    <a href="/blog/digital-coupon-not-working.html" class="text-xs font-semibold text-amber-600 hover:underline mt-4">Read Universal Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-purple-600 font-semibold uppercase">Consumer Studies</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Receipt Scanning Apps vs. Consumer Opinion Panels: Which Pays Faster?</h3>
-                        <p class="text-gray-600 text-xs mt-2">A direct payout comparison of receipt scanning apps vs single opt-in consumer feedback studies.</p>
-                    </div>
-                    <a href="/blog/receipt-apps-vs-consumer-panels.html" class="text-xs font-semibold text-purple-600 hover:underline mt-4">Read App Showdown →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Gift Card Stacking</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">How to Stretch Grocery Budget With Retail Gift Cards This Year</h3>
-                        <p class="text-gray-600 text-xs mt-2">Explore verified methods to cut household bill expenses, leverage reward gift cards, and unlock cash-back promotions.</p>
-                    </div>
-                    <a href="/blog/stretch-grocery-budget-gift-cards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Budget Guide →</a>
-                </article>
-
-                <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between md:col-span-2">
-                    <div>
-                        <span class="text-xs text-blue-600 font-semibold uppercase">Panel Reviews</span>
-                        <h3 class="text-base font-bold text-gray-900 mt-1">Legit Consumer Panel Rewards Reviews: What Programs Are Worth It?</h3>
-                        <p class="text-gray-600 text-xs mt-2">An independent evaluation of single opt-in consumer reward programs and verified market research focus panels.</p>
-                    </div>
-                    <a href="/blog/legit-consumer-panel-rewards-reviews.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Panel Reviews →</a>
+                    <a href="/blog/stretch-grocery-budget-gift-cards.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Budgeting Guide →</a>
                 </article>
             </div>
-
-            <article class="bg-gradient-to-br from-emerald-50 to-white p-5 rounded-xl border-2 border-emerald-400 shadow-sm flex flex-col justify-between md:col-span-2">
-    <div>
-        <div class="flex items-center gap-2 mb-1">
-            <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Interactive Utility</span>
-            <span class="text-xs text-emerald-800 font-semibold">• No Signup Required</span>
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 mt-1">Grocery Unit Price & Package Size Comparison Calculator</h3>
-        <p class="text-gray-600 text-xs mt-2">Compare two products head-to-head, auto-convert ounces to pounds or gallons to fluid ounces, and factor in digital coupons to reveal the true cheaper deal.</p>
-    </div>
-    <a href="/blog/grocery-unit-price-calculator.html" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm transition text-center w-full sm:w-auto mt-4 self-start">Launch Comparison Tool →</a>
-</article>
-
-            <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-    <div>
-        <span class="text-xs text-emerald-600 font-semibold uppercase">Supermarket Policies</span>
-        <h3 class="text-base font-bold text-gray-900 mt-1">Does ALDI Take Coupons or Price Match? 2026 Policy Breakdown</h3>
-        <p class="text-gray-600 text-xs mt-2">Learn official checkout rules on manufacturer coupons, competitor circular matching, and how to get cash back with Ibotta.</p>
-    </div>
-    <a href="/blog/does-aldi-take-coupons-or-price-match.html" class="text-xs font-semibold text-emerald-600 hover:underline mt-4">Read ALDI Policy Guide →</a>
-</article>
-
-            <article class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
-    <div>
-        <span class="text-xs text-rose-600 font-semibold uppercase">Target Return Rules</span>
-        <h3 class="text-base font-bold text-gray-900 mt-1">What Happens to Target Circle Bonuses When You Return an Item?</h3>
-        <p class="text-gray-600 text-xs mt-2">Understand bonus mission progress reversals, reward clawbacks, and gift card promo bundle deductions at the register[span_1](start_span)[span_1](end_span).</p>
-    </div>
-    <a href="/blog/what-happens-to-target-circle-bonus-when-you-return.html" class="text-xs font-semibold text-rose-600 hover:underline mt-4">Read Target Return Guide →</a>
-</article>
-
-
         </section>
 
-        <!-- Long-Tail SEO FAQ Section -->
-        <section class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 space-y-6">
-            <h2 class="text-xl font-bold text-gray-900 border-b border-gray-100 pb-2">Frequently Asked Consumer Questions</h2>
-            
-            <div class="space-y-4 text-sm">
-                <div>
-                    <h3 class="font-bold text-gray-900">How do consumer feedback rewards panels work?</h3>
-                    <p class="text-gray-600 mt-1">
-                        Market research aggregators partner with retailers to gauge shopper sentiment[span_34](start_span)[span_34](end_span). Participants can enter promotional drawings or complete survey opportunities after submitting contact and preference details on partner platforms.
-                    </p>
-                </div>
+        <!-- HUB 5: RECEIPT APPS, WALMART CASH & CONSUMER PANELS -->
+        <section id="rebates-hub" class="space-y-4 scroll-mt-20 guide-section">
+            <div class="border-b border-gray-200 pb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Cluster 5 • Cashback Apps & Consumer Research</span>
+                <h2 class="text-2xl font-black text-gray-900">Ibotta, Walmart Cash, Fetch, Upside & Panel Comparisons</h2>
+            </div>
 
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-700 font-semibold uppercase">Account Routing Rules</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Walmart Cash and Ibotta Together: Can You Stack in 2026?</h3>
+                        <p class="text-gray-600 text-xs mt-2">Official Ibotta/Walmart guidance on why a manufacturer offer pays only once and how overlapping claims trigger reversals.</p>
+                    </div>
+                    <a href="/blog/walmart-cash-and-ibotta-together.html" class="text-xs font-semibold text-emerald-700 hover:underline mt-4">Read Walmart + Ibotta Rules →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-700 font-semibold uppercase">App Comparison</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Ibotta vs. Fetch for Grocery Receipts: Payout Thresholds & Terms</h3>
+                        <p class="text-gray-600 text-xs mt-2">Compare Ibotta's $20 minimum payout requirement against Fetch's variable point redemptions and receipt rules.</p>
+                    </div>
+                    <a href="/blog/ibotta-vs-fetch-for-grocery-receipts.html" class="text-xs font-semibold text-emerald-700 hover:underline mt-4">Read App Comparison →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-700 font-semibold uppercase">Rebate Matchups</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">How Ibotta Free After Rebate Deals & Bonus Stacks Work</h3>
+                        <p class="text-gray-600 text-xs mt-2">Learn how 100% cashback offers, "Any Brand" staples, and multi-app receipt submissions work safely without reversals.</p>
+                    </div>
+                    <a href="/blog/ibotta-freebies-moneymakers-this-week.html" class="text-xs font-semibold text-emerald-700 hover:underline mt-4">Read Ibotta Stacking Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-semibold uppercase">Fuel Cashback Fixes</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Upside App Not Tracking Gas Cash Back? 5 Receipt & Card Fixes</h3>
+                        <p class="text-gray-600 text-xs mt-2">How to prevent digital wallet token mismatches at the gas pump and what receipt evidence to keep for missing claims.</p>
+                    </div>
+                    <a href="/blog/upside-app-not-tracking-gas-cash-back.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Upside Tracking Guide →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-gray-600 font-semibold uppercase">Time vs. Effort Analysis</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Receipt Scanning Apps vs. Consumer Opinion Panels: How They Differ</h3>
+                        <p class="text-gray-600 text-xs mt-2">Understand the difference between item-based grocery cashback apps, paid market research studies, and promotional sweepstakes.</p>
+                    </div>
+                    <a href="/blog/receipt-apps-vs-consumer-panels.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Comparison Breakdown →</a>
+                </article>
+
+                <article class="guide-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-gray-600 font-semibold uppercase">Panel Evaluation</span>
+                        <h3 class="text-base font-bold text-gray-900 mt-1">Consumer Panel Rewards & Promotional Drawings: What to Check First</h3>
+                        <p class="text-gray-600 text-xs mt-2">Checklist for reviewing official sponsor rules, odds, privacy policies, and distinguishing chance drawings from guaranteed rewards.</p>
+                    </div>
+                    <a href="/blog/legit-consumer-panel-rewards-reviews.html" class="text-xs font-semibold text-blue-600 hover:underline mt-4">Read Panel Checklist →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Editorial Standards & First-Party Verification Table (E-E-A-T Signal) -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 space-y-5 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-gray-100 pb-4">
                 <div>
-                    <h3 class="font-bold text-gray-900">What is the fastest way to earn and stack ExtraBucks at drugstores?</h3>
-                    <p class="text-gray-600 mt-1">
-                        Combining weekly store circular promotions with clipped digital manufacturer coupons allows shoppers to trigger store rewards instantly at checkout, which can then be rolled into subsequent transactions.
-                    </p>
+                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Editorial Verification Log</span>
+                    <h2 class="text-xl font-black text-gray-900 mt-1">How We Verify Retailer Rules & App Terms</h2>
                 </div>
+                <span class="text-xs text-gray-500 font-semibold">Last Primary-Source Audit: October 29, 2026</span>
+            </div>
+
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                Retail loyalty programs, digital coupon exclusions, and cashback app thresholds change frequently. Rather than repeating unverified rumors, our editorial team checks official first-party program terms and distinguishes national corporate policies from local store or account-specific exceptions:
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
+                    <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
+                        <tr>
+                            <th class="py-3 px-4">Program / Rule</th>
+                            <th class="py-3 px-4">Verified First-Party Policy Summary</th>
+                            <th class="py-3 px-4">Official Source & Check Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <tr class="hover:bg-white">
+                            <td class="py-3 px-4 font-bold text-gray-900">myWalgreens Cash Expiration</td>
+                            <td class="py-3 px-4">General rewards expire 12 months after earning (or after 6 months of inactivity). Credit card rewards earned before Jan 31, 2026 expire in 12 months; those earned on or after Jan 31, 2026 carry a rolling 24-month window.</td>
+                            <td class="py-3 px-4"><a href="https://www.walgreens.com/topic/help/mywalgreens-terms-conditions.jsp" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">myWalgreens Terms</a><br><span class="text-[10px] text-gray-400">Checked Oct 29, 2026</span></td>
+                        </tr>
+                        <tr class="hover:bg-white">
+                            <td class="py-3 px-4 font-bold text-gray-900">Walgreens Pickup Hold Window</td>
+                            <td class="py-3 px-4">Curbside and in-store pickup orders not collected within 72 hours are automatically canceled without charging your payment method.</td>
+                            <td class="py-3 px-4"><a href="https://www.walgreens.com/topic/help/shophelp/pickupshopping_help_main.jsp" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Walgreens Pickup Help</a><br><span class="text-[10px] text-gray-400">Checked Oct 29, 2026</span></td>
+                        </tr>
+                        <tr class="hover:bg-white">
+                            <td class="py-3 px-4 font-bold text-gray-900">CVS ExtraBucks Exclusions</td>
+                            <td class="py-3 px-4">ExtraBucks Rewards cannot be redeemed on gift cards, prescriptions, alcohol, milk, lottery, postage stamps, or third-party delivery marketplaces.</td>
+                            <td class="py-3 px-4"><a href="https://www.cvs.com/extracare/home" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">CVS ExtraCare Terms</a><br><span class="text-[10px] text-gray-400">Updated Aug 31, 2026</span></td>
+                        </tr>
+                        <tr class="hover:bg-white">
+                            <td class="py-3 px-4 font-bold text-gray-900">Walmart Cash + Ibotta Overlap</td>
+                            <td class="py-3 px-4">A manufacturer offer pays only once per item. The account where the offer is added controls the destination; redeeming Walmart Cash can reverse overlapping Ibotta cashback.</td>
+                            <td class="py-3 px-4"><a href="https://help.ibotta.com/" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta Walmart Help</a><br><span class="text-[10px] text-gray-400">Checked Oct 29, 2026</span></td>
+                        </tr>
+                        <tr class="hover:bg-white">
+                            <td class="py-3 px-4 font-bold text-gray-900">Ibotta & Fetch Payout Rules</td>
+                            <td class="py-3 px-4">Ibotta requires a $20.00 minimum balance to withdraw earnings. Fetch receipt eligibility, point awards, and redemption minimums vary by offer and account.</td>
+                            <td class="py-3 px-4"><a href="https://home.ibotta.com/terms" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta Terms</a> / <a href="https://fetch.com/terms-of-service" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Fetch Terms</a><br><span class="text-[10px] text-gray-400">Checked Oct 29, 2026</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Transparent Sponsored Partner Notice (Secondary to Editorial Content) -->
+        <section class="bg-gray-100 border border-gray-200 rounded-2xl p-6 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="bg-gray-200 text-gray-700 text-[10px] font-bold px-2.5 py-0.5 rounded uppercase">Sponsored Partner Disclosure</span>
+                <span class="text-[11px] text-gray-500">Optional External Promotion</span>
+            </div>
+            <h2 class="text-base font-bold text-gray-900">ConsumersConnect Promotional Sweepstakes & Survey Panel</h2>
+            <p class="text-xs text-gray-600 leading-relaxed">
+                In addition to our free calculators and editorial guides, SavingsTactic.com includes referral links to third-party promotional drawings and consumer surveys operated by ConsumersConnect. Clicking the link below directs you to an external sponsor website where participation requires U.S. residency, email registration, and completion of partner survey questions. Promotional sweepstakes entries are based on chance and do not guarantee a reward or gift card payout. Always review the sponsor's official rules, odds of winning, no-purchase entry method, and privacy policy on their landing page before providing personal information. SavingsTactic.com may receive affiliate compensation if you register through this link.
+            </p>
+            <div class="pt-1">
+                <a href="https://afflat3c1.com/trk/lnk/7B0AB65A-EF2F-426C-947C-1F6BC3D334DF/?o=25402&c=918277&a=802074&k=0147836160AD92B88036EA03E631A8B4&l=26611" target="_blank" rel="nofollow sponsored noopener" class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold text-xs py-2.5 px-5 rounded-xl transition">
+                    View External Sponsor Rules & Entry Page →
+                </a>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer & Required Ad Disclosures -->
+    <!-- Footer -->
     <footer class="bg-white border-t border-gray-200 mt-12 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>Advertiser & Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher. This site provides shopping guides, coupon tutorials, and referral links to third-party consumer reward offers[span_35](start_span)[span_35](end_span)[span_36](start_span)[span_36](end_span). We may receive financial compensation when users engage with sponsored partner links[span_37](start_span)[span_37](end_span)[span_38](start_span)[span_38](end_span). We are not directly affiliated with or endorsed by CVS, Walgreens, Dollar General, Target, Publix, or MaxBounty[span_39](start_span)[span_39](end_span)[span_40](start_span)[span_40](end_span). All trademarks belong to their respective owners[span_41](start_span)[span_41](end_span)[span_42](start_span)[span_42](end_span).
+                <strong>Advertiser & Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher. We provide free grocery unit-price calculators, rebate ledgers, retail coupon tutorials, and clearly disclosed referral links. We may earn a commission when you purchase our editable spreadsheet or participate through sponsored partner links. Store policies, prices, and rebate terms vary by location and are subject to change by corporate operators.
             </p>
-            <div class="flex justify-center space-x-6 text-xs text-gray-500">
-                <a href="/privacy.html" class="hover:underline font-semibold">Privacy Policy</a>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500 font-semibold">
+                <a href="/" class="hover:underline">Home</a>
                 <span>•</span>
-                <a href="/terms.html" class="hover:underline font-semibold">Terms of Service</a>
+                <a href="/blog/grocery-unit-price-calculator.html" class="hover:underline">Unit Price Calculator</a>
                 <span>•</span>
-                <a href="mailto:editorial@savingstactic.com" class="hover:underline font-semibold">Contact Editorial</a>
+                <a href="/blog/grocery-rebate-and-savings-ledger.html" class="hover:underline">Rebate Ledger</a>
+                <span>•</span>
+                <a href="/blog/free-grocery-price-book-template.html" class="hover:underline">Free Price-Book PDF</a>
+                <span>•</span>
+                <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
+                <span>•</span>
+                <a href="/terms.html" class="hover:underline">Terms of Service</a>
             </div>
             <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Partner Opportunity Screening -->
+    <!-- Client-Side Instant Guide Search Script -->
     <script>
-        function nextStep(stepNumber) {
-            document.getElementById('step-1').classList.add('hidden');
-            document.getElementById('step-2').classList.add('hidden');
-            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+        function filterGuides() {
+            const query = document.getElementById('guide-search').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.guide-card');
+            const statusEl = document.getElementById('filter-status');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (!query || text.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (query) {
+                statusEl.innerText = `Showing ${visibleCount} matching guide(s) for "${query}"`;
+                statusEl.classList.remove('hidden');
+            } else {
+                statusEl.classList.add('hidden');
+            }
         }
 
-        function finishSurvey(isUsResident) {
-            document.getElementById('step-3').classList.add('hidden');
-            document.getElementById('step-loading').classList.remove('hidden');
-
-            setTimeout(() => {
-                document.getElementById('step-loading').classList.add('hidden');
-                document.getElementById('step-result').classList.remove('hidden');
-                
-                if (!isUsResident) {
-                    document.getElementById('result-title').innerText = "International Consumer Panels Notice";
-                    document.getElementById('result-desc').innerText = "ConsumersConnect reward card drawing programs are currently restricted to legal residents of the United States. International entries may be disqualified under partner rules.";
-                }
-            }, 800);
+        function quickFilter(term) {
+            const input = document.getElementById('guide-search');
+            input.value = term;
+            filterGuides();
         }
     </script>
 </body>

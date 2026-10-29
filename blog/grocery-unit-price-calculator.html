@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery Unit Price Calculator | Compare Sizes & Price Per Ounce</title>
-    <meta name="description" content="Free grocery unit price calculator. Compare package sizes, calculate price per ounce or pound, factor in coupons, and find the true cheaper grocery deal instantly.">
+    <title>Grocery Unit Price Calculator | Compare Sizes, Coupons & Price Per Ounce</title>
+    <meta name="description" content="Free grocery unit price calculator. Compare different package sizes across weight, volume, count, and paper sheets. Separates instant register coupons from pending rebates.">
     <link rel="canonical" href="https://www.savingstactic.com/blog/grocery-unit-price-calculator.html">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +21,7 @@
           "@type": "WebApplication",
           "@id": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html#app",
           "url": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html",
-          "name": "Grocery Unit Price & Size Comparison Calculator",
+          "name": "Grocery Unit Price & Package Size Comparison Calculator",
           "applicationCategory": "ShoppingApplication",
           "operatingSystem": "All",
           "browserRequirements": "Requires JavaScript",
@@ -30,7 +30,7 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Calculate and compare unit prices per ounce, pound, count, or fluid ounce across grocery package sizes with automatic coupon deductions."
+          "description": "Compare grocery unit prices across ounces, pounds, fluid ounces, gallons, count, and paper sheets while separating instant register coupons from pending post-checkout rebates."
         },
         {
           "@type": "FAQPage",
@@ -38,18 +38,18 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do you calculate unit price for groceries?",
+              "name": "How do I compare unit prices when package sizes differ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "To calculate unit price, divide the total net price by the total quantity or volume of the product: Unit Price = (Item Price - Coupons) / Package Size. Always convert both comparison items into the identical base unit (e.g., ounces or counts) before comparing."
+                "text": "Convert both packages into the same base measurement (such as ounces for weight, fluid ounces for liquids, or per 100 sheets for paper goods). Divide the shelf price (or price after confirmed instant coupons) by the total base units to find the unit cost."
               }
             },
             {
               "@type": "Question",
-              "name": "Is buying in bulk always cheaper per unit?",
+              "name": "How do I calculate the final unit price after a coupon and cashback?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. Grocery stores and warehouse clubs frequently price larger 'value size' packages at higher unit costs than smaller packages on promotional sale or paired with manufacturer digital coupons. Calculating price per ounce prevents overpaying for bulk packages."
+                "text": "Calculate your out-of-pocket checkout unit price first by subtracting only confirmed instant register coupons from the shelf price and dividing by the package size. Track pending post-purchase cashback rebates separately until the rebate is approved and paid."
               }
             }
           ]
@@ -67,10 +67,13 @@
                 <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
                 <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
             </a>
-            <div class="flex items-center space-x-4 text-xs font-semibold">
-                <a href="/blog/free-grocery-price-book-template.html" class="text-emerald-700 hover:underline">Price-Book PDF</a>
-                <a href="/" class="text-gray-600 hover:text-blue-600">← Back to Hub</a>
-            </div>
+            <nav aria-label="Breadcrumb" class="text-xs font-semibold text-gray-500 flex items-center space-x-2">
+                <a href="/" class="hover:text-blue-600">Home</a>
+                <span>/</span>
+                <a href="/blog/free-grocery-price-book-template.html" class="hover:text-emerald-700">Price-Book Guide</a>
+                <span>/</span>
+                <span class="text-gray-900">Unit Price Calculator</span>
+            </nav>
         </div>
     </header>
 
@@ -79,22 +82,41 @@
 
         <!-- Tool Hero Intro -->
         <div class="text-center max-w-2xl mx-auto space-y-2">
-            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Free Shopping Tool</span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Grocery Unit Price & Size Comparison Calculator</h1>
-            <p class="text-gray-600 text-xs md:text-sm">
-                Compare two package sizes, convert ounces to pounds or gallons to fluid ounces, factor in digital coupons, and find the true lowest cost per unit.
+            <div class="inline-flex items-center gap-2">
+                <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Free Shopping Utility</span>
+                <span class="text-xs text-gray-500 font-medium">• Updated October 29, 2026</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Grocery Unit Price & Package Size Comparison Calculator</h1>
+            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                Normalize weight, liquid volume, item counts, or paper sheets across two package sizes. Separates <strong>shelf unit price</strong> and <strong>confirmed instant register coupons</strong> from <strong>pending post-checkout rebates</strong>.
             </p>
         </div>
 
-        <!-- Interactive Calculator Widget -->
-        <section class="bg-white border-2 border-emerald-400 rounded-3xl p-6 md:p-8 shadow-sm">
+        <!-- Interactive Calculator Widget (MVP 1) -->
+        <section aria-label="Unit Price Comparison Calculator" class="bg-white border-2 border-emerald-500 rounded-3xl p-6 md:p-8 shadow-sm">
             
-            <!-- Unit Type Selector -->
-            <div class="flex justify-center mb-6">
-                <div class="inline-flex rounded-xl bg-gray-100 p-1 border border-gray-200 text-xs font-bold">
-                    <button id="type-weight" onclick="setUnitType('weight')" class="px-4 py-2 rounded-lg bg-emerald-600 text-white shadow-sm transition">Weight (oz, lbs)</button>
-                    <button id="type-volume" onclick="setUnitType('volume')" class="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-900 transition">Volume (fl oz, gal)</button>
-                    <button id="type-count" onclick="setUnitType('count')" class="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-900 transition">Count / Items</button>
+            <!-- Unit Category Selector -->
+            <div class="space-y-2 mb-6">
+                <span class="block text-center text-[11px] font-bold uppercase text-gray-500 tracking-wider">Step 1: Select Measurement Category</span>
+                <div class="flex flex-wrap justify-center gap-1.5 bg-gray-100 p-1.5 rounded-2xl border border-gray-200 text-xs font-bold max-w-2xl mx-auto">
+                    <button type="button" id="type-weight" onclick="setUnitType('weight')" class="px-3.5 py-2 rounded-xl bg-emerald-600 text-white shadow-sm transition">Weight (oz, lb, g)</button>
+                    <button type="button" id="type-volume" onclick="setUnitType('volume')" class="px-3.5 py-2 rounded-xl text-gray-600 hover:text-gray-900 transition">Volume (fl oz, qt, gal)</button>
+                    <button type="button" id="type-count" onclick="setUnitType('count')" class="px-3.5 py-2 rounded-xl text-gray-600 hover:text-gray-900 transition">Count / Loads (ct)</button>
+                    <button type="button" id="type-paper" onclick="setUnitType('paper')" class="px-3.5 py-2 rounded-xl text-gray-600 hover:text-gray-900 transition">Paper (Sheets / Sq Ft)</button>
+                </div>
+            </div>
+
+            <!-- Preset Quick-Test Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-6 text-xs">
+                <span class="font-semibold text-gray-600">Load a worked test scenario:</span>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" onclick="loadSample('pasta')" class="text-emerald-700 hover:underline font-bold">16 oz vs. 2 lb Pasta</button>
+                    <span class="text-gray-300">•</span>
+                    <button type="button" onclick="loadSample('juice')" class="text-emerald-700 hover:underline font-bold">64 fl oz vs. 1 Gal Juice</button>
+                    <span class="text-gray-300">•</span>
+                    <button type="button" onclick="loadSample('paper')" class="text-emerald-700 hover:underline font-bold">Paper Towel Rolls</button>
+                    <span class="text-gray-300">•</span>
+                    <button type="button" onclick="resetCalculator()" class="text-gray-500 hover:text-rose-600 font-semibold">Reset Fields</button>
                 </div>
             </div>
 
@@ -104,182 +126,294 @@
                 <!-- Option A -->
                 <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5 space-y-4">
                     <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span class="text-xs font-black uppercase text-gray-700">Option A (e.g. Standard Size)</span>
-                        <span class="text-[10px] text-gray-400">Item 1</span>
+                        <span class="text-xs font-black uppercase text-gray-800">Option A (Package 1)</span>
+                        <span class="text-[11px] font-semibold text-emerald-700" id="a-base-label">Base: Ounces (oz)</span>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Shelf Price ($)</label>
-                        <input type="number" id="a-price" placeholder="3.49" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1">Package Size</label>
-                            <input type="number" id="a-size" placeholder="16" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <label for="a-price" class="block text-xs font-bold text-gray-700 mb-1">Shelf Price ($)</label>
+                            <input type="number" id="a-price" placeholder="1.99" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1">Unit</label>
-                            <select id="a-unit" onchange="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                                <option value="oz">Ounces (oz)</option>
-                                <option value="lb">Pounds (lb)</option>
-                            </select>
+                            <label for="a-size" class="block text-xs font-bold text-gray-700 mb-1">Package Size</label>
+                            <input type="number" id="a-size" placeholder="16" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-[11px] font-medium text-gray-500 mb-1">Coupon / Rebate Discount ($) <span class="text-gray-400 font-normal">(Optional)</span></label>
-                        <input type="number" id="a-coupon" placeholder="0.00" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2 text-xs font-semibold text-gray-900 outline-none">
+                        <label for="a-unit" class="block text-xs font-bold text-gray-700 mb-1">Package Unit</label>
+                        <select id="a-unit" onchange="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <option value="oz">Ounces (oz)</option>
+                            <option value="lb">Pounds (lb = 16 oz)</option>
+                            <option value="g">Grams (g = 0.03527 oz)</option>
+                        </select>
                     </div>
 
-                    <div class="pt-2 border-t border-gray-200 text-center">
-                        <span class="text-[11px] font-semibold text-gray-500 uppercase">Option A Unit Cost:</span>
-                        <div id="a-result" class="text-lg font-black text-gray-800 mt-0.5">$0.000 / oz</div>
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <div>
+                            <label for="a-coupon" class="block text-[11px] font-bold text-emerald-800 mb-1">Confirmed Instant Coupon ($)</label>
+                            <input type="number" id="a-coupon" placeholder="0.00" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-emerald-300 rounded-xl p-2 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <span class="text-[10px] text-gray-400 block mt-0.5">Deducted at register</span>
+                        </div>
+                        <div>
+                            <label for="a-rebate" class="block text-[11px] font-bold text-amber-800 mb-1">Pending App Rebate ($)</label>
+                            <input type="number" id="a-rebate" placeholder="0.00" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-amber-300 rounded-xl p-2 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-amber-500 outline-none">
+                            <span class="text-[10px] text-gray-400 block mt-0.5">Shown separately below</span>
+                        </div>
+                    </div>
+
+                    <!-- Validation Warning A -->
+                    <div id="a-warning" class="hidden text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-lg p-2"></div>
+
+                    <!-- 3-Tier Output Card A -->
+                    <div class="pt-3 border-t border-gray-200 space-y-2 text-xs">
+                        <div class="flex justify-between items-center text-gray-600">
+                            <span>1. Shelf Unit Price:</span>
+                            <span id="a-shelf-unit" class="font-mono font-bold text-gray-800">$0.000 / oz</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-emerald-50 border border-emerald-200 rounded-lg p-2">
+                            <span class="font-bold text-emerald-900">2. After Instant Coupon:</span>
+                            <span id="a-instant-unit" class="font-mono text-base font-black text-emerald-700">$0.000 / oz</span>
+                        </div>
+                        <div class="flex justify-between items-center text-amber-800 bg-amber-50/70 border border-amber-200/80 rounded-lg px-2 py-1.5">
+                            <span>3. Pending Rebate Estimate*:</span>
+                            <span id="a-rebate-unit" class="font-mono font-bold">$0.000 / oz</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Option B -->
                 <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5 space-y-4">
                     <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <span class="text-xs font-black uppercase text-gray-700">Option B (e.g. Bulk / Value Size)</span>
-                        <span class="text-[10px] text-gray-400">Item 2</span>
+                        <span class="text-xs font-black uppercase text-gray-800">Option B (Package 2)</span>
+                        <span class="text-[11px] font-semibold text-emerald-700" id="b-base-label">Base: Ounces (oz)</span>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Shelf Price ($)</label>
-                        <input type="number" id="b-price" placeholder="8.99" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1">Package Size</label>
-                            <input type="number" id="b-size" placeholder="48" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <label for="b-price" class="block text-xs font-bold text-gray-700 mb-1">Shelf Price ($)</label>
+                            <input type="number" id="b-price" placeholder="3.48" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1">Unit</label>
-                            <select id="b-unit" onchange="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                                <option value="oz">Ounces (oz)</option>
-                                <option value="lb">Pounds (lb)</option>
-                            </select>
+                            <label for="b-size" class="block text-xs font-bold text-gray-700 mb-1">Package Size</label>
+                            <input type="number" id="b-size" placeholder="2" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-[11px] font-medium text-gray-500 mb-1">Coupon / Rebate Discount ($) <span class="text-gray-400 font-normal">(Optional)</span></label>
-                        <input type="number" id="b-coupon" placeholder="0.00" step="0.01" oninput="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2 text-xs font-semibold text-gray-900 outline-none">
+                        <label for="b-unit" class="block text-xs font-bold text-gray-700 mb-1">Package Unit</label>
+                        <select id="b-unit" onchange="runComparison()" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <option value="oz">Ounces (oz)</option>
+                            <option value="lb" selected>Pounds (lb = 16 oz)</option>
+                            <option value="g">Grams (g = 0.03527 oz)</option>
+                        </select>
                     </div>
 
-                    <div class="pt-2 border-t border-gray-200 text-center">
-                        <span class="text-[11px] font-semibold text-gray-500 uppercase">Option B Unit Cost:</span>
-                        <div id="b-result" class="text-lg font-black text-gray-800 mt-0.5">$0.000 / oz</div>
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <div>
+                            <label for="b-coupon" class="block text-[11px] font-bold text-emerald-800 mb-1">Confirmed Instant Coupon ($)</label>
+                            <input type="number" id="b-coupon" placeholder="0.00" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-emerald-300 rounded-xl p-2 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <span class="text-[10px] text-gray-400 block mt-0.5">Deducted at register</span>
+                        </div>
+                        <div>
+                            <label for="b-rebate" class="block text-[11px] font-bold text-amber-800 mb-1">Pending App Rebate ($)</label>
+                            <input type="number" id="b-rebate" placeholder="0.00" min="0" step="0.01" oninput="runComparison()" class="w-full bg-white border border-amber-300 rounded-xl p-2 text-xs font-semibold text-gray-900 focus:ring-2 focus:ring-amber-500 outline-none">
+                            <span class="text-[10px] text-gray-400 block mt-0.5">Shown separately below</span>
+                        </div>
+                    </div>
+
+                    <!-- Validation Warning B -->
+                    <div id="b-warning" class="hidden text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-lg p-2"></div>
+
+                    <!-- 3-Tier Output Card B -->
+                    <div class="pt-3 border-t border-gray-200 space-y-2 text-xs">
+                        <div class="flex justify-between items-center text-gray-600">
+                            <span>1. Shelf Unit Price:</span>
+                            <span id="b-shelf-unit" class="font-mono font-bold text-gray-800">$0.000 / oz</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-emerald-50 border border-emerald-200 rounded-lg p-2">
+                            <span class="font-bold text-emerald-900">2. After Instant Coupon:</span>
+                            <span id="b-instant-unit" class="font-mono text-base font-black text-emerald-700">$0.000 / oz</span>
+                        </div>
+                        <div class="flex justify-between items-center text-amber-800 bg-amber-50/70 border border-amber-200/80 rounded-lg px-2 py-1.5">
+                            <span>3. Pending Rebate Estimate*:</span>
+                            <span id="b-rebate-unit" class="font-mono font-bold">$0.000 / oz</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Dynamic Verdict Banner -->
-            <div id="verdict-banner" class="hidden mt-6 p-4 rounded-2xl text-center border-2 fade-in">
-                <span id="verdict-tag" class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full mb-1 inline-block">Best Value Deal</span>
-                <h3 id="verdict-title" class="text-lg md:text-xl font-black text-gray-900">Option B is 18.4% Cheaper</h3>
-                <p id="verdict-text" class="text-xs text-gray-600 mt-1 max-w-md mx-auto">
-                    You save $0.041 per ounce by choosing Option B over Option A.
-                </p>
+            <!-- Dynamic Headline Verdict Banner (Evaluates Shelf + Confirmed Instant Coupon Only) -->
+            <div id="verdict-banner" role="status" aria-live="polite" class="hidden mt-6 p-5 rounded-2xl text-center border-2 fade-in">
+                <span id="verdict-tag" class="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block">Lowest Entered Unit Price (At Checkout)</span>
+                <h2 id="verdict-title" class="text-lg md:text-xl font-black text-gray-900">Option A has the lowest entered unit price at checkout</h2>
+                <p id="verdict-text" class="text-xs text-gray-700 mt-1 max-w-xl mx-auto"></p>
+                <p id="verdict-rebate-note" class="text-[11px] text-amber-800 font-medium mt-2"></p>
             </div>
 
+            <p class="text-[11px] text-gray-400 mt-4 text-center">
+                *Headline comparison evaluates immediate checkout cost (shelf price minus confirmed instant register coupons). Pending app rebates require post-purchase submission, account approval, and minimum payout thresholds before withdrawal.
+            </p>
         </section>
 
-        <!-- Automated Spreadsheet Upgrade Callout (GUMROAD INTEGRATION) -->
+        <!-- Contextual Next-Step Routing (Price-Book & Editable Workbook) -->
         <section class="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border-2 border-emerald-400 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5 shadow-sm">
-            <div class="space-y-1 text-center md:text-left">
+            <div class="space-y-1.5 text-center md:text-left">
                 <div class="inline-flex items-center gap-2">
-                    <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Offline Spreadsheet Tool</span>
-                    <span class="text-xs text-emerald-800 font-bold">• Google Sheets + Excel</span>
+                    <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Save Your Household Baselines</span>
+                    <span class="text-xs text-emerald-800 font-bold">• Free PDF or $7 Editable Sheet</span>
                 </div>
-                <h2 class="text-base md:text-lg font-black text-gray-900">Track Unit Prices Directly on Your Phone</h2>
-                <p class="text-xs text-gray-600 max-w-xl">
-                    Prefer to keep your personal prices saved in Google Sheets? Our automated workbook includes 2026 rock-bottom benchmarks, auto-calculating unit costs, and deal alerts[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).
+                <h2 class="text-base md:text-lg font-black text-gray-900">Want to Track Your Own Local Store Prices Over Time?</h2>
+                <p class="text-xs text-gray-600 max-w-xl leading-relaxed">
+                    Start with our free printable 12-page Price-Book worksheet, or upgrade to the pre-formatted Google Sheets & Excel workbook ($7) with built-in unit conversion formulas and a CVS 98% spend calculator.
                 </p>
             </div>
-            <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="noopener" class="whitespace-nowrap bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-3.5 px-6 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
-                Get Spreadsheet ($7) →
-            </a>
+            <div class="flex flex-col sm:flex-row md:flex-col gap-2 w-full md:w-auto shrink-0">
+                <a href="/blog/free-grocery-price-book-template.html" class="bg-white hover:bg-gray-100 text-emerald-800 border border-emerald-400 font-bold text-xs py-2.5 px-4 rounded-xl text-center transition">
+                    Get Free Price-Book PDF →
+                </a>
+                <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-5 rounded-xl text-center shadow-sm transition">
+                    Buy Editable Workbook ($7) →
+                </a>
+            </div>
         </section>
 
-        <!-- SEO Editorial Content -->
-        <article class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 space-y-6 text-sm text-gray-700 leading-relaxed">
+        <!-- SEO Tutorial Content: Opportunity #01 & #04 -->
+        <article class="bg-white rounded-2xl border border-gray-200 p-6 md:p-10 space-y-8 text-sm text-gray-700 leading-relaxed">
             
-            <div>
-                <h2 class="text-xl font-bold text-gray-900">How to Calculate Unit Price (Formula & Step-by-Step)</h2>
-                <p class="mt-2">
-                    A product's unit price is the cost per standard unit of weight, volume, or count. By converting products of different package dimensions into a single shared measurement, shoppers can eliminate marketing illusions and identify the true cost.
-                </p>
-                <div class="bg-gray-100 p-4 rounded-xl my-3 text-xs font-mono font-bold text-gray-800">
-                    Unit Price = (Total Shelf Price − Clipped Coupons) ÷ Package Quantity
-                </div>
+            <!-- Opportunity #04: Separating Instant Coupons from Pending Cashback -->
+            <div class="space-y-4">
+                <h2 class="text-xl font-extrabold text-gray-900">1. How to Calculate Final Unit Price After an Instant Coupon vs. Pending Cashback</h2>
                 <p>
-                    <strong>Example:</strong> A 24-ounce box of cereal costs $4.99, while a 14-ounce box costs $2.99 with a $0.50 digital coupon:
+                    When comparing two grocery items, combining an immediate register coupon and a post-checkout app rebate into a single discount number can distort your real grocery budget. Instant digital or paper coupons lower the actual amount you pay at the register today, whereas rebate apps (like Ibotta or Fetch) hold funds until you reach a minimum withdrawal balance (such as Ibotta's $20.00 minimum payout threshold, checked October 2026).
                 </p>
-                <ul class="list-disc pl-5 mt-2 space-y-1 text-xs">
-                    <li><strong>24 oz Box:</strong> $4.99 ÷ 24 oz = <strong>$0.208 per ounce</strong></li>
-                    <li><strong>14 oz Box:</strong> ($2.99 − $0.50) ÷ 14 oz = <strong>$0.178 per ounce</strong></li>
-                </ul>
-                <p class="mt-2">
-                    Even though the 24 oz box looks like a better family deal on the shelf, the coupon on the smaller 14 oz box makes it <strong>14.4% cheaper per ounce</strong>.
-                </p>
-            </div>
+                <div class="bg-gray-100 p-4 rounded-xl text-xs font-mono font-bold text-gray-800 space-y-1.5">
+                    <div>1. Shelf Unit Price = Shelf Price ÷ Base Quantity</div>
+                    <div class="text-emerald-800">2. Checkout Unit Price = (Shelf Price − Confirmed Instant Coupon) ÷ Base Quantity</div>
+                    <div class="text-amber-800">3. Post-Rebate Estimate = (Checkout Price − Approved Rebate) ÷ Base Quantity</div>
+                </div>
 
-            <div class="border-t border-gray-100 pt-6">
-                <h2 class="text-xl font-bold text-gray-900">Common Unit Conversions for Grocery Trips</h2>
-                <div class="overflow-x-auto my-3">
+                <!-- Worked Separation Worksheet -->
+                <p class="font-bold text-gray-900 text-xs uppercase tracking-wider pt-2">Worked Example: 16 oz Pasta With Coupon & Rebate vs. 2 lb Bulk Pack</p>
+                <div class="overflow-x-auto">
                     <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
                         <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
                             <tr>
-                                <th class="py-2.5 px-3">Category</th>
-                                <th class="py-2.5 px-3">Larger Unit</th>
-                                <th class="py-2.5 px-3">Equivalent Base Measurement</th>
+                                <th class="py-2.5 px-3">Calculation Stage</th>
+                                <th class="py-2.5 px-3">Option A: 16 oz Box</th>
+                                <th class="py-2.5 px-3">Option B: 2 lb (32 oz) Bag</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
                             <tr>
-                                <td class="py-2.5 px-3 font-semibold text-gray-900">Meats & Bulk Dry Goods</td>
-                                <td class="py-2.5 px-3">1 Pound (lb)</td>
-                                <td class="py-2.5 px-3 font-mono">16 Ounces (oz)</td>
+                                <td class="py-2.5 px-3 font-semibold text-gray-900">Normalized Base Size</td>
+                                <td class="py-2.5 px-3 font-mono">16 oz</td>
+                                <td class="py-2.5 px-3 font-mono">32 oz (2 lb × 16)</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3 font-semibold text-gray-900">Milk, Juices & Oils</td>
-                                <td class="py-2.5 px-3">1 Gallon (gal)</td>
-                                <td class="py-2.5 px-3 font-mono">128 Fluid Ounces (fl oz)</td>
+                                <td class="py-2.5 px-3 font-semibold text-gray-900">1. Shelf Price & Shelf Unit Cost</td>
+                                <td class="py-2.5 px-3">$1.99 ($0.124 / oz)</td>
+                                <td class="py-2.5 px-3 font-semibold text-emerald-700">$3.48 ($0.109 / oz)</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3 font-semibold text-gray-900">Beverages & Broths</td>
-                                <td class="py-2.5 px-3">1 Quart (qt)</td>
-                                <td class="py-2.5 px-3 font-mono">32 Fluid Ounces (fl oz)</td>
+                                <td class="py-2.5 px-3 font-semibold text-gray-900">Confirmed Instant Store/Mfr Coupon</td>
+                                <td class="py-2.5 px-3 text-emerald-700 font-semibold">−$0.50 clipped digital</td>
+                                <td class="py-2.5 px-3">$0.00</td>
+                            </tr>
+                            <tr class="bg-emerald-50/60">
+                                <td class="py-2.5 px-3 font-bold text-emerald-950">2. Register Out-of-Pocket & Unit Price</td>
+                                <td class="py-2.5 px-3 font-bold text-emerald-800">$1.49 paid ($0.093 / oz)</td>
+                                <td class="py-2.5 px-3 font-semibold text-gray-900">$3.48 paid ($0.109 / oz)</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3 font-semibold text-gray-900">Paper Towels & Bath Tissue</td>
-                                <td class="py-2.5 px-3">Pack Count</td>
-                                <td class="py-2.5 px-3 font-mono">Cost per 100 Sheets / Sq Ft</td>
+                                <td class="py-2.5 px-3 font-semibold text-amber-900">3. Pending App Rebate (Post-Purchase)</td>
+                                <td class="py-2.5 px-3 text-amber-800">$0.25 pending ($0.077 / oz est.)</td>
+                                <td class="py-2.5 px-3">$0.00 ($0.109 / oz)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p class="text-xs text-gray-600">
+                    <strong>Takeaway:</strong> At shelf price alone, the 2 lb bag ($0.109/oz) beats the 16 oz box ($0.124/oz). Once the confirmed $0.50 instant digital coupon is applied at the register, Option A drops to <strong>$0.093/oz out of pocket</strong>—even before counting the pending $0.25 app rebate. Need to track pending rebates until they clear? Use our <a href="/blog/grocery-rebate-and-savings-ledger.html" class="text-emerald-700 font-bold hover:underline">Household Rebate & Savings Ledger</a>.
+                </p>
             </div>
 
-            <div class="border-t border-gray-100 pt-6">
-                <h2 class="text-xl font-bold text-gray-900">Frequently Asked Questions</h2>
-                <div class="mt-3 space-y-4 text-xs">
-                    <div>
-                        <h3 class="font-bold text-gray-900">Does buying bulk at warehouse clubs always beat grocery sales?</h3>
-                        <p class="mt-1 text-gray-600">
-                            Not always. Bulk warehouse packs at Sam's Club or Costco offer low baseline unit pricing, but drugstore coupon stacking (like CVS ExtraBucks promotions) frequently undercuts wholesale rates. See our breakdown on <a href="/blog/does-sams-club-take-manufacturer-coupons.html" class="text-blue-600 font-semibold hover:underline">Does Sam's Club Take Manufacturer Coupons?</a>[span_16](start_span)[span_16](end_span).
-                        </p>
+            <!-- Opportunity #01: Reproducible Examples Across All 4 Unit Types -->
+            <div class="border-t border-gray-100 pt-6 space-y-4">
+                <h2 class="text-xl font-extrabold text-gray-900">2. How to Compare Unit Prices When Package Sizes Differ (4 Worked Examples)</h2>
+                <p>
+                    Retailers frequently label one shelf tag per ounce and the neighboring tag per pound or per count. Use these four standard conversions to normalize any aisle comparison:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4 text-xs">
+                    <!-- Weight Example -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
+                        <span class="text-[10px] font-black uppercase text-emerald-700">1. Weight Conversion (1 lb = 16 oz)</span>
+                        <h3 class="font-bold text-gray-900 text-sm">Shredded Cheese: 8 oz vs. 2 lb Block</h3>
+                        <p class="text-gray-600">Multiply pounds by 16 to compare everything in ounces:</p>
+                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
+                            <li>8 oz bag @ $2.29 = $2.29 ÷ 8 = <strong>$0.286 / oz</strong></li>
+                            <li>2 lb (32 oz) block @ $7.36 = $7.36 ÷ 32 = <strong>$0.230 / oz</strong></li>
+                        </ul>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-gray-900">Can I factor cash-back app rebates into unit price?</h3>
-                        <p class="mt-1 text-gray-600">
-                            Yes. Subtract confirmed cash-back offers (such as $1.50 back on Ibotta) directly from the shelf price before dividing by the ounce count. Check current 100% cash-back items on our <a href="/blog/ibotta-freebies-moneymakers-this-week.html" class="text-emerald-700 font-semibold hover:underline">Best Ibotta Deals & Freebies Hub</a>.
-                        </p>
+
+                    <!-- Volume Example -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
+                        <span class="text-[10px] font-black uppercase text-emerald-700">2. Liquid Volume (1 Gal = 128 fl oz)</span>
+                        <h3 class="font-bold text-gray-900 text-sm">Orange Juice: 64 fl oz vs. 1 Gallon</h3>
+                        <p class="text-gray-600">Convert gallons (128 fl oz) and quarts (32 fl oz) into fluid ounces:</p>
+                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
+                            <li>64 fl oz ($3.99 − $1.00 cpn) = $2.99 ÷ 64 = <strong>$0.047 / fl oz</strong></li>
+                            <li>1 Gallon (128 fl oz) @ $6.49 = $6.49 ÷ 128 = <strong>$0.051 / fl oz</strong></li>
+                        </ul>
                     </div>
+
+                    <!-- Count / Loads Example -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
+                        <span class="text-[10px] font-black uppercase text-emerald-700">3. Count / Laundry Loads (Per Pod/Load)</span>
+                        <h3 class="font-bold text-gray-900 text-sm">Detergent Pacs: 42 ct vs. 84 ct Tub</h3>
+                        <p class="text-gray-600">Compare detergent by actual wash loads or pac count rather than bottle weight:</p>
+                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
+                            <li>42 ct ($14.99 − $3.00 cpn) = $11.99 ÷ 42 = <strong>$0.285 / ct</strong></li>
+                            <li>84 ct tub @ $21.99 (no cpn) = $21.99 ÷ 84 = <strong>$0.262 / ct</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- Paper Products Example -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
+                        <span class="text-[10px] font-black uppercase text-emerald-700">4. Paper Goods (Per 100 Sheets / Sq Ft)</span>
+                        <h3 class="font-bold text-gray-900 text-sm">Paper Towels: "Double" vs. "Mega" Rolls</h3>
+                        <p class="text-gray-600">Ignore "roll math" claims and divide by total sheets (per 100 sheets):</p>
+                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
+                            <li>6 rolls × 120 sheets (720 sheets) @ $7.99 net = <strong>$1.110 / 100 sheets</strong></li>
+                            <li>12 rolls × 85 sheets (1,020 sheets) @ $13.99 = <strong>$1.372 / 100 sheets</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Internal Guides -->
+            <div class="border-t border-gray-100 pt-6 space-y-3">
+                <h2 class="text-xl font-bold text-gray-900">Related Grocery Math & Coupon Guides</h2>
+                <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                    <a href="/blog/does-sams-club-take-manufacturer-coupons.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
+                        <strong class="text-gray-900 block">Wholesale Club vs. Supermarket Sales →</strong>
+                        <span class="text-gray-500">Learn how Sam's Club Instant Savings compare to drugstore coupon stacking.</span>
+                    </a>
+                    <a href="/blog/how-to-calculate-shrinkflation.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
+                        <strong class="text-gray-900 block">How to Calculate Shrinkflation →</strong>
+                        <span class="text-gray-500">Spot hidden percentage price hikes when manufacturers shrink package weights.</span>
+                    </a>
+                    <a href="/blog/ibotta-vs-fetch-for-grocery-receipts.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
+                        <strong class="text-gray-900 block">Ibotta vs. Fetch Receipt Rules →</strong>
+                        <span class="text-gray-500">Understand payout thresholds and receipt eligibility before factoring in cashback.</span>
+                    </a>
+                    <a href="/blog/pickup-vs-in-store-digital-coupon-rules.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
+                        <strong class="text-gray-900 block">Pickup vs. In-Store Coupon Diagnostic →</strong>
+                        <span class="text-gray-500">Troubleshoot why clipped digital coupons fail to deduct at checkout.</span>
+                    </a>
                 </div>
             </div>
 
@@ -291,7 +425,7 @@
     <footer class="bg-white border-t border-gray-200 mt-12 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>Editorial Disclosure:</strong> SavingsTactic.com provides free educational shopping utilities and consumer tutorials[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span). We do not guarantee retailer inventory or specific promotional discounts[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span).
+                <strong>Editorial & Product Disclosure:</strong> SavingsTactic.com provides free educational shopping utilities and offers an optional paid spreadsheet via Gumroad. Calculator outputs reflect the lowest entered unit price based on user inputs and do not guarantee local store inventory, tax treatment, or pending third-party rebate approval.
             </p>
             <div class="flex justify-center space-x-6 text-xs text-gray-500">
                 <a href="/" class="hover:underline font-semibold">Home</a>
@@ -304,114 +438,265 @@
         </div>
     </footer>
 
-    <!-- Client-Side Engine -->
+    <!-- Client-Side Engine (MVP 1 Validated) -->
     <script>
         let currentUnitType = 'weight';
 
+        const unitConfigs = {
+            weight: {
+                baseName: 'oz',
+                baseLabel: 'Base: Ounces (oz)',
+                options: [
+                    { value: 'oz', label: 'Ounces (oz)', factor: 1 },
+                    { value: 'lb', label: 'Pounds (lb = 16 oz)', factor: 16 },
+                    { value: 'g', label: 'Grams (g = 0.03527 oz)', factor: 0.03527396 }
+                ]
+            },
+            volume: {
+                baseName: 'fl oz',
+                baseLabel: 'Base: Fluid Ounces (fl oz)',
+                options: [
+                    { value: 'floz', label: 'Fluid Ounces (fl oz)', factor: 1 },
+                    { value: 'qt', label: 'Quarts (qt = 32 fl oz)', factor: 32 },
+                    { value: 'gal', label: 'Gallons (gal = 128 fl oz)', factor: 128 },
+                    { value: 'ml', label: 'Milliliters (mL = 0.0338 fl oz)', factor: 0.033814 }
+                ]
+            },
+            count: {
+                baseName: 'ct',
+                baseLabel: 'Base: Per Item / Load (ct)',
+                options: [
+                    { value: 'ct', label: 'Single Count / Loads (ct)', factor: 1 },
+                    { value: 'doz', label: 'Dozen (12 ct)', factor: 12 }
+                ]
+            },
+            paper: {
+                baseName: '100 sheets',
+                baseLabel: 'Base: Per 100 Sheets / Sq Ft',
+                options: [
+                    { value: 'sheets', label: 'Total Sheets (calculated per 100)', factor: 0.01 },
+                    { value: 'sqft', label: 'Total Sq Ft (calculated per 100)', factor: 0.01 }
+                ]
+            }
+        };
+
         function setUnitType(type) {
             currentUnitType = type;
-            const btnWeight = document.getElementById('type-weight');
-            const btnVol = document.getElementById('type-volume');
-            const btnCount = document.getElementById('type-count');
-            const aUnit = document.getElementById('a-unit');
-            const bUnit = document.getElementById('b-unit');
+            const cfg = unitConfigs[type];
+            const buttons = ['weight', 'volume', 'count', 'paper'];
 
-            // Reset tab styles
-            [btnWeight, btnVol, btnCount].forEach(btn => {
-                btn.className = "px-4 py-2 rounded-lg text-gray-600 hover:text-gray-900 transition";
+            buttons.forEach(b => {
+                const btnEl = document.getElementById(`type-${b}`);
+                if (b === type) {
+                    btnEl.className = "px-3.5 py-2 rounded-xl bg-emerald-600 text-white shadow-sm transition";
+                } else {
+                    btnEl.className = "px-3.5 py-2 rounded-xl text-gray-600 hover:text-gray-900 transition";
+                }
             });
 
-            if (type === 'weight') {
-                btnWeight.className = "px-4 py-2 rounded-lg bg-emerald-600 text-white shadow-sm transition";
-                aUnit.innerHTML = '<option value="oz">Ounces (oz)</option><option value="lb">Pounds (lb)</option>';
-                bUnit.innerHTML = '<option value="oz">Ounces (oz)</option><option value="lb">Pounds (lb)</option>';
-            } else if (type === 'volume') {
-                btnVol.className = "px-4 py-2 rounded-lg bg-emerald-600 text-white shadow-sm transition";
-                aUnit.innerHTML = '<option value="floz">Fluid Ounces (fl oz)</option><option value="gal">Gallons (gal)</option>';
-                bUnit.innerHTML = '<option value="floz">Fluid Ounces (fl oz)</option><option value="gal">Gallons (gal)</option>';
-            } else if (type === 'count') {
-                btnCount.className = "px-4 py-2 rounded-lg bg-emerald-600 text-white shadow-sm transition";
-                aUnit.innerHTML = '<option value="ct">Total Count (ct)</option>';
-                bUnit.innerHTML = '<option value="ct">Total Count (ct)</option>';
+            document.getElementById('a-base-label').innerText = cfg.baseLabel;
+            document.getElementById('b-base-label').innerText = cfg.baseLabel;
+
+            const aSelect = document.getElementById('a-unit');
+            const bSelect = document.getElementById('b-unit');
+            const htmlOpts = cfg.options.map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+            aSelect.innerHTML = htmlOpts;
+            bSelect.innerHTML = htmlOpts;
+
+            if (type === 'weight' && cfg.options.length > 1) {
+                bSelect.value = 'lb';
+            }
+
+            runComparison();
+        }
+
+        function getConversionFactor(type, unitVal) {
+            const cfg = unitConfigs[type];
+            const found = cfg.options.find(o => o.value === unitVal);
+            return found ? found.factor : 1;
+        }
+
+        function evaluateSide(prefix) {
+            const rawPrice = document.getElementById(`${prefix}-price`).value;
+            const rawSize = document.getElementById(`${prefix}-size`).value;
+            const rawCoupon = document.getElementById(`${prefix}-coupon`).value;
+            const rawRebate = document.getElementById(`${prefix}-rebate`).value;
+            const unitVal = document.getElementById(`${prefix}-unit`).value;
+
+            const price = parseFloat(rawPrice);
+            const size = parseFloat(rawSize);
+            const coupon = Math.max(0, parseFloat(rawCoupon) || 0);
+            const rebate = Math.max(0, parseFloat(rawRebate) || 0);
+
+            const warnEl = document.getElementById(`${prefix}-warning`);
+            const cfg = unitConfigs[currentUnitType];
+            const baseName = cfg.baseName;
+
+            warnEl.classList.add('hidden');
+            warnEl.innerText = '';
+
+            // Check for missing or invalid inputs
+            if (isNaN(price) || isNaN(size) || rawPrice === '' || rawSize === '') {
+                document.getElementById(`${prefix}-shelf-unit`).innerText = `$0.000 / ${baseName}`;
+                document.getElementById(`${prefix}-instant-unit`).innerText = `$0.000 / ${baseName}`;
+                document.getElementById(`${prefix}-rebate-unit`).innerText = `$0.000 / ${baseName}`;
+                return null;
+            }
+
+            if (size <= 0) {
+                warnEl.innerText = 'Please enter a package size greater than zero.';
+                warnEl.classList.remove('hidden');
+                return null;
+            }
+
+            if (price < 0) {
+                warnEl.innerText = 'Shelf price cannot be negative.';
+                warnEl.classList.remove('hidden');
+                return null;
+            }
+
+            const warnings = [];
+            if (coupon > price) {
+                warnings.push('Instant coupon exceeds shelf price; checkout total floored at $0.00.');
+            }
+            if ((coupon + rebate) > price && coupon <= price) {
+                warnings.push('Combined coupon + pending rebate exceeds shelf price (potential overage/moneymaker).');
+            }
+            if (warnings.length > 0) {
+                warnEl.innerText = warnings.join(' ');
+                warnEl.classList.remove('hidden');
+            }
+
+            const factor = getConversionFactor(currentUnitType, unitVal);
+            const baseUnits = size * factor;
+
+            const shelfUnit = price / baseUnits;
+            const netCheckoutPrice = Math.max(0, price - coupon);
+            const instantUnit = netCheckoutPrice / baseUnits;
+            const netAfterRebate = Math.max(0, netCheckoutPrice - rebate);
+            const rebateUnit = netAfterRebate / baseUnits;
+
+            document.getElementById(`${prefix}-shelf-unit`).innerText = `$${shelfUnit.toFixed(3)} / ${baseName}`;
+            document.getElementById(`${prefix}-instant-unit`).innerText = `$${instantUnit.toFixed(3)} / ${baseName}`;
+            document.getElementById(`${prefix}-rebate-unit`).innerText = `$${rebateUnit.toFixed(3)} / ${baseName}`;
+
+            return {
+                price,
+                size,
+                coupon,
+                rebate,
+                baseUnits,
+                baseName,
+                shelfUnit,
+                netCheckoutPrice,
+                instantUnit,
+                rebateUnit
+            };
+        }
+
+        function runComparison() {
+            const a = evaluateSide('a');
+            const b = evaluateSide('b');
+            const banner = document.getElementById('verdict-banner');
+            const titleEl = document.getElementById('verdict-title');
+            const textEl = document.getElementById('verdict-text');
+            const rebateNoteEl = document.getElementById('verdict-rebate-note');
+            const tagEl = document.getElementById('verdict-tag');
+
+            if (!a || !b) {
+                banner.classList.add('hidden');
+                return;
+            }
+
+            banner.classList.remove('hidden');
+            const unitName = a.baseName;
+
+            // Headline comparison strictly evaluates Checkout Unit Price (Shelf - Confirmed Instant Coupon)
+            const diff = Math.abs(a.instantUnit - b.instantUnit);
+            if (diff < 0.00001) {
+                banner.className = "mt-6 p-5 rounded-2xl text-center border-2 border-gray-300 bg-gray-50 fade-in";
+                tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-gray-700 text-white";
+                tagEl.innerText = "Identical Checkout Unit Price";
+                titleEl.innerText = `Both Options Cost $${a.instantUnit.toFixed(3)} per ${unitName} at Checkout`;
+                textEl.innerText = `After confirmed instant coupons, Option A ($${a.netCheckoutPrice.toFixed(2)} out of pocket) and Option B ($${b.netCheckoutPrice.toFixed(2)} out of pocket) have the exact same unit cost.`;
+            } else if (a.instantUnit < b.instantUnit) {
+                const pct = b.instantUnit > 0 ? (((b.instantUnit - a.instantUnit) / b.instantUnit) * 100).toFixed(1) : 0;
+                banner.className = "mt-6 p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in";
+                tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-emerald-600 text-white";
+                tagEl.innerText = "Lowest Entered Unit Price (At Checkout)";
+                titleEl.innerText = `Option A has the lowest entered unit price ($${a.instantUnit.toFixed(3)} / ${unitName} — ${pct}% lower)`;
+                textEl.innerText = `At the register, Option A costs $${a.instantUnit.toFixed(3)} per ${unitName} ($${a.netCheckoutPrice.toFixed(2)} out of pocket) compared to Option B at $${b.instantUnit.toFixed(3)} per ${unitName} ($${b.netCheckoutPrice.toFixed(2)} out of pocket).`;
+            } else {
+                const pct = a.instantUnit > 0 ? (((a.instantUnit - b.instantUnit) / a.instantUnit) * 100).toFixed(1) : 0;
+                banner.className = "mt-6 p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in";
+                tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-emerald-600 text-white";
+                tagEl.innerText = "Lowest Entered Unit Price (At Checkout)";
+                titleEl.innerText = `Option B has the lowest entered unit price ($${b.instantUnit.toFixed(3)} / ${unitName} — ${pct}% lower)`;
+                textEl.innerText = `At the register, Option B costs $${b.instantUnit.toFixed(3)} per ${unitName} ($${b.netCheckoutPrice.toFixed(2)} out of pocket) compared to Option A at $${a.instantUnit.toFixed(3)} per ${unitName} ($${a.netCheckoutPrice.toFixed(2)} out of pocket).`;
+            }
+
+            // Separate Pending Rebate Note
+            if (a.rebate > 0 || b.rebate > 0) {
+                rebateNoteEl.innerText = `Separate Pending Rebate Estimate: If your post-purchase app rebates are approved and paid out, Option A is estimated at $${a.rebateUnit.toFixed(3)} / ${unitName} and Option B is estimated at $${b.rebateUnit.toFixed(3)} / ${unitName}.`;
+                rebateNoteEl.classList.remove('hidden');
+            } else {
+                rebateNoteEl.innerText = '';
+                rebateNoteEl.classList.add('hidden');
+            }
+        }
+
+        function loadSample(scenario) {
+            if (scenario === 'pasta') {
+                setUnitType('weight');
+                document.getElementById('a-price').value = '1.99';
+                document.getElementById('a-size').value = '16';
+                document.getElementById('a-unit').value = 'oz';
+                document.getElementById('a-coupon').value = '0.50';
+                document.getElementById('a-rebate').value = '0.25';
+
+                document.getElementById('b-price').value = '3.48';
+                document.getElementById('b-size').value = '2';
+                document.getElementById('b-unit').value = 'lb';
+                document.getElementById('b-coupon').value = '0.00';
+                document.getElementById('b-rebate').value = '0.00';
+            } else if (scenario === 'juice') {
+                setUnitType('volume');
+                document.getElementById('a-price').value = '3.99';
+                document.getElementById('a-size').value = '64';
+                document.getElementById('a-unit').value = 'floz';
+                document.getElementById('a-coupon').value = '1.00';
+                document.getElementById('a-rebate').value = '0.00';
+
+                document.getElementById('b-price').value = '6.49';
+                document.getElementById('b-size').value = '1';
+                document.getElementById('b-unit').value = 'gal';
+                document.getElementById('b-coupon').value = '0.00';
+                document.getElementById('b-rebate').value = '0.00';
+            } else if (scenario === 'paper') {
+                setUnitType('paper');
+                document.getElementById('a-price').value = '8.99';
+                document.getElementById('a-size').value = '720';
+                document.getElementById('a-unit').value = 'sheets';
+                document.getElementById('a-coupon').value = '1.00';
+                document.getElementById('a-rebate').value = '0.00';
+
+                document.getElementById('b-price').value = '13.99';
+                document.getElementById('b-size').value = '1020';
+                document.getElementById('b-unit').value = 'sheets';
+                document.getElementById('b-coupon').value = '0.00';
+                document.getElementById('b-rebate').value = '0.00';
             }
             runComparison();
         }
 
-        function runComparison() {
-            const aPrice = parseFloat(document.getElementById('a-price').value) || 0;
-            const aSize = parseFloat(document.getElementById('a-size').value) || 0;
-            const aCoupon = parseFloat(document.getElementById('a-coupon').value) || 0;
-            const aUnit = document.getElementById('a-unit').value;
-
-            const bPrice = parseFloat(document.getElementById('b-price').value) || 0;
-            const bSize = parseFloat(document.getElementById('b-size').value) || 0;
-            const bCoupon = parseFloat(document.getElementById('b-coupon').value) || 0;
-            const bUnit = document.getElementById('b-unit').value;
-
-            const banner = document.getElementById('verdict-banner');
-            const verdictTitle = document.getElementById('verdict-title');
-            const verdictText = document.getElementById('verdict-text');
-            const verdictTag = document.getElementById('verdict-tag');
-
-            // Convert Option A to base unit
-            let aBaseQty = aSize;
-            let aBaseUnitName = "oz";
-            if (currentUnitType === 'weight') {
-                aBaseQty = aUnit === 'lb' ? aSize * 16 : aSize;
-                aBaseUnitName = "oz";
-            } else if (currentUnitType === 'volume') {
-                aBaseQty = aUnit === 'gal' ? aSize * 128 : aSize;
-                aBaseUnitName = "fl oz";
-            } else {
-                aBaseQty = aSize;
-                aBaseUnitName = "item";
-            }
-
-            // Convert Option B to base unit
-            let bBaseQty = bSize;
-            let bBaseUnitName = aBaseUnitName;
-            if (currentUnitType === 'weight') {
-                bBaseQty = bUnit === 'lb' ? bSize * 16 : bSize;
-            } else if (currentUnitType === 'volume') {
-                bBaseQty = bUnit === 'gal' ? bSize * 128 : bSize;
-            } else {
-                bBaseQty = bSize;
-            }
-
-            const aNetPrice = Math.max(0, aPrice - aCoupon);
-            const bNetPrice = Math.max(0, bPrice - bCoupon);
-
-            const aUnitCost = (aBaseQty > 0 && aNetPrice > 0) ? (aNetPrice / aBaseQty) : 0;
-            const bUnitCost = (bBaseQty > 0 && bNetPrice > 0) ? (bNetPrice / bBaseQty) : 0;
-
-            document.getElementById('a-result').innerText = aUnitCost > 0 ? `$${aUnitCost.toFixed(3)} / ${aBaseUnitName}` : `$0.000 / ${aBaseUnitName}`;
-            document.getElementById('b-result').innerText = bUnitCost > 0 ? `$${bUnitCost.toFixed(3)} / ${bBaseUnitName}` : `$0.000 / ${bBaseUnitName}`;
-
-            if (aUnitCost > 0 && bUnitCost > 0) {
-                banner.classList.remove('hidden');
-                if (aUnitCost < bUnitCost) {
-                    const diffPct = (((bUnitCost - aUnitCost) / bUnitCost) * 100).toFixed(1);
-                    const diffAmt = (bUnitCost - aUnitCost).toFixed(3);
-                    banner.className = "mt-6 p-4 rounded-2xl text-center border-2 border-emerald-400 bg-emerald-50 fade-in";
-                    verdictTag.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded-full mb-1 inline-block bg-emerald-600 text-white";
-                    verdictTitle.innerText = `Option A is ${diffPct}% Cheaper`;
-                    verdictText.innerText = `Option A saves you $${diffAmt} per ${aBaseUnitName} compared to Option B.`;
-                } else if (bUnitCost < aUnitCost) {
-                    const diffPct = (((aUnitCost - bUnitCost) / aUnitCost) * 100).toFixed(1);
-                    const diffAmt = (aUnitCost - bUnitCost).toFixed(3);
-                    banner.className = "mt-6 p-4 rounded-2xl text-center border-2 border-emerald-400 bg-emerald-50 fade-in";
-                    verdictTag.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded-full mb-1 inline-block bg-emerald-600 text-white";
-                    verdictTitle.innerText = `Option B is ${diffPct}% Cheaper`;
-                    verdictText.innerText = `Option B saves you $${diffAmt} per ${aBaseUnitName} compared to Option A.`;
-                } else {
-                    banner.className = "mt-6 p-4 rounded-2xl text-center border-2 border-gray-300 bg-gray-50 fade-in";
-                    verdictTag.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded-full mb-1 inline-block bg-gray-600 text-white";
-                    verdictTitle.innerText = "Both Options Cost the Exact Same";
-                    verdictText.innerText = `Both options have an identical unit cost of $${aUnitCost.toFixed(3)} per ${aBaseUnitName}.`;
-                }
-            } else {
-                banner.classList.add('hidden');
-            }
+        function resetCalculator() {
+            ['a', 'b'].forEach(p => {
+                document.getElementById(`${p}-price`).value = '';
+                document.getElementById(`${p}-size`).value = '';
+                document.getElementById(`${p}-coupon`).value = '';
+                document.getElementById(`${p}-rebate`).value = '';
+            });
+            runComparison();
         }
     </script>
 </body>

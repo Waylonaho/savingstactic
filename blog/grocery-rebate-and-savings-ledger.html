@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Rebate & Savings Ledger: Track Pending Cashback vs. Real Cost (2026)</title>
+    <meta name="description" content="Free interactive grocery rebate ledger and 3-store price comparison chart. Separate instant register coupons from pending Ibotta or Fetch rebates without counting unpaid cash.">
+    <link rel="canonical" href="https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Structured Data: WebApplication + Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html#ledger",
+          "url": "https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html",
+          "name": "Household Grocery Rebate & Out-of-Pocket Savings Ledger",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Client-side household grocery ledger that separates verified checkout coupon savings from pending, approved, paid, or reversed rebate app balances."
+        },
+        {
+          "@type": "Article",
+          "headline": "How to Track Grocery Rebates Without Counting Money You Haven't Received",
+          "author": {
+            "@type": "Organization",
+            "name": "Savings Tactic Editorial Team",
+            "url": "https://www.savingstactic.com/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Savings Tactic",
+            "url": "https://www.savingstactic.com/"
+          },
+          "datePublished": "2026-10-28",
+          "dateModified": "2026-10-28"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
+            </a>
+            <nav aria-label="Breadcrumb" class="text-xs font-semibold text-gray-500 flex items-center space-x-2">
+                <a href="/" class="hover:text-blue-600">Home</a>
+                <span>/</span>
+                <a href="/blog/free-grocery-price-book-template.html" class="hover:text-blue-600">Price-Book Tools</a>
+                <span>/</span>
+                <span class="text-gray-900">Rebate & Savings Ledger</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
+
+        <!-- Hero Section -->
+        <div class="space-y-3 text-center max-w-2xl mx-auto">
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Free Privacy-First Utility</span>
+            <h1 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+                Household Rebate & Savings Ledger: Separate Checkout Cost From Pending Cashback
+            </h1>
+            <p class="text-xs md:text-sm text-gray-600">
+                Stop counting pending app rebates as money in the bank before they clear. Log your grocery trips below to separate <strong>verified register discounts</strong> from <strong>pending, paid, or reversed cashback</strong>.
+            </p>
+        </div>
+
+        <!-- MVP 4: INTERACTIVE REBATE & SAVINGS LEDGER -->
+        <section class="bg-white border-2 border-emerald-500 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-200 pb-4">
+                <div>
+                    <h2 class="text-lg font-black text-gray-900">Interactive Household Rebate Ledger</h2>
+                    <p class="text-[11px] text-gray-500">100% Private: Data is stored only in your browser's local storage. No receipts or account logins required.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="exportLedgerCSV()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs py-2 px-3 rounded-lg border border-gray-300 transition">Export CSV ↓</button>
+                    <button onclick="clearLedger()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs py-2 px-3 rounded-lg border border-rose-200 transition">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Summary KPI Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-3">
+                    <span class="text-[10px] font-bold uppercase text-gray-500 block">Out-of-Pocket Paid</span>
+                    <span id="kpi-oop" class="text-lg font-black text-gray-900">$0.00</span>
+                    <span class="text-[10px] text-gray-400 block">Shelf minus instant coupons</span>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+                    <span class="text-[10px] font-bold uppercase text-emerald-800 block">Instant Register Saved</span>
+                    <span id="kpi-instant" class="text-lg font-black text-emerald-700">$0.00</span>
+                    <span class="text-[10px] text-emerald-600 block">Verified at checkout</span>
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                    <span class="text-[10px] font-bold uppercase text-amber-800 block">Pending App Rebates</span>
+                    <span id="kpi-pending" class="text-lg font-black text-amber-700">$0.00</span>
+                    <span class="text-[10px] text-amber-600 block">Not yet withdrawable</span>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-3">
+                    <span class="text-[10px] font-bold uppercase text-blue-800 block">Cleared / Paid Rebates</span>
+                    <span id="kpi-paid" class="text-lg font-black text-blue-700">$0.00</span>
+                    <span class="text-[10px] text-blue-600 block">Confirmed cash/gift card</span>
+                </div>
+            </div>
+
+            <!-- Add Entry Form -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-3">
+                <h3 class="text-xs font-extrabold uppercase text-gray-700">Add Purchase & Rebate Item</h3>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-2.5 text-xs">
+                    <input type="text" id="led-store" placeholder="Store (e.g. Walmart)" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                    <input type="text" id="led-item" placeholder="Item (e.g. Tide 42ct)" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                    <input type="number" id="led-shelf" placeholder="Shelf Price ($)" step="0.01" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                    <input type="number" id="led-coupon" placeholder="Instant Coupon ($)" step="0.01" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                    <input type="number" id="led-rebate" placeholder="App Rebate ($)" step="0.01" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                    <select id="led-status" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
+                        <option value="Pending">Submitted / Pending</option>
+                        <option value="Paid">Approved & Paid</option>
+                        <option value="Reversed">Reversed / Rejected</option>
+                    </select>
+                </div>
+                <button onclick="addLedgerItem()" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-5 rounded-xl transition shadow-sm">
+                    + Record Transaction Line
+                </button>
+            </div>
+
+            <!-- Ledger Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-xl text-left text-xs">
+                    <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
+                        <tr>
+                            <th class="py-2.5 px-3">Store & Item</th>
+                            <th class="py-2.5 px-3">Shelf ($)</th>
+                            <th class="py-2.5 px-3">Instant Coupon</th>
+                            <th class="py-2.5 px-3">Register OOP</th>
+                            <th class="py-2.5 px-3">Rebate Amt</th>
+                            <th class="py-2.5 px-3">Rebate Status</th>
+                            <th class="py-2.5 px-3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-body" class="divide-y divide-gray-200 text-gray-700">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Opportunity #36: 3-Store Price Comparison Chart & Worked Example -->
+        <article class="bg-white rounded-2xl border border-gray-200 p-6 md:p-10 space-y-8 text-sm text-gray-700 leading-relaxed">
+            
+            <div class="space-y-3">
+                <h2 class="text-xl font-extrabold text-gray-900">1. Why You Should Never Subtract Pending Rebates From Your Grocery Budget Upfront</h2>
+                <p>
+                    A major budgeting trap in grocery couponing is treating a pending app rebate as an immediate register discount. When you buy a $12.99 item with a $2.00 digital store coupon and submit your receipt for a $3.00 cashback offer, you still pay <strong>$10.99 out of pocket at the register</strong>.
+                </p>
+                <ul class="list-disc pl-5 space-y-1.5">
+                    <li><strong>Payout Threshold Locks:</strong> Per <a href="https://home.ibotta.com/terms" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's official terms of use</a> (checked October 28, 2026), users must accumulate at least <strong>$20.00 in verified earnings</strong> before withdrawing cash or gift cards. Meanwhile, <a href="https://fetch.com/terms-of-service" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Fetch's terms of service</a> (checked October 28, 2026) state that point minimums, eligible receipts, and available reward redemptions vary by account and offer—there is no universal fixed dollar guarantee on every receipt.</li>
+                    <li><strong>Offer Overlap Reversals:</strong> If you clip both Walmart Cash and an Ibotta offer on the same item, <a href="https://help.ibotta.com/" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's Walmart policy</a> states the manufacturer offer pays only once and overlapping redemptions can reverse the pending Ibotta credit.</li>
+                    <li><strong>Return Clawbacks:</strong> Returning an item from a bundled threshold trip can reverse your reward progress, as detailed in our <a href="/blog/what-happens-to-target-circle-bonus-when-you-return.html" class="text-blue-600 font-semibold hover:underline">Target Circle Return Policy Breakdown</a>.</li>
+                </ul>
+            </div>
+
+            <!-- Opportunity #36: 3-Store Comparison Grid -->
+            <div class="space-y-4 border-t border-gray-100 pt-6">
+                <h2 class="text-xl font-extrabold text-gray-900">2. How to Compare Grocery Prices Across Three Stores on One Trip</h2>
+                <p>
+                    When comparing prices across a discount grocer (like ALDI), a supercenter (like Walmart), and a promotional supermarket or wholesale club, package weights rarely match. To compare three stores fairly, normalize every item to the exact same base unit (ounces, pounds, or sheet count) before factoring in instant coupons.
+                </p>
+                <p class="text-xs text-gray-500 italic">
+                    Note: The table below is a worked mathematical illustration showing how to normalize different package sizes across three stores on a single date (October 28, 2026)—it is a calculation method example, not a guarantee of current local shelf prices in your region.
+                </p>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
+                        <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
+                            <tr>
+                                <th class="py-3 px-3">Item & Base Unit</th>
+                                <th class="py-3 px-3">Store A (Discount Grocer)</th>
+                                <th class="py-3 px-3">Store B (Supercenter)</th>
+                                <th class="py-3 px-3">Store C (Promo + Coupon)</th>
+                                <th class="py-3 px-3">Lowest Unit Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-700">
+                            <tr class="hover:bg-white">
+                                <td class="py-3 px-3 font-bold text-gray-900">Shredded Cheddar<br><span class="text-[10px] font-normal text-gray-500">Normalized per oz</span></td>
+                                <td class="py-3 px-3">12 oz @ $2.69<br><strong class="text-gray-900">$0.224 / oz</strong></td>
+                                <td class="py-3 px-3">16 oz @ $3.78<br><strong class="text-gray-900">$0.236 / oz</strong></td>
+                                <td class="py-3 px-3">8 oz @ $2.50 − $0.75 cpn<br><strong class="text-emerald-700">$0.219 / oz</strong></td>
+                                <td class="py-3 px-3 font-bold text-emerald-700">Store C ($0.219/oz)</td>
+                            </tr>
+                            <tr class="hover:bg-white">
+                                <td class="py-3 px-3 font-bold text-gray-900">Dry Spaghetti<br><span class="text-[10px] font-normal text-gray-500">Normalized per oz</span></td>
+                                <td class="py-3 px-3">16 oz @ $0.99<br><strong class="text-gray-900">$0.062 / oz</strong></td>
+                                <td class="py-3 px-3">32 oz @ $1.92<br><strong class="text-gray-900">$0.060 / oz</strong></td>
+                                <td class="py-3 px-3">16 oz BOGO ($1.99 for 2)<br><strong class="text-emerald-700">$0.062 / oz</strong></td>
+                                <td class="py-3 px-3 font-bold text-emerald-700">Store B ($0.060/oz)</td>
+                            </tr>
+                            <tr class="hover:bg-white">
+                                <td class="py-3 px-3 font-bold text-gray-900">Liquid Detergent<br><span class="text-[10px] font-normal text-gray-500">Normalized per load</span></td>
+                                <td class="py-3 px-3">64 loads @ $6.49<br><strong class="text-gray-900">$0.101 / load</strong></td>
+                                <td class="py-3 px-3">100 loads @ $11.97<br><strong class="text-gray-900">$0.120 / load</strong></td>
+                                <td class="py-3 px-3">84 loads @ $12.99 − $4 cpn<br><strong class="text-emerald-700">$0.107 / load</strong></td>
+                                <td class="py-3 px-3 font-bold text-emerald-700">Store A ($0.101/load)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-2">
+                    Want to run side-by-side package math in the aisle? Open our <a href="/blog/grocery-unit-price-calculator.html" class="text-emerald-700 font-bold hover:underline">Grocery Unit Price Calculator</a> or check our <a href="/blog/how-to-calculate-shrinkflation.html" class="text-emerald-700 font-bold hover:underline">Shrinkflation Formula Guide</a>.
+                </p>
+            </div>
+
+            <!-- Opportunity #33: Honest Comparison of Free Printable vs Paid Spreadsheet -->
+            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-400 rounded-2xl p-6 space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase"> Printable PDF vs. Editable Workbook</span>
+                        <h3 class="text-lg font-black text-gray-900">Which Price-Book Format Fits Your Workflow?</h3>
+                        <p class="text-xs text-gray-700 max-w-xl leading-relaxed">
+                            Our <strong>Free 12-Page Printable PDF</strong> is ideal if you prefer writing store prices by hand on a clipboard. If you want pre-built Google Sheets/Excel formulas that automatically divide package units and calculate the CVS 98% spend rule on your phone, you can purchase our pre-formatted 4-tab spreadsheet for $7.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
+                        <a href="/blog/free-grocery-price-book-template.html" class="bg-white hover:bg-gray-100 text-emerald-800 border border-emerald-400 font-bold text-xs py-2.5 px-4 rounded-xl text-center transition">
+                            Get Free Printable PDF →
+                        </a>
+                        <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-4 rounded-xl text-center shadow-sm transition">
+                            Buy Editable Workbook ($7) →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                <strong>Editorial & Product Disclosure:</strong> SavingsTactic.com provides free web calculators and sells an optional editable spreadsheet template via Gumroad. Local ledger entries remain stored in your browser and are never transmitted to our servers.
+            </p>
+            <div class="flex justify-center space-x-6 text-xs text-gray-500">
+                <a href="/" class="hover:underline font-semibold">Home</a>
+                <span>•</span>
+                <a href="/privacy.html" class="hover:underline font-semibold">Privacy Policy</a>
+                <span>•</span>
+                <a href="/terms.html" class="hover:underline font-semibold">Terms of Service</a>
+            </div>
+            <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LocalStorage Ledger Engine -->
+    <script>
+        const STORAGE_KEY = 'st_household_rebate_ledger_v1';
+
+        const defaultEntries = [
+            { store: 'Walmart', item: 'Tide Pods 42ct (Sample)', shelf: 14.99, coupon: 3.00, rebate: 2.50, status: 'Pending' },
+            { store: 'CVS', item: 'Crest Toothpaste (Sample)', shelf: 4.99, coupon: 2.00, rebate: 1.00, status: 'Paid' }
+        ];
+
+        function loadLedger() {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultEntries));
+                return defaultEntries;
+            }
+            try {
+                return JSON.parse(raw);
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveLedger(entries) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+            renderLedger();
+        }
+
+        function renderLedger() {
+            const entries = loadLedger();
+            const tbody = document.getElementById('ledger-body');
+            tbody.innerHTML = '';
+
+            let totalOOP = 0;
+            let totalInstant = 0;
+            let totalPending = 0;
+            let totalPaid = 0;
+
+            entries.forEach((entry, idx) => {
+                const shelf = parseFloat(entry.shelf) || 0;
+                const coupon = parseFloat(entry.coupon) || 0;
+                const rebate = parseFloat(entry.rebate) || 0;
+                const oop = Math.max(0, shelf - coupon);
+
+                totalOOP += oop;
+                totalInstant += coupon;
+                if (entry.status === 'Pending') totalPending += rebate;
+                if (entry.status === 'Paid') totalPaid += rebate;
+
+                let statusBadge = '';
+                if (entry.status === 'Pending') {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-[10px]">Pending</span>`;
+                } else if (entry.status === 'Paid') {
+                    statusBadge = `<span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded text-[10px]">Paid ✓</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded text-[10px]">Reversed</span>`;
+                }
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="py-2.5 px-3 font-bold text-gray-900">${entry.store}: ${entry.item}</td>
+                    <td class="py-2.5 px-3">$${shelf.toFixed(2)}</td>
+                    <td class="py-2.5 px-3 text-emerald-700 font-semibold">-$${coupon.toFixed(2)}</td>
+                    <td class="py-2.5 px-3 font-bold text-gray-900">$${oop.toFixed(2)}</td>
+                    <td class="py-2.5 px-3 font-semibold">$${rebate.toFixed(2)}</td>
+                    <td class="py-2.5 px-3">
+                        <button onclick="cycleStatus(${idx})" title="Click to toggle status">${statusBadge}</button>
+                    </td>
+                    <td class="py-2.5 px-3">
+                        <button onclick="deleteEntry(${idx})" class="text-rose-600 hover:underline font-bold">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('kpi-oop').innerText = `$${totalOOP.toFixed(2)}`;
+            document.getElementById('kpi-instant').innerText = `$${totalInstant.toFixed(2)}`;
+            document.getElementById('kpi-pending').innerText = `$${totalPending.toFixed(2)}`;
+            document.getElementById('kpi-paid').innerText = `$${totalPaid.toFixed(2)}`;
+        }
+
+        function addLedgerItem() {
+            const store = document.getElementById('led-store').value.trim() || 'Store';
+            const item = document.getElementById('led-item').value.trim() || 'Grocery Item';
+            const shelf = parseFloat(document.getElementById('led-shelf').value) || 0;
+            const coupon = parseFloat(document.getElementById('led-coupon').value) || 0;
+            const rebate = parseFloat(document.getElementById('led-rebate').value) || 0;
+            const status = document.getElementById('led-status').value;
+
+            if (shelf <= 0) return;
+
+            const entries = loadLedger();
+            entries.push({ store, item, shelf, coupon, rebate, status });
+            saveLedger(entries);
+
+            document.getElementById('led-store').value = '';
+            document.getElementById('led-item').value = '';
+            document.getElementById('led-shelf').value = '';
+            document.getElementById('led-coupon').value = '';
+            document.getElementById('led-rebate').value = '';
+        }
+
+        function cycleStatus(idx) {
+            const entries = loadLedger();
+            const order = ['Pending', 'Paid', 'Reversed'];
+            const currentIdx = order.indexOf(entries[idx].status);
+            entries[idx].status = order[(currentIdx + 1) % order.length];
+            saveLedger(entries);
+        }
+
+        function deleteEntry(idx) {
+            const entries = loadLedger();
+            entries.splice(idx, 1);
+            saveLedger(entries);
+        }
+
+        function clearLedger() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+            renderLedger();
+        }
+
+        function exportLedgerCSV() {
+            const entries = loadLedger();
+            let csv = 'Store,Item,Shelf Price,Instant Coupon,Register OOP,Rebate Amount,Rebate Status\n';
+            entries.forEach(e => {
+                const oop = Math.max(0, (parseFloat(e.shelf) || 0) - (parseFloat(e.coupon) || 0)).toFixed(2);
+                csv += `"${e.store}","${e.item}",${e.shelf},${e.coupon},${oop},${e.rebate},${e.status}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'savingstactic-rebate-ledger.csv');
+            a.click();
+        }
+
+        window.addEventListener('DOMContentLoaded', renderLedger);
+    </script>
+</body>
+</html>

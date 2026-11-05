@@ -1,0 +1,17 @@
+name: Broken Link Checker
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs automatically every Monday
+  workflow_dispatch: # Allows you to run it manually from the Actions tab anytime
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check Links
+        uses: gaurav-nelson/github-action-link-checker@v1
+        with:
+          folder_path: '.'
+          exclude_file_paths: 'sitemap.xml'

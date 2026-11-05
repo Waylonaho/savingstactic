@@ -1,0 +1,33 @@
+name: Automated Sitemap Generator
+
+on:
+  push:
+    branches:
+      - main  # Change to 'master' if your default branch is master
+    paths:
+      - 'blog/**'  # Triggers whenever any file in the blog folder is edited/added
+
+permissions:
+  contents: write
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Sitemap Generator Script
+        run: python generate_sitemap.py
+
+      - name: Commit and Push Sitemap Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update sitemap.xml lastmod timestamps [skip ci]" && git push)

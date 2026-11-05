@@ -1,0 +1,21 @@
+name: Weekly Repository Backup
+on:
+  schedule:
+    - cron: '0 2 * * 0' # Every Sunday at 2 AM
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create ZIP Archive
+        run: zip -r savingstactic-backup-$(date +%Y-%m-%d).zip . -x ".git/*"
+
+      - name: Upload Backup Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-site-backup
+          path: '*.zip'

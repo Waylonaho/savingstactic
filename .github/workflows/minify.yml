@@ -1,0 +1,30 @@
+name: HTML Minifier
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Minify HTML Files
+        uses: nogic108/html-minifier-action@v3
+        with:
+          input_folder: '.'
+          exclude_files: |
+            sitemap.xml
+          options: |
+            {
+              "removeComments": true,
+              "collapseWhitespace": true,
+              "minifyJS": true,
+              "minifyCSS": true
+            }
+
+      - name: Commit Minified Files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-minify HTML files for performance [skip ci]"

@@ -1,0 +1,21 @@
+name: Automated Google Indexing
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/**'
+      - 'sitemap.xml'
+
+jobs:
+  index-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Push to Google Indexing API
+        uses: robingenz/action-google-indexing@v1
+        with:
+          siteUrl: 'https://www.savingstactic.com/'
+          credentialsJson: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}

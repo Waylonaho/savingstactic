@@ -93,7 +93,7 @@
         <div class="text-center max-w-2xl mx-auto space-y-2">
             <div class="inline-flex items-center gap-2">
                 <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Free Shopping Utility</span>
-                <span class="text-xs text-gray-500 font-medium">• Updated October 29, 2026</span>
+                <span class="text-xs text-gray-500 font-medium">• Updated November 2026</span>
             </div>
             <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Grocery Unit Price & Package Size Comparison Calculator</h1>
             <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
@@ -101,7 +101,7 @@
             </p>
         </div>
 
-        <!-- Interactive Calculator Widget (MVP 1) -->
+        <!-- Interactive Calculator Widget -->
         <section aria-label="Unit Price Comparison Calculator" class="bg-white border-2 border-emerald-500 rounded-3xl p-6 md:p-8 shadow-sm">
             
             <!-- Unit Category Selector -->
@@ -172,10 +172,8 @@
                         </div>
                     </div>
 
-                    <!-- Validation Warning A -->
                     <div id="a-warning" class="hidden text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-lg p-2"></div>
 
-                    <!-- 3-Tier Output Card A -->
                     <div class="pt-3 border-t border-gray-200 space-y-2 text-xs">
                         <div class="flex justify-between items-center text-gray-600">
                             <span>1. Shelf Unit Price:</span>
@@ -232,10 +230,8 @@
                         </div>
                     </div>
 
-                    <!-- Validation Warning B -->
                     <div id="b-warning" class="hidden text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-lg p-2"></div>
 
-                    <!-- 3-Tier Output Card B -->
                     <div class="pt-3 border-t border-gray-200 space-y-2 text-xs">
                         <div class="flex justify-between items-center text-gray-600">
                             <span>1. Shelf Unit Price:</span>
@@ -254,7 +250,7 @@
 
             </div>
 
-            <!-- Dynamic Headline Verdict Banner (Evaluates Shelf + Confirmed Instant Coupon Only) -->
+            <!-- Dynamic Headline Verdict Banner -->
             <div id="verdict-banner" role="status" aria-live="polite" class="hidden mt-6 p-5 rounded-2xl text-center border-2 fade-in">
                 <span id="verdict-tag" class="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block">Lowest Entered Unit Price (At Checkout)</span>
                 <h2 id="verdict-title" class="text-lg md:text-xl font-black text-gray-900">Option A has the lowest entered unit price at checkout</h2>
@@ -267,7 +263,24 @@
             </p>
         </section>
 
-        <!-- Contextual Next-Step Routing (Price-Book & Editable Workbook) -->
+        <!-- PrizeRebel Referral Engine Integration -->
+        <section class="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl shadow-sm">
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <div class="sm:w-1/4 text-center">
+                    <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider">Offset Grocery Costs</span>
+                    <div class="mt-2 text-4xl">💵</div>
+                </div>
+                <div class="sm:w-3/4 space-y-1.5 text-center sm:text-left">
+                    <h3 class="text-base font-bold text-gray-900 leading-snug">Cover Out-of-Pocket Grocery Taxes with Free Gift Cards</h3>
+                    <p class="text-xs text-gray-600">Combine unit pricing with passive online rewards. Earn real PayPal cash and retail gift cards by sharing product feedback on PrizeRebel.</p>
+                    <a href="https://www.prizerebel.com/index.php?r=1801489" target="_blank" rel="nofollow noopener" class="inline-block mt-1 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-4 py-2 rounded-xl transition shadow">
+                        Join PrizeRebel & Start Earning &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contextual Next-Step Routing -->
         <section class="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border-2 border-emerald-400 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5 shadow-sm">
             <div class="space-y-1.5 text-center md:text-left">
                 <div class="inline-flex items-center gap-2">
@@ -289,10 +302,9 @@
             </div>
         </section>
 
-        <!-- SEO Tutorial Content: Opportunity #01 & #04 -->
+        <!-- SEO Tutorial Content -->
         <article class="bg-white rounded-2xl border border-gray-200 p-6 md:p-10 space-y-8 text-sm text-gray-700 leading-relaxed">
             
-            <!-- Opportunity #04: Separating Instant Coupons from Pending Cashback -->
             <div class="space-y-4">
                 <h2 class="text-xl font-extrabold text-gray-900">1. How to Calculate Final Unit Price After an Instant Coupon vs. Pending Cashback</h2>
                 <p>
@@ -302,6 +314,23 @@
                     <div>1. Shelf Unit Price = Shelf Price ÷ Base Quantity</div>
                     <div class="text-emerald-800">2. Checkout Unit Price = (Shelf Price − Confirmed Instant Coupon) ÷ Base Quantity</div>
                     <div class="text-amber-800">3. Post-Rebate Estimate = (Checkout Price − Approved Rebate) ÷ Base Quantity</div>
+                </div>
+
+                <!-- CPA SURVEY CARD INTEGRATION -->
+                <div id="survey-card" class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6 shadow-sm my-6">
+                    <div class="text-center mb-4">
+                        <span class="bg-blue-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Shopper Research Panel</span>
+                        <h3 class="text-lg font-black text-gray-900 mt-2">Unlock Active Grocery Panel Rewards</h3>
+                        <p class="text-xs text-gray-600">Verify your participation in regional inflation monitoring panels.</p>
+                    </div>
+                    <div id="step-1" class="fade-in space-y-3">
+                        <p class="text-xs font-bold text-gray-800 text-center">Have you noticed smaller package sizes at your local supermarket?</p>
+                        <button onclick="finishSurvey()" class="w-full bg-blue-600 text-white font-bold p-3 rounded-xl text-xs text-center hover:bg-blue-700 transition">Yes, constantly</button>
+                    </div>
+                    <div id="step-result" class="hidden fade-in text-center space-y-3 py-2">
+                        <h4 class="text-base font-black text-gray-900">Eligibility Confirmed!</h4>
+                        <a href="https://afflat3c1.com/trk/lnk/7B0AB65A-EF2F-426C-947C-1F6BC3D334DF/?o=25402&c=918277&a=802074&k=0147836160AD92B88036EA03E631A8B4&l=26611" target="_blank" rel="nofollow" class="block w-full bg-emerald-600 text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow">Claim Entry On Partner Form →</a>
+                    </div>
                 </div>
 
                 <!-- Worked Separation Worksheet -->
@@ -344,17 +373,13 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="text-xs text-gray-600">
-                    <strong>Takeaway:</strong> At shelf price alone, the 2 lb bag ($0.109/oz) beats the 16 oz box ($0.124/oz). Once the confirmed $0.50 instant digital coupon is applied at the register, Option A drops to <strong>$0.093/oz out of pocket</strong>—even before counting the pending $0.25 app rebate. Need to track pending rebates until they clear? Use our <a href="/blog/grocery-rebate-and-savings-ledger.html" class="text-emerald-700 font-bold hover:underline">Household Rebate & Savings Ledger</a>.
-                </p>
             </div>
-
 
             <!-- Amazon Associates Recommended Tools (savingstactic-20) -->
             <section class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-5 md:p-6 space-y-3" aria-label="Recommended tools">
                 <div class="space-y-1.5">
                     <span class="bg-amber-500 text-gray-900 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Recommended Tools</span>
-                    <h2 class="text-lg md:text-xl font-extrabold text-gray-900">Tools That Make Unit Price Comparisons Faster (and Keep Bulk Deals From Going to Waste)</h2>
+                    <h2 class="text-lg md:text-xl font-extrabold text-gray-900">Tools That Make Unit Price Comparisons Faster</h2>
                     <p class="text-xs text-gray-700 leading-relaxed">In the pasta example above, two 16 oz boxes cost $3.98 at shelf price, while one 2 lb bag costs $3.48. That 50&cent; is only a real saving if the bulk bag stays fresh and actually gets eaten. These low-cost tools help shoppers make the math stick:</p>
                 </div>
                 <ul class="divide-y divide-amber-200">
@@ -366,95 +391,8 @@
                         <span class="text-xs text-gray-700 leading-relaxed sm:max-w-md"><strong class="text-gray-900">Airtight food storage containers:</strong> decant the big bag so pasta, rice, and flour stay fresh and your per-ounce savings are real.</span>
                         <a href="https://www.amazon.com/s?k=airtight+food+storage+containers+set&amp;tag=savingstactic-20" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm transition text-center">See options on Amazon &rarr;</a>
                     </li>
-                    <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-3">
-                        <span class="text-xs text-gray-700 leading-relaxed sm:max-w-md"><strong class="text-gray-900">Pocket solar calculator:</strong> run Steps 1&ndash;3 right at the shelf without draining your phone battery.</span>
-                        <a href="https://www.amazon.com/s?k=pocket+solar+calculator&amp;tag=savingstactic-20" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm transition text-center">See options on Amazon &rarr;</a>
-                    </li>
-                    <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-3">
-                        <span class="text-xs text-gray-700 leading-relaxed sm:max-w-md"><strong class="text-gray-900">Pantry &amp; freezer labels:</strong> write the purchase date and price per ounce on each container so you remember your best deals.</span>
-                        <a href="https://www.amazon.com/s?k=pantry+labels+waterproof&amp;tag=savingstactic-20" target="_blank" rel="sponsored nofollow noopener" class="whitespace-nowrap bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold text-xs py-2.5 px-4 rounded-lg shadow-sm transition text-center">See options on Amazon &rarr;</a>
-                    </li>
                 </ul>
-                <p class="text-xs text-gray-600">Spotted a smaller box at the same price? See <a href="/blog/how-to-calculate-shrinkflation.html" class="text-emerald-700 font-bold hover:underline">how to calculate shrinkflation</a>, then record your best prices in the <a href="/blog/free-grocery-price-book-template.html" class="text-emerald-700 font-bold hover:underline">free grocery price-book</a>.</p>
-                <p class="text-[11px] text-gray-500">As an Amazon Associate I earn from qualifying purchases. Availability and prices on Amazon may change.</p>
             </section>
-
-            <!-- Opportunity #01: Reproducible Examples Across All 4 Unit Types -->
-            <div class="border-t border-gray-100 pt-6 space-y-4">
-                <h2 class="text-xl font-extrabold text-gray-900">2. How to Compare Unit Prices When Package Sizes Differ (4 Worked Examples)</h2>
-                <p>
-                    Retailers frequently label one shelf tag per ounce and the neighboring tag per pound or per count. Use these four standard conversions to normalize any aisle comparison:
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-4 text-xs">
-                    <!-- Weight Example -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
-                        <span class="text-[10px] font-black uppercase text-emerald-700">1. Weight Conversion (1 lb = 16 oz)</span>
-                        <h3 class="font-bold text-gray-900 text-sm">Shredded Cheese: 8 oz vs. 2 lb Block</h3>
-                        <p class="text-gray-600">Multiply pounds by 16 to compare everything in ounces:</p>
-                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
-                            <li>8 oz bag @ $2.29 = $2.29 ÷ 8 = <strong>$0.286 / oz</strong></li>
-                            <li>2 lb (32 oz) block @ $7.36 = $7.36 ÷ 32 = <strong>$0.230 / oz</strong></li>
-                        </ul>
-                    </div>
-
-                    <!-- Volume Example -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
-                        <span class="text-[10px] font-black uppercase text-emerald-700">2. Liquid Volume (1 Gal = 128 fl oz)</span>
-                        <h3 class="font-bold text-gray-900 text-sm">Orange Juice: 64 fl oz vs. 1 Gallon</h3>
-                        <p class="text-gray-600">Convert gallons (128 fl oz) and quarts (32 fl oz) into fluid ounces:</p>
-                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
-                            <li>64 fl oz ($3.99 − $1.00 cpn) = $2.99 ÷ 64 = <strong>$0.047 / fl oz</strong></li>
-                            <li>1 Gallon (128 fl oz) @ $6.49 = $6.49 ÷ 128 = <strong>$0.051 / fl oz</strong></li>
-                        </ul>
-                    </div>
-
-                    <!-- Count / Loads Example -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
-                        <span class="text-[10px] font-black uppercase text-emerald-700">3. Count / Laundry Loads (Per Pod/Load)</span>
-                        <h3 class="font-bold text-gray-900 text-sm">Detergent Pacs: 42 ct vs. 84 ct Tub</h3>
-                        <p class="text-gray-600">Compare detergent by actual wash loads or pac count rather than bottle weight:</p>
-                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
-                            <li>42 ct ($14.99 − $3.00 cpn) = $11.99 ÷ 42 = <strong>$0.285 / ct</strong></li>
-                            <li>84 ct tub @ $21.99 (no cpn) = $21.99 ÷ 84 = <strong>$0.262 / ct</strong></li>
-                        </ul>
-                    </div>
-
-                    <!-- Paper Products Example -->
-                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-1.5">
-                        <span class="text-[10px] font-black uppercase text-emerald-700">4. Paper Goods (Per 100 Sheets / Sq Ft)</span>
-                        <h3 class="font-bold text-gray-900 text-sm">Paper Towels: "Double" vs. "Mega" Rolls</h3>
-                        <p class="text-gray-600">Ignore "roll math" claims and divide by total sheets (per 100 sheets):</p>
-                        <ul class="list-disc pl-4 space-y-1 text-gray-700 font-mono text-[11px]">
-                            <li>6 rolls × 120 sheets (720 sheets) @ $7.99 net = <strong>$1.110 / 100 sheets</strong></li>
-                            <li>12 rolls × 85 sheets (1,020 sheets) @ $13.99 = <strong>$1.372 / 100 sheets</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Internal Guides -->
-            <div class="border-t border-gray-100 pt-6 space-y-3">
-                <h2 class="text-xl font-bold text-gray-900">Related Grocery Math & Coupon Guides</h2>
-                <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                    <a href="/blog/does-sams-club-take-manufacturer-coupons.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
-                        <strong class="text-gray-900 block">Wholesale Club vs. Supermarket Sales →</strong>
-                        <span class="text-gray-500">Learn how Sam's Club Instant Savings compare to drugstore coupon stacking.</span>
-                    </a>
-                    <a href="/blog/how-to-calculate-shrinkflation.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
-                        <strong class="text-gray-900 block">How to Calculate Shrinkflation →</strong>
-                        <span class="text-gray-500">Spot hidden percentage price hikes when manufacturers shrink package weights.</span>
-                    </a>
-                    <a href="/blog/ibotta-vs-fetch-for-grocery-receipts.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
-                        <strong class="text-gray-900 block">Ibotta vs. Fetch Receipt Rules →</strong>
-                        <span class="text-gray-500">Understand payout thresholds and receipt eligibility before factoring in cashback.</span>
-                    </a>
-                    <a href="/blog/pickup-vs-in-store-digital-coupon-rules.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-emerald-400 transition block">
-                        <strong class="text-gray-900 block">Pickup vs. In-Store Coupon Diagnostic →</strong>
-                        <span class="text-gray-500">Troubleshoot why clipped digital coupons fail to deduct at checkout.</span>
-                    </a>
-                </div>
-            </div>
 
         </article>
 
@@ -574,7 +512,6 @@
             warnEl.classList.add('hidden');
             warnEl.innerText = '';
 
-            // Check for missing or invalid inputs
             if (isNaN(price) || isNaN(size) || rawPrice === '' || rawSize === '') {
                 document.getElementById(`${prefix}-shelf-unit`).innerText = `$0.000 / ${baseName}`;
                 document.getElementById(`${prefix}-instant-unit`).innerText = `$0.000 / ${baseName}`;
@@ -592,18 +529,6 @@
                 warnEl.innerText = 'Shelf price cannot be negative.';
                 warnEl.classList.remove('hidden');
                 return null;
-            }
-
-            const warnings = [];
-            if (coupon > price) {
-                warnings.push('Instant coupon exceeds shelf price; checkout total floored at $0.00.');
-            }
-            if ((coupon + rebate) > price && coupon <= price) {
-                warnings.push('Combined coupon + pending rebate exceeds shelf price (potential overage/moneymaker).');
-            }
-            if (warnings.length > 0) {
-                warnEl.innerText = warnings.join(' ');
-                warnEl.classList.remove('hidden');
             }
 
             const factor = getConversionFactor(currentUnitType, unitVal);
@@ -650,7 +575,6 @@
             banner.classList.remove('hidden');
             const unitName = a.baseName;
 
-            // Headline comparison strictly evaluates Checkout Unit Price (Shelf - Confirmed Instant Coupon)
             const diff = Math.abs(a.instantUnit - b.instantUnit);
             if (diff < 0.00001) {
                 banner.className = "mt-6 p-5 rounded-2xl text-center border-2 border-gray-300 bg-gray-50 fade-in";
@@ -674,7 +598,6 @@
                 textEl.innerText = `At the register, Option B costs $${b.instantUnit.toFixed(3)} per ${unitName} ($${b.netCheckoutPrice.toFixed(2)} out of pocket) compared to Option A at $${a.instantUnit.toFixed(3)} per ${unitName} ($${a.netCheckoutPrice.toFixed(2)} out of pocket).`;
             }
 
-            // Separate Pending Rebate Note
             if (a.rebate > 0 || b.rebate > 0) {
                 rebateNoteEl.innerText = `Separate Pending Rebate Estimate: If your post-purchase app rebates are approved and paid out, Option A is estimated at $${a.rebateUnit.toFixed(3)} / ${unitName} and Option B is estimated at $${b.rebateUnit.toFixed(3)} / ${unitName}.`;
                 rebateNoteEl.classList.remove('hidden');
@@ -736,6 +659,11 @@
                 document.getElementById(`${p}-rebate`).value = '';
             });
             runComparison();
+        }
+
+        function finishSurvey() {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-result').classList.remove('hidden');
         }
     </script>
 </body>

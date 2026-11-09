@@ -8,7 +8,7 @@ on:
       - 'blog/**'
       - '*.html'
   schedule:
-    - cron: '0 0 * * 0' # Runs automatically every Sunday at midnight
+    - cron: '0 0 * * 0' # Automatically runs every Sunday at midnight
   workflow_dispatch:
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Restore lychee cache
+      - name: Restore Lychee Cache
         uses: actions/cache@v4
         with:
           path: .lycheecache
@@ -27,17 +27,7 @@ jobs:
             ${{ runner.os }}-lychee-
 
       - name: Link Checker
-        id: lychee
         uses: lycheeverse/lychee-action@v2.3.0
         with:
           args: --verbose --no-progress './**/*.html'
-          fail: false # Set to true if you want the build to fail on broken links
-
-      - name: Create Issue From Broken Links
-        if: steps.lychee.outputs.exit_code != 0
-        uses: mshick/fast-workflow-failure-issue@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          title: "⚠️ Broken Links Detected in Site Files"
-          body: |
-            Broken link scan completed. Check the lychee step logs for details.
+          fail: false

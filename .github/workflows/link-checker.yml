@@ -1,17 +1,43 @@
 name: Broken Link Checker
+
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/**'
+      - '*.html'
   schedule:
-    - cron: '0 0 * * 1' # Runs automatically every Monday
-  workflow_dispatch: # Allows you to run it manually from the Actions tab anytime
+    - cron: '0 0 * * 0' # Runs automatically every Sunday at midnight
+  workflow_dispatch:
 
 jobs:
   check-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Check Links
-        uses: gaurav-nelson/github-action-link-checker@v1
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
         with:
-          folder_path: '.'
-          exclude_file_paths: 'sitemap.xml'
+          path: .lycheecache
+          key: ${{ runner.os }}-lychee-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-lychee-
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.3.0
+        with:
+          args: --verbose --no-progress './**/*.html'
+          fail: false # Set to true if you want the build to fail on broken links
+
+      - name: Create Issue From Broken Links
+        if: steps.lychee.outputs.exit_code != 0
+        uses: mshick/fast-workflow-failure-issue@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          title: "⚠️ Broken Links Detected in Site Files"
+          body: |
+            Broken link scan completed. Check the lychee step logs for details.

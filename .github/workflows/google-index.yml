@@ -1,4 +1,4 @@
-name: Automated Google Indexing
+name: Automated Search Engine Indexing (Google & IndexNow)
 
 on:
   push:
@@ -30,3 +30,6 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python google_index.py
+
+      - name: Run IndexNow Submission Script
+        run: python indexnow_index.py

@@ -1,11 +1,11 @@
-name: Automated Search Engine Indexing (Google & IndexNow)
+name: Smart Search Engine Indexing (Google & IndexNow)
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'blog/**'
+      - '**.html'
       - 'sitemap.xml'
   workflow_dispatch:
 
@@ -15,6 +15,23 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect Changed & Deleted HTML Files
+        id: git-changes
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            CHANGED=$(git diff --name-only --diff-filter=AMR HEAD~1 HEAD -- '*.html' | tr '\n' ' ')
+            DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- '*.html' | tr '\n' ' ')
+            echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+            echo "deleted=$DELETED" >> $GITHUB_OUTPUT
+            echo "Changed HTML: $CHANGED"
+            echo "Deleted HTML: $DELETED"
+          else
+            echo "changed=" >> $GITHUB_OUTPUT
+            echo "deleted=" >> $GITHUB_OUTPUT
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,7 +46,18 @@ jobs:
       - name: Run Google Indexing Script
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-        run: python google_index.py
+          CHANGED_FILES: ${{ steps.git-changes.outputs.changed }}
+          DELETED_FILES: ${{ steps.git-changes.outputs.deleted }}
+        run: |
+          export CHANGED_FILES=$(echo "$CHANGED_FILES" | tr ' ' '\n')
+          export DELETED_FILES=$(echo "$DELETED_FILES" | tr ' ' '\n')
+          python google_index.py
 
       - name: Run IndexNow Submission Script
-        run: python indexnow_index.py
+        env:
+          CHANGED_FILES: ${{ steps.git-changes.outputs.changed }}
+          DELETED_FILES: ${{ steps.git-changes.outputs.deleted }}
+        run: |
+          export CHANGED_FILES=$(echo "$CHANGED_FILES" | tr ' ' '\n')
+          export DELETED_FILES=$(echo "$DELETED_FILES" | tr ' ' '\n')
+          python indexnow_index.py

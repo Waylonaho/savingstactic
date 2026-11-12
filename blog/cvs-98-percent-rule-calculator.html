@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVS 98% Rule & Spend-Threshold Calculator (2026) | Savings Tactic</title>
+    <meta name="description" content="Free CVS 98% Rule & ExtraBucks Spend Calculator. Enter your cart items, store CRTs, and manufacturer coupons to check if your order triggers ExtraBucks before checkout.">
+    <link rel="canonical" href="https://www.savingstactic.com/blog/cvs-98-percent-rule-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CVS 98% Rule & ExtraBucks Spend-Threshold Calculator",
+          "operatingSystem": "All",
+          "applicationCategory": "FinanceApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Interactive calculator that computes CVS qualifying spend thresholds after store CRT deductions, manufacturer coupons, and the 98% purchase rule.",
+          "url": "https://www.savingstactic.com/blog/cvs-98-percent-rule-calculator.html",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Savings Tactic",
+            "url": "https://www.savingstactic.com/"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does the CVS 98% rule work on ExtraBucks spend deals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On most CVS registers, you only need to reach 98% of a 'Spend' threshold to trigger ExtraBucks. For example, on a 'Spend $30, Get $10 ExtraBucks' deal, a qualifying subtotal of $29.40 triggers the $10 reward."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do CVS CRT store coupons reduce my qualifying spend threshold?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. CVS store coupons (CRTs) and threshold coupons (like $4 off $20) deduct from your qualifying spend subtotal before the register checks if you met the ExtraBucks threshold. Manufacturer coupons and ExtraBucks do not reduce your spend total in-store."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I combine two CVS spend-based CRT coupons on the same items?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only if your qualifying subtotal covers the combined sum of both thresholds. For example, combining a $3 off $15 coupon and a $4 off $20 coupon requires $35.00 in qualifying items ($34.30 under the 98% rule)."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Sticky Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
+            </a>
+            <div class="flex items-center gap-4 text-xs font-bold">
+                <a href="/cvs/" class="text-rose-600 hover:text-rose-800 transition">CVS Hub</a>
+                <a href="/" class="text-blue-600 hover:text-blue-800 transition">← All Tools</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+
+        <!-- Hero Header -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-rose-100 text-rose-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Interactive CVS Math Engine
+                </span>
+                <span class="text-xs text-gray-500 font-semibold">• Updated for 2026 POS Rules</span>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                CVS 98% Rule & ExtraBucks Spend-Threshold Calculator
+            </h1>
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                <strong>The Short Answer:</strong> Under the CVS 98% rule, your qualifying subtotal only needs to hit <strong>98% of the required spend amount</strong> (for example, <strong>$29.40</strong> on a <strong>Spend $30</strong> deal). However, <strong>CVS store coupons (CRTs) subtract from your threshold</strong>, whereas manufacturer coupons and ExtraBucks do not. Test your exact basket below before scanning at the register.
+            </p>
+        </section>
+
+        <!-- Interactive Calculator App -->
+        <section class="bg-white rounded-2xl border-2 border-rose-200 p-6 md:p-8 shadow-md space-y-6">
+            
+            <!-- Step 1: Deal Target & Quick Presets -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-5">
+                <div>
+                    <h2 class="text-lg font-black text-gray-900">1. Set Your ExtraBucks Promotion Goal</h2>
+                    <p class="text-xs text-gray-500">Enter the "Spend $X" requirement from the weekly ad or shelf tag.</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                    <button type="button" onclick="setPreset(15, 5)" class="text-[11px] font-bold bg-gray-100 hover:bg-rose-100 hover:text-rose-800 px-2.5 py-1.5 rounded-lg transition">Spend $15 → $5 EB</button>
+                    <button type="button" onclick="setPreset(20, 5)" class="text-[11px] font-bold bg-gray-100 hover:bg-rose-100 hover:text-rose-800 px-2.5 py-1.5 rounded-lg transition">Spend $20 → $5 EB</button>
+                    <button type="button" onclick="setPreset(30, 10)" class="text-[11px] font-bold bg-rose-100 text-rose-800 px-2.5 py-1.5 rounded-lg transition">Spend $30 → $10 EB</button>
+                    <button type="button" onclick="loadSampleBasket()" class="text-[11px] font-bold bg-blue-50 text-blue-700 hover:bg-blue-100 px-2.5 py-1.5 rounded-lg transition">Load Example Cart</button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+                <div>
+                    <label for="spend-target" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Required Spend ($)</label>
+                    <input type="number" id="spend-target" value="30.00" step="0.01" min="0" oninput="calculateCVS()" class="w-full bg-gray-50 border border-gray-300 rounded-xl p-3 text-base font-extrabold text-gray-900 focus:ring-2 focus:ring-rose-500 outline-none">
+                </div>
+                <div>
+                    <label for="eb-reward" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">ExtraBucks Earned ($)</label>
+                    <input type="number" id="eb-reward" value="10.00" step="0.01" min="0" oninput="calculateCVS()" class="w-full bg-gray-50 border border-gray-300 rounded-xl p-3 text-base font-extrabold text-gray-900 focus:ring-2 focus:ring-rose-500 outline-none">
+                </div>
+                <div>
+                    <label for="rule-mode" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Register Rule Mode</label>
+                    <select id="rule-mode" onchange="calculateCVS()" class="w-full bg-gray-50 border border-gray-300 rounded-xl p-3 text-sm font-bold text-gray-900 focus:ring-2 focus:ring-rose-500 outline-none">
+                        <option value="0.98" selected>Standard 98% Rule (Most Stores)</option>
+                        <option value="1.00">Strict 100% Rule (Updated POS)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 2: Qualifying Cart Items -->
+            <div class="space-y-3 border-t border-gray-100 pt-5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-lg font-black text-gray-900">2. Add Qualifying Items (After Sale Price)</h2>
+                        <p class="text-xs text-gray-500">Enter the shelf/sale price of each item included in the promotion.</p>
+                    </div>
+                    <button type="button" onclick="addItemRow()" class="bg-gray-900 hover:bg-gray-800 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                        + Add Item
+                    </button>
+                </div>
+
+                <div id="items-container" class="space-y-2.5">
+                    <!-- Dynamic rows injected by JS -->
+                </div>
+            </div>
+
+            <!-- Step 3: Store CRTs vs. Manufacturer Coupons & ExtraBucks -->
+            <div class="grid md:grid-cols-2 gap-6 border-t border-gray-100 pt-5">
+                
+                <!-- Left: CVS Store Coupons (Reduces Threshold) -->
+                <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 space-y-3">
+                    <div>
+                        <span class="bg-amber-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Deducts From Threshold</span>
+                        <h3 class="text-sm font-extrabold text-gray-900 mt-1">CVS Store Coupons (CRTs & App Store Offers)</h3>
+                        <p class="text-[11px] text-gray-600">Threshold CRTs (e.g., $4 off $20) & item-specific store CRTs reduce your qualifying spend total.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div>
+                            <label for="crt-flat" class="block text-[11px] font-bold text-gray-700 mb-1">Total Dollar CRTs ($)</label>
+                            <input type="number" id="crt-flat" value="0.00" step="0.01" min="0" oninput="calculateCVS()" class="w-full bg-white border border-amber-300 rounded-lg p-2.5 text-sm font-bold text-gray-900">
+                        </div>
+                        <div>
+                            <label for="crt-percent" class="block text-[11px] font-bold text-gray-700 mb-1">% Off Store Coupon</label>
+                            <select id="crt-percent" onchange="calculateCVS()" class="w-full bg-white border border-amber-300 rounded-lg p-2.5 text-sm font-bold text-gray-900">
+                                <option value="0">None (0%)</option>
+                                <option value="10">10% Off</option>
+                                <option value="15">15% Off</option>
+                                <option value="20">20% Off</option>
+                                <option value="25">25% Off</option>
+                                <option value="30">30% Off</option>
+                                <option value="40">40% Off</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-amber-800 font-medium">*Note: % off coupons only apply to full-price items and calculate last.</p>
+                </div>
+
+                <!-- Right: Manufacturer Coupons & Rolling ExtraBucks (Counts Toward Threshold) -->
+                <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 space-y-3">
+                    <div>
+                        <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Counts Toward Threshold</span>
+                        <h3 class="text-sm font-extrabold text-gray-900 mt-1">Manufacturer Coupons & Rolling ExtraBucks</h3>
+                        <p class="text-[11px] text-gray-600">Digital MFR app coupons, paper inserts, and ExtraBucks from prior trips do NOT hurt your spend goal.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div>
+                            <label for="mfr-coupons" class="block text-[11px] font-bold text-gray-700 mb-1">Manufacturer Coupons ($)</label>
+                            <input type="number" id="mfr-coupons" value="0.00" step="0.01" min="0" oninput="calculateCVS()" class="w-full bg-white border border-blue-300 rounded-lg p-2.5 text-sm font-bold text-gray-900">
+                        </div>
+                        <div>
+                            <label for="rolling-eb" class="block text-[11px] font-bold text-gray-700 mb-1">ExtraBucks Applied ($)</label>
+                            <input type="number" id="rolling-eb" value="0.00" step="0.01" min="0" oninput="calculateCVS()" class="w-full bg-white border border-blue-300 rounded-lg p-2.5 text-sm font-bold text-gray-900">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Results Dashboard -->
+            <div id="result-banner" class="rounded-2xl p-6 border-2 transition-all duration-200 space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span id="status-badge" class="inline-block text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                            Checking Threshold...
+                        </span>
+                        <h3 id="status-headline" class="text-xl md:text-2xl font-black text-gray-900">
+                            Calculating...
+                        </h3>
+                        <p id="status-subtext" class="text-xs md:text-sm text-gray-700"></p>
+                    </div>
+                    <div class="bg-white/90 rounded-xl p-4 border border-gray-200 min-w-[200px] text-right">
+                        <span class="block text-[10px] font-extrabold uppercase text-gray-500">Qualifying Spend Total</span>
+                        <span id="qualifying-total-display" class="text-3xl font-black text-gray-900">$0.00</span>
+                        <span id="target-floor-display" class="block text-xs font-bold text-gray-600 mt-0.5">Target: $29.40</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                    <div id="threshold-bar" class="h-3 rounded-full transition-all duration-300" style="width: 0%;"></div>
+                </div>
+
+                <!-- Register Financial Breakdown -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2 text-xs">
+                    <div class="bg-white/80 p-3 rounded-xl border border-gray-200">
+                        <span class="text-gray-500 block">Shelf / Sale Subtotal</span>
+                        <strong id="out-gross" class="text-sm font-extrabold text-gray-900">$0.00</strong>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-xl border border-gray-200">
+                        <span class="text-gray-500 block">Est. Register Out-of-Pocket</span>
+                        <strong id="out-oop" class="text-sm font-extrabold text-blue-700">$0.00</strong>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-xl border border-gray-200">
+                        <span class="text-gray-500 block">ExtraBucks Triggered</span>
+                        <strong id="out-eb-earned" class="text-sm font-extrabold text-emerald-700">$0.00</strong>
+                    </div>
+                    <div class="bg-white/80 p-3 rounded-xl border border-gray-200">
+                        <span class="text-gray-500 block">Net Cost After ExtraBucks</span>
+                        <strong id="out-net-cost" class="text-sm font-extrabold text-gray-900">$0.00</strong>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Quick Reference Cheat Sheet Table -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-5">
+            <h2 class="text-xl font-black text-gray-900">CVS 98% Rule Quick-Reference Chart</h2>
+            <p class="text-xs md:text-sm text-gray-600">
+                Use this table in the store aisle to verify the minimum qualifying subtotal needed (after store CRTs, before manufacturer coupons) to trigger ExtraBucks on standard 98%-rule registers:
+            </p>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
+                    <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
+                        <tr>
+                            <th class="py-3 px-4">Ad Requirement</th>
+                            <th class="py-3 px-4">98% Rule Minimum</th>
+                            <th class="py-3 px-4">Max Allowed Shortfall</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700 font-medium">
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $10.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$9.80</td><td class="py-2.5 px-4">$0.20 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $12.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$11.76</td><td class="py-2.5 px-4">$0.24 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $15.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$14.70</td><td class="py-2.5 px-4">$0.30 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $20.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$19.60</td><td class="py-2.5 px-4">$0.40 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $25.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$24.50</td><td class="py-2.5 px-4">$0.50 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $30.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$29.40</td><td class="py-2.5 px-4">$0.60 short</td></tr>
+                        <tr class="hover:bg-white"><td class="py-2.5 px-4 font-bold">Spend $40.00</td><td class="py-2.5 px-4 text-emerald-700 font-extrabold">$39.20</td><td class="py-2.5 px-4">$0.80 short</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs text-amber-950 space-y-1.5">
+                <p class="font-extrabold">2026 Store POS Update Warning:</p>
+                <p>While the majority of CVS registers still honor the 98% buffer, some stores running updated point-of-sale software enforce a strict 100% spend threshold. In addition, CVS online pickup/shipping orders often calculate thresholds differently than in-store registers. Always check your receipt immediately at checkout.</p>
+            </div>
+        </section>
+
+        <!-- Related CVS Guides (Internal Silo Links) -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm space-y-4">
+            <h2 class="text-lg font-black text-gray-900">Related CVS ExtraCare Guides</h2>
+            <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                <a href="/blog/do-cvs-coupons-count-toward-extrabucks-spend-deals.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-rose-400 transition">
+                    <span class="font-bold text-gray-900 block">Do CVS Coupons Count Toward Spend Deals?</span>
+                    <span class="text-rose-600 font-semibold mt-1 inline-block">Read Rules →</span>
+                </a>
+                <a href="/blog/cvs-extrabucks-hacks.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-rose-400 transition">
+                    <span class="font-bold text-gray-900 block">CVS ExtraBucks Rolling & Stacking Hacks</span>
+                    <span class="text-rose-600 font-semibold mt-1 inline-block">Read Guide →</span>
+                </a>
+                <a href="/blog/cvs-returns-extrabucks-reversed.html" class="p-3.5 rounded-xl border border-gray-200 hover:border-rose-400 transition">
+                    <span class="font-bold text-gray-900 block">What Happens to ExtraBucks on Returns?</span>
+                    <span class="text-rose-600 font-semibold mt-1 inline-block">Read Policy →</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+            <p class="text-xs text-gray-500 max-w-3xl mx-auto">
+                <strong>Editorial & Policy Note:</strong> SavingsTactic.com is an independent consumer savings publication. Register coupon order and 98% threshold tolerances vary by local store POS software version.
+            </p>
+            <div class="flex justify-center space-x-6 text-xs text-gray-500 font-semibold">
+                <a href="/" class="hover:underline">Home</a>
+                <span>•</span>
+                <a href="/cvs/" class="hover:underline">CVS Hub</a>
+                <span>•</span>
+                <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
+                <span>•</span>
+                <a href="/terms.html" class="hover:underline">Terms of Service</a>
+            </div>
+            <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Calculator Engine JS -->
+    <script>
+        let rowCounter = 0;
+
+        function addItemRow(name = '', price = '', qty = 1, isFullPrice = false) {
+            rowCounter++;
+            const container = document.getElementById('items-container');
+            const row = document.createElement('div');
+            row.id = `item-row-${rowCounter}`;
+            row.className = 'fade-in grid grid-cols-12 gap-2 items-center bg-gray-50 p-2.5 rounded-xl border border-gray-200';
+            row.innerHTML = `
+                <div class="col-span-5 sm:col-span-5">
+                    <input type="text" placeholder="Item (e.g. Tide Pods)" value="${name}" class="w-full bg-white border border-gray-300 rounded-lg p-2 text-xs font-semibold text-gray-900">
+                </div>
+                <div class="col-span-3 sm:col-span-3">
+                    <input type="number" step="0.01" min="0" placeholder="Price ($)" value="${price}" oninput="calculateCVS()" class="item-price w-full bg-white border border-gray-300 rounded-lg p-2 text-xs font-extrabold text-gray-900">
+                </div>
+                <div class="col-span-2 sm:col-span-2">
+                    <input type="number" step="1" min="1" value="${qty}" oninput="calculateCVS()" class="item-qty w-full bg-white border border-gray-300 rounded-lg p-2 text-xs font-bold text-gray-900 text-center" title="Quantity">
+                </div>
+                <div class="col-span-2 sm:col-span-2 flex items-center justify-end gap-1.5">
+                    <label class="flex items-center gap-1 text-[10px] font-bold text-gray-600 cursor-pointer" title="Check if item is regular retail price (eligible for % off CRTs)">
+                        <input type="checkbox" ${isFullPrice ? 'checked' : ''} onchange="calculateCVS()" class="item-reg rounded text-rose-600">
+                        <span>Reg$</span>
+                    </label>
+                    <button type="button" onclick="removeRow(${rowCounter})" class="text-gray-400 hover:text-rose-600 font-bold text-sm px-1" title="Remove item">✕</button>
+                </div>
+            `;
+            container.appendChild(row);
+            calculateCVS();
+        }
+
+        function removeRow(id) {
+            const el = document.getElementById(`item-row-${id}`);
+            if (el) {
+                el.remove();
+                calculateCVS();
+            }
+        }
+
+        function setPreset(target, reward) {
+            document.getElementById('spend-target').value = target.toFixed(2);
+            document.getElementById('eb-reward').value = reward.toFixed(2);
+            calculateCVS();
+        }
+
+        function loadSampleBasket() {
+            document.getElementById('items-container').innerHTML = '';
+            document.getElementById('spend-target').value = '30.00';
+            document.getElementById('eb-reward').value = '10.00';
+            document.getElementById('crt-flat').value = '4.00';
+            document.getElementById('crt-percent').value = '0';
+            document.getElementById('mfr-coupons').value = '6.00';
+            document.getElementById('rolling-eb').value = '10.00';
+
+            addItemRow('Tide Liquid 84oz (Sale)', '12.99', 1, false);
+            addItemRow('Gain Flings 42ct (Sale)', '12.99', 1, false);
+            addItemRow('Dawn Dish Spray (Reg Price)', '7.49', 1, true);
+        }
+
+        function calculateCVS() {
+            const target = parseFloat(document.getElementById('spend-target').value) || 0;
+            const ebReward = parseFloat(document.getElementById('eb-reward').value) || 0;
+            const multiplier = parseFloat(document.getElementById('rule-mode').value) || 0.98;
+            const requiredFloor = Math.round((target * multiplier) * 100) / 100;
+
+            let grossTotal = 0;
+            let regPriceTotal = 0;
+
+            const rows = document.querySelectorAll('#items-container > div');
+            rows.forEach(row => {
+                const price = parseFloat(row.querySelector('.item-price').value) || 0;
+                const qty = parseInt(row.querySelector('.item-qty').value) || 0;
+                const isReg = row.querySelector('.item-reg').checked;
+                const lineTotal = price * qty;
+                grossTotal += lineTotal;
+                if (isReg) regPriceTotal += lineTotal;
+            });
+
+            const crtFlat = parseFloat(document.getElementById('crt-flat').value) || 0;
+            const crtPercent = parseFloat(document.getElementById('crt-percent').value) || 0;
+            const mfrCoupons = parseFloat(document.getElementById('mfr-coupons').value) || 0;
+            const rollingEb = parseFloat(document.getElementById('rolling-eb').value) || 0;
+
+            // Percent-off CRT applies only to regular-priced items after flat CRTs, MFR coupons, and ExtraBucks
+            const regShare = grossTotal > 0 ? (regPriceTotal / grossTotal) : 0;
+            const totalDiscountsBeforePercent = crtFlat + mfrCoupons + rollingEb;
+            const remainingRegBasis = Math.max(0, regPriceTotal - (totalDiscountsBeforePercent * regShare));
+            const percentDiscountValue = remainingRegBasis * (crtPercent / 100);
+
+            // Qualifying spend total = Gross minus Store CRTs (flat + percent). MFR coupons & EB do NOT subtract.
+            const totalStoreCrtDeduction = crtFlat + percentDiscountValue;
+            const qualifyingTotal = Math.max(0, grossTotal - totalStoreCrtDeduction);
+
+            // Register Out-of-Pocket (pre-tax)
+            const totalAllDiscounts = totalStoreCrtDeduction + mfrCoupons + rollingEb;
+            const outOfPocket = Math.max(0, grossTotal - totalAllDiscounts);
+
+            const triggersReward = target > 0 && qualifyingTotal >= requiredFloor;
+            const earned = triggersReward ? ebReward : 0;
+            const netCost = outOfPocket - earned;
+
+            // Update UI
+            document.getElementById('qualifying-total-display').innerText = `$${qualifyingTotal.toFixed(2)}`;
+            document.getElementById('target-floor-display').innerText = `Needed (${Math.round(multiplier * 100)}%): $${requiredFloor.toFixed(2)}`;
+            document.getElementById('out-gross').innerText = `$${grossTotal.toFixed(2)}`;
+            document.getElementById('out-oop').innerText = `$${outOfPocket.toFixed(2)}`;
+            document.getElementById('out-eb-earned').innerText = `$${earned.toFixed(2)}`;
+            document.getElementById('out-net-cost').innerText = netCost < 0 ? `-$${Math.abs(netCost).toFixed(2)} (Moneymaker!)` : `$${netCost.toFixed(2)}`;
+
+            const pctFill = requiredFloor > 0 ? Math.min(100, (qualifyingTotal / requiredFloor) * 100) : 0;
+            const bar = document.getElementById('threshold-bar');
+            const banner = document.getElementById('result-banner');
+            const badge = document.getElementById('status-badge');
+            const headline = document.getElementById('status-headline');
+            const subtext = document.getElementById('status-subtext');
+
+            bar.style.width = `${pctFill}%`;
+
+            if (triggersReward) {
+                banner.className = 'rounded-2xl p-6 border-2 border-emerald-400 bg-emerald-50 transition-all duration-200 space-y-4';
+                badge.className = 'inline-block bg-emerald-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.innerText = '✓ Threshold Met — ExtraBucks Triggered';
+                headline.innerText = `You Qualify for $${ebReward.toFixed(2)} in ExtraBucks!`;
+                subtext.innerText = `Your qualifying spend ($${qualifyingTotal.toFixed(2)}) clears the $${requiredFloor.toFixed(2)} minimum by $${(qualifyingTotal - requiredFloor).toFixed(2)}.`;
+                bar.className = 'h-3 rounded-full bg-emerald-600 transition-all duration-300';
+            } else {
+                const shortfall = Math.max(0, requiredFloor - qualifyingTotal);
+                banner.className = 'rounded-2xl p-6 border-2 border-amber-300 bg-amber-50 transition-all duration-200 space-y-4';
+                badge.className = 'inline-block bg-amber-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider';
+                badge.innerText = '⚠ Short of Threshold';
+                headline.innerText = `Add $${shortfall.toFixed(2)} More in Qualifying Items`;
+                subtext.innerText = totalStoreCrtDeduction > 0
+                    ? `Your $${totalStoreCrtDeduction.toFixed(2)} in CVS store CRTs lowered your qualifying total to $${qualifyingTotal.toFixed(2)}. You need $${requiredFloor.toFixed(2)} to trigger ExtraBucks.`
+                    : `You are currently $${shortfall.toFixed(2)} below the $${requiredFloor.toFixed(2)} threshold needed to print your ExtraBucks.`;
+                bar.className = 'h-3 rounded-full bg-amber-500 transition-all duration-300';
+            }
+        }
+
+        // Initialize with 2 blank rows
+        addItemRow('', '', 1, false);
+        addItemRow('', '', 1, false);
+    </script>
+</body>
+</html>

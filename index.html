@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savings Tactic | Grocery Unit Price Calculators, Store Coupon Rules & Stacking</title>
+    <title>Savings Tactic | Grocery Unit Price Calculators, Store Coupon Rules &amp; Stacking</title>
     <meta name="description" content="Free grocery unit price calculators, printable price-book templates, and verified 2026 coupon stacking guides for CVS, Walgreens, Kroger, Publix, and Ibotta.">
     <link rel="canonical" href="https://www.savingstactic.com/">
     <!-- Tailwind CSS CDN -->
@@ -13,7 +13,7 @@
         .fade-in { animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     </style>
-    <!-- Structured Data: WebSite + Organization + ItemList + FAQPage -->
+    <!-- Structured Data: WebSite + Organization + CollectionPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,7 +36,7 @@
           "url": "https://www.savingstactic.com/",
           "name": "Savings Tactic Grocery Calculators & Retailer Coupon Hubs",
           "isPartOf": { "@id": "https://www.savingstactic.com/#website" },
-          "dateModified": "2026-10-29"
+          "dateModified": "2026-11-13"
         }
       ]
     }
@@ -51,14 +51,25 @@
                 <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
                 <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
             </a>
-            <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-6 text-xs font-bold text-gray-600">
-                <a href="#tools-hub" class="hover:text-blue-600 transition">Calculators</a>
-                <a href="/cvs/" class="hover:text-blue-600 transition">CVS Hub</a>
-                <a href="#store-hubs" class="hover:text-blue-600 transition">Store Guides</a>
-                <a href="#rebates-hub" class="hover:text-blue-600 transition">Rebate Apps</a>
+            <nav aria-label="Primary Navigation" class="flex items-center gap-4 md:gap-6 text-xs font-bold text-gray-600">
+                <a href="#tools-hub" class="hover:text-blue-600 transition hidden md:inline">Calculators</a>
+                <a href="/cvs/" class="hover:text-blue-600 transition hidden md:inline">CVS Hub</a>
+                <a href="#store-hubs" class="hover:text-blue-600 transition hidden md:inline">Store Guides</a>
+                <a href="/blog/" class="bg-gray-900 hover:bg-gray-800 text-white px-3.5 py-2 rounded-lg transition">All Guides &rarr;</a>
             </nav>
         </div>
     </header>
+
+    <!-- Slim Seasonal Spotlight Bar (High-Velocity Launch Routing) -->
+    <div class="bg-slate-900 text-white text-xs py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-2 text-center">
+            <span class="bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded uppercase text-[10px] tracking-wider">Nov 19 Launch</span>
+            <span class="text-slate-200 font-medium">Pre-loading GTA 6?</span>
+            <a href="/blog/gta-6-storage-fix-best-ps5-xbox-ssd.html" class="text-amber-300 font-bold hover:underline">Fix the 212 GB Storage Limit &rarr;</a>
+            <span class="text-slate-600 hidden sm:inline">|</span>
+            <a href="/blog/how-to-get-gta-6-cheaper-gift-card-stacking.html" class="text-emerald-300 font-bold hover:underline">Save up to 18% via Gift Card Stacking &rarr;</a>
+        </div>
+    </div>
 
     <!-- Main Container -->
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
@@ -71,7 +82,7 @@
                 <div class="lg:col-span-7 space-y-4">
                     <div class="inline-flex items-center gap-2">
                         <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
-                            Verified Retail Rules & Math Tools
+                            Verified Retail Rules &amp; Math Tools
                         </span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
@@ -82,10 +93,10 @@
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
                         <a href="/blog/grocery-unit-price-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs md:text-sm py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition">
-                            Launch Unit Calculator →
+                            Launch Unit Calculator &rarr;
                         </a>
                         <a href="/downloads/2026-grocery-price-book-coupon-stacking-cheat-sheet.pdf" download class="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-300 font-bold text-xs md:text-sm py-3.5 px-5 rounded-xl transition">
-                            Download Free PDF Cheat Sheet ↓
+                            Download Free PDF Cheat Sheet &darr;
                         </a>
                     </div>
                 </div>
@@ -97,18 +108,18 @@
                         <span class="text-xs font-bold text-emerald-800">$24.00 Package</span>
                     </div>
                     <h2 class="text-xl font-black text-gray-900 leading-snug">
-                        2026 Household Grocery & Drugstore Survival System
+                        2026 Household Grocery &amp; Drugstore Survival System
                     </h2>
                     <p class="text-xs text-gray-700 leading-relaxed">
                         The ultimate 3-in-1 toolkit: 4-tab automated Google Sheet workbook, printable weekly match-up scenario planner, and national retail markdown schedule.
                     </p>
                     <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
-                        <li>✓ Auto-calculates unit prices & stock-up triggers</li>
-                        <li>✓ CVS 98% & Walgreens spend-threshold checker</li>
-                        <li>✓ Retail clearance calendar (DG, Walmart, Grocery)</li>
+                        <li>&check; Auto-calculates unit prices &amp; stock-up triggers</li>
+                        <li>&check; CVS 98% &amp; Walgreens spend-threshold checker</li>
+                        <li>&check; Retail clearance calendar (DG, Walmart, Grocery)</li>
                     </ul>
                     <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-3.5 px-4 rounded-xl text-center shadow-md transition">
-                        Get Full Toolkit ($24) →
+                        Get Full Toolkit ($24) &rarr;
                     </a>
                 </div>
 
@@ -119,7 +130,7 @@
         <section id="tools-hub" class="space-y-4">
             <div class="border-b border-gray-200 pb-3">
                 <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Interactive Utilities</span>
-                <h2 class="text-2xl font-black text-gray-900">Calculators & Diagnostic Tools</h2>
+                <h2 class="text-2xl font-black text-gray-900">Calculators &amp; Diagnostic Tools</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-4">
                 <a href="/blog/grocery-unit-price-calculator.html" class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-emerald-500 shadow-sm transition flex flex-col justify-between group">
@@ -128,7 +139,7 @@
                         <h3 class="text-base font-bold text-gray-900 mt-2 group-hover:text-emerald-600">Grocery Unit Price Calculator</h3>
                         <p class="text-gray-600 text-xs mt-2">Compare prices across fluid ounces, pounds, sheets, and load counts instantly.</p>
                     </div>
-                    <span class="text-xs font-bold text-emerald-700 mt-4 block">Launch Tool →</span>
+                    <span class="text-xs font-bold text-emerald-700 mt-4 block">Launch Tool &rarr;</span>
                 </a>
                 <a href="/blog/grocery-rebate-and-savings-ledger.html" class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-emerald-500 shadow-sm transition flex flex-col justify-between group">
                     <div>
@@ -136,7 +147,7 @@
                         <h3 class="text-base font-bold text-gray-900 mt-2 group-hover:text-emerald-600">Out-of-Pocket Savings Ledger</h3>
                         <p class="text-gray-600 text-xs mt-2">Track store register totals separately from pending Ibotta and Fetch app rebates.</p>
                     </div>
-                    <span class="text-xs font-bold text-emerald-700 mt-4 block">Open Ledger →</span>
+                    <span class="text-xs font-bold text-emerald-700 mt-4 block">Open Ledger &rarr;</span>
                 </a>
                 <a href="/blog/pickup-vs-in-store-digital-coupon-rules.html" class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-blue-500 shadow-sm transition flex flex-col justify-between group">
                     <div>
@@ -144,15 +155,15 @@
                         <h3 class="text-base font-bold text-gray-900 mt-2 group-hover:text-blue-600">Curbside Pickup Coupon Diagnostic</h3>
                         <p class="text-gray-600 text-xs mt-2">Check if your clipped digital coupons work on pickup vs. in-store registers.</p>
                     </div>
-                    <span class="text-xs font-bold text-blue-700 mt-4 block">Run Diagnostic →</span>
+                    <span class="text-xs font-bold text-blue-700 mt-4 block">Run Diagnostic &rarr;</span>
                 </a>
             </div>
         </section>
 
-        <!-- Category Hub Cards (Replaces Cluttered Card Lists) -->
+        <!-- Category Hub Cards -->
         <section id="store-hubs" class="space-y-4">
             <div class="border-b border-gray-200 pb-3">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600">Store & Platform Guides</span>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600">Store &amp; Platform Guides</span>
                 <h2 class="text-2xl font-black text-gray-900">Explore Guides by Retailer</h2>
             </div>
 
@@ -162,13 +173,13 @@
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2.5 py-1 rounded uppercase">CVS ExtraCare</span>
-                        <h3 class="text-lg font-extrabold text-gray-900">CVS Couponing & ExtraBucks Hub</h3>
+                        <h3 class="text-lg font-extrabold text-gray-900">CVS Couponing &amp; ExtraBucks Hub</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
                             Master ExtraBucks rolling, the 98% spend threshold rule, and returned item policies.
                         </p>
                     </div>
                     <a href="/cvs/" class="block w-full text-center bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
-                        Explore CVS Hub →
+                        Explore CVS Hub &rarr;
                     </a>
                 </div>
 
@@ -176,13 +187,13 @@
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded uppercase">myWalgreens</span>
-                        <h3 class="text-lg font-extrabold text-gray-900">Walgreens Cash & Catalina Hub</h3>
+                        <h3 class="text-lg font-extrabold text-gray-900">Walgreens Cash &amp; Catalina Hub</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
                             Rules for spending Walgreens Cash on booster deals, Register Reward rolling, and 72-hour pickup holds.
                         </p>
                     </div>
-                    <a href="#walgreens-hub" onclick="quickFilter('Walgreens')" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
-                        View Walgreens Guides →
+                    <a href="/blog/#walgreens" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
+                        View Walgreens Guides &rarr;
                     </a>
                 </div>
 
@@ -190,56 +201,137 @@
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded uppercase">Supermarkets</span>
-                        <h3 class="text-lg font-extrabold text-gray-900">Publix, Kroger & Target Hub</h3>
+                        <h3 class="text-lg font-extrabold text-gray-900">Publix, Kroger &amp; Target Hub</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
                             Publix BOGO stacking, Kroger 5X event rules, Fuel Points, Target Circle bonuses, and DG clearance.
                         </p>
                     </div>
-                    <a href="#grocery-hub" onclick="quickFilter('Kroger')" class="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
-                        View Supermarket Guides →
+                    <a href="/blog/#supermarkets" class="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
+                        View Supermarket Guides &rarr;
                     </a>
                 </div>
 
-                <!-- Rebates Hub -->
+                <!-- Tech & Gaming Deals Hub -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
-                        <span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2.5 py-1 rounded uppercase">App Rebates</span>
-                        <h3 class="text-lg font-extrabold text-gray-900">Ibotta, Fetch & Walmart Cash</h3>
+                        <span class="bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2.5 py-1 rounded uppercase">Tech &amp; Gaming</span>
+                        <h3 class="text-lg font-extrabold text-gray-900">Gaming &amp; Gift Card Arbitrage</h3>
                         <p class="text-xs text-gray-600 leading-relaxed">
-                            Avoid cashback clawbacks when pairing Walmart Cash with Ibotta and comparing app payout terms.
+                            Stack discounted PSN/Xbox gift cards, cashback portals, and PS5/Xbox NVMe SSD deals before launch.
                         </p>
                     </div>
-                    <a href="#rebates-hub" onclick="quickFilter('Ibotta')" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
-                        View Rebate Guides →
+                    <a href="/blog/#tech" class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
+                        View Tech &amp; Gaming Deals &rarr;
                     </a>
                 </div>
 
             </div>
         </section>
 
-        <!-- Interactive Search Directory (Instant Filter) -->
-        <section aria-label="Search all guides" class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm space-y-4">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="w-full md:w-2/3">
-                    <label for="guide-search" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Search Full Guide Library</label>
-                    <input type="search" id="guide-search" oninput="filterGuides()" placeholder="Search by store or topic (e.g. Walgreens Cash, ExtraBucks, Kroger, Ibotta)..." class="w-full bg-gray-50 border border-gray-300 rounded-xl p-3 text-xs md:text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none">
+        <!-- Featured & Latest Guides (Clean 6-Card Filterable Grid + Working Search) -->
+        <section id="featured-guides" class="space-y-5">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-200 pb-3">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600">Featured Playbooks</span>
+                    <h2 class="text-2xl font-black text-gray-900">Latest Deal Guides &amp; Calculators</h2>
                 </div>
-                <div class="w-full md:w-1/3 flex flex-wrap gap-1.5 justify-start md:justify-end text-[11px] font-bold">
-                    <button type="button" onclick="quickFilter('')" class="px-2.5 py-1.5 rounded-lg bg-gray-900 text-white">All</button>
-                    <button type="button" onclick="quickFilter('CVS')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">CVS</button>
-                    <button type="button" onclick="quickFilter('Walgreens')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Walgreens</button>
-                    <button type="button" onclick="quickFilter('Kroger')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Kroger</button>
-                    <button type="button" onclick="quickFilter('Ibotta')" class="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">Ibotta</button>
+                <div class="flex flex-wrap items-center gap-2 text-xs font-bold" id="guide-filters">
+                    <button type="button" onclick="filterCategory('all', this)" class="filter-btn bg-gray-900 text-white px-3.5 py-1.5 rounded-full transition">All</button>
+                    <button type="button" onclick="filterCategory('tech', this)" class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-3.5 py-1.5 rounded-full transition">Gaming &amp; Tech</button>
+                    <button type="button" onclick="filterCategory('cvs', this)" class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-3.5 py-1.5 rounded-full transition">CVS &amp; Drugstore</button>
+                    <button type="button" onclick="filterCategory('grocery', this)" class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-3.5 py-1.5 rounded-full transition">Grocery &amp; Rebates</button>
+                    <a href="/blog/" class="text-blue-600 hover:underline pl-2">Full Archive (35+) &rarr;</a>
                 </div>
             </div>
-            <p id="filter-status" class="hidden text-xs font-bold text-blue-600"></p>
+
+            <!-- Live Search Bar -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                    <input type="search" id="guide-search" oninput="searchFeatured()" placeholder="Quick filter featured guides (e.g. GTA 6, SSD, ExtraBucks, Walgreens, Clearance)..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-xs md:text-sm font-semibold text-gray-900 focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none">
+                    <a href="/blog/" class="shrink-0 w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs px-5 py-3 rounded-xl transition">
+                        Browse All 35+ Guides &rarr;
+                    </a>
+                </div>
+                <p id="filter-status" class="hidden text-xs font-bold text-blue-600 mt-2"></p>
+            </div>
+
+            <!-- 6-Card Curated Grid -->
+            <div class="grid md:grid-cols-3 gap-5" id="guides-grid">
+                
+                <!-- Card 1: GTA 6 Storage Fix -->
+                <a href="/blog/gta-6-storage-fix-best-ps5-xbox-ssd.html" data-cat="tech" class="guide-card bg-white border border-gray-200 hover:border-indigo-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-indigo-100 text-indigo-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Gaming &amp; Tech</span>
+                            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">New</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-indigo-600">GTA 6 212 GB Storage Fix (2026): Best PS5 NVMe SSDs &amp; Xbox Expansion Cards</h3>
+                        <p class="text-xs text-gray-600">Run our live console storage fit checker and compare plug-and-play 2TB SSDs before November 19.</p>
+                    </div>
+                    <span class="text-xs font-bold text-indigo-600">Open Storage Checker &rarr;</span>
+                </a>
+
+                <!-- Card 2: GTA 6 Cheaper Gift Card Stacking -->
+                <a href="/blog/how-to-get-gta-6-cheaper-gift-card-stacking.html" data-cat="tech" class="guide-card bg-white border border-gray-200 hover:border-emerald-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Deal Arbitrage</span>
+                            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">New</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-emerald-600">How to Get GTA 6 Cheaper at Launch: Gift Card Stacking Hacks</h3>
+                        <p class="text-xs text-gray-600">Stack discounted PSN &amp; Xbox gift cards with cashback portals to save 10%&ndash;18% on the $79.99 launch price.</p>
+                    </div>
+                    <span class="text-xs font-bold text-emerald-600">Calculate Net Price &rarr;</span>
+                </a>
+
+                <!-- Card 3: CVS Coupons Count Toward Spend Deals -->
+                <a href="/blog/do-cvs-coupons-count-toward-extrabucks-spend-deals.html" data-cat="cvs" class="guide-card bg-white border border-gray-200 hover:border-rose-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <span class="bg-rose-100 text-rose-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">CVS ExtraCare</span>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-rose-600">Do CVS Coupons Count Toward ExtraBucks Spend Deals? (+ 98% Calculator)</h3>
+                        <p class="text-xs text-gray-600">Test your pre-coupon cart total with our interactive POS 98% threshold calculator and CRT stacking table.</p>
+                    </div>
+                    <span class="text-xs font-bold text-rose-600">Test Spend Threshold &rarr;</span>
+                </a>
+
+                <!-- Card 4: CVS vs Walgreens Rewards -->
+                <a href="/blog/cvs-extracare-vs-walgreens-rewards.html" data-cat="cvs" class="guide-card bg-white border border-gray-200 hover:border-purple-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <span class="bg-purple-100 text-purple-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Drugstore Showdown</span>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-purple-600">CVS ExtraCare vs. myWalgreens Rewards (2026 Comparison)</h3>
+                        <p class="text-xs text-gray-600">Side-by-side math on 2% ExtraBucks rolling vs. 5% Walgreens-brand cash and 12-month expiration rules.</p>
+                    </div>
+                    <span class="text-xs font-bold text-purple-600">Compare Programs &rarr;</span>
+                </a>
+
+                <!-- Card 5: CVS Clearance Markdown Schedule -->
+                <a href="/blog/cvs-clearance-markdown-schedule.html" data-cat="cvs" class="guide-card bg-white border border-gray-200 hover:border-rose-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <span class="bg-rose-100 text-rose-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Clearance Insider</span>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-rose-600">CVS Clearance Markdown Schedule 2026: 50% to 90% Seasonal Drops</h3>
+                        <p class="text-xs text-gray-600">Track post-holiday step-downs, spot unadvertised aisle planogram resets, and stack ExtraBucks on clearance.</p>
+                    </div>
+                    <span class="text-xs font-bold text-rose-600">Read Clearance Guide &rarr;</span>
+                </a>
+
+                <!-- Card 6: Stretch Grocery Budget Gift Cards -->
+                <a href="/blog/stretch-grocery-budget-gift-cards.html" data-cat="grocery" class="guide-card bg-white border border-gray-200 hover:border-emerald-400 rounded-2xl p-5 shadow-sm transition flex flex-col justify-between space-y-3 group">
+                    <div class="space-y-2">
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Grocery &amp; Rebates</span>
+                        <h3 class="text-base font-extrabold text-gray-900 leading-snug group-hover:text-emerald-600">How to Stretch Your Grocery Budget Using Discounted Gift Cards &amp; Rebates</h3>
+                        <p class="text-xs text-gray-600">Layer warehouse gift card discounts, Ibotta offers, and store loyalty coupons without clawbacks.</p>
+                    </div>
+                    <span class="text-xs font-bold text-emerald-600">Read Grocery Playbook &rarr;</span>
+                </a>
+
+            </div>
         </section>
 
         <!-- Editorial Standards Log (E-E-A-T Signal) -->
         <section class="bg-white rounded-2xl border border-gray-200 p-6 space-y-4 shadow-sm">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-gray-100 pb-3">
-                <h2 class="text-lg font-black text-gray-900">How We Verify Retailer Rules & Policies</h2>
-                <span class="text-xs text-gray-500 font-semibold">Last Audit: October 29, 2026</span>
+                <h2 class="text-lg font-black text-gray-900">How We Verify Retailer Rules &amp; Policies</h2>
+                <span class="text-xs text-gray-500 font-semibold">Last Audit: November 13, 2026</span>
             </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
@@ -269,28 +361,80 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
-            <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>Advertiser & Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher providing free grocery unit-price calculators, coupon policy guides, and referral links.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500 font-semibold">
-                <a href="/" class="hover:underline">Home</a>
-                <span>•</span>
-                <a href="/cvs/" class="hover:underline">CVS Hub</a>
-                <span>•</span>
-                <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
-                <span>•</span>
-                <a href="/terms.html" class="hover:underline">Terms of Service</a>
+    <!-- Structured Crawl Directory Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-10">
+        <div class="max-w-6xl mx-auto px-4 space-y-8">
+            
+            <!-- 3-Column Clean Topic Directory for 1-Click Crawl Depth -->
+            <div class="grid sm:grid-cols-3 gap-6 text-left border-b border-gray-200 pb-8 text-xs">
+                <div class="space-y-2">
+                    <h3 class="font-extrabold text-gray-900 uppercase tracking-wider">CVS &amp; Drugstore Guides</h3>
+                    <ul class="space-y-1.5 text-gray-600">
+                        <li><a href="/cvs/" class="hover:text-blue-600 hover:underline font-semibold">CVS ExtraCare Couponing Hub</a></li>
+                        <li><a href="/blog/do-cvs-coupons-count-toward-extrabucks-spend-deals.html" class="hover:text-blue-600 hover:underline">Do CVS Coupons Count Toward Spend Deals?</a></li>
+                        <li><a href="/blog/cvs-extracare-vs-walgreens-rewards.html" class="hover:text-blue-600 hover:underline">CVS ExtraCare vs. myWalgreens Rewards</a></li>
+                        <li><a href="/blog/cvs-clearance-markdown-schedule.html" class="hover:text-blue-600 hover:underline">CVS Clearance Markdown Schedule 2026</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-extrabold text-gray-900 uppercase tracking-wider">Grocery &amp; Rebate Tools</h3>
+                    <ul class="space-y-1.5 text-gray-600">
+                        <li><a href="/blog/grocery-unit-price-calculator.html" class="hover:text-blue-600 hover:underline">Grocery Unit Price Calculator</a></li>
+                        <li><a href="/blog/grocery-rebate-and-savings-ledger.html" class="hover:text-blue-600 hover:underline">Out-of-Pocket Rebate Ledger</a></li>
+                        <li><a href="/blog/pickup-vs-in-store-digital-coupon-rules.html" class="hover:text-blue-600 hover:underline">Curbside Pickup Coupon Diagnostic</a></li>
+                        <li><a href="/blog/stretch-grocery-budget-gift-cards.html" class="hover:text-blue-600 hover:underline">Grocery Gift Card Stacking Guide</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-extrabold text-gray-900 uppercase tracking-wider">Tech, Gaming &amp; Archive</h3>
+                    <ul class="space-y-1.5 text-gray-600">
+                        <li><a href="/blog/gta-6-storage-fix-best-ps5-xbox-ssd.html" class="hover:text-blue-600 hover:underline">GTA 6 212 GB Storage Fix (PS5 &amp; Xbox SSDs)</a></li>
+                        <li><a href="/blog/how-to-get-gta-6-cheaper-gift-card-stacking.html" class="hover:text-blue-600 hover:underline">How to Get GTA 6 Cheaper at Launch</a></li>
+                        <li><a href="/blog/" class="hover:text-blue-600 hover:underline font-bold text-gray-900">Browse Complete Guide Archive &rarr;</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
+
+            <div class="text-center space-y-4">
+                <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                    <strong>Advertiser &amp; Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher providing free grocery unit-price calculators, coupon policy guides, and referral links. As an Amazon Associate, SavingsTactic earns from qualifying purchases.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500 font-semibold">
+                    <a href="/" class="hover:underline">Home</a>
+                    <span>&bull;</span>
+                    <a href="/blog/" class="hover:underline">All Guides</a>
+                    <span>&bull;</span>
+                    <a href="/cvs/" class="hover:underline">CVS Hub</a>
+                    <span>&bull;</span>
+                    <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="/terms.html" class="hover:underline">Terms of Service</a>
+                </div>
+                <p class="text-xs text-gray-400">&copy; 2026 SavingsTactic.com &mdash; All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Filter Logic Script -->
+    <!-- Filter & Search Logic Script -->
     <script>
-        function filterGuides() {
+        function filterCategory(cat, btn) {
+            document.getElementById('guide-search').value = '';
+            document.getElementById('filter-status').classList.add('hidden');
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = 'filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-3.5 py-1.5 rounded-full transition';
+            });
+            btn.className = 'filter-btn bg-gray-900 text-white px-3.5 py-1.5 rounded-full transition';
+
+            document.querySelectorAll('.guide-card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function searchFeatured() {
             const query = document.getElementById('guide-search').value.toLowerCase().trim();
             const cards = document.querySelectorAll('.guide-card');
             const statusEl = document.getElementById('filter-status');
@@ -307,17 +451,11 @@
             });
 
             if (query) {
-                statusEl.innerText = `Showing ${visibleCount} matching item(s) for "${query}"`;
+                statusEl.innerHTML = 'Showing ' + visibleCount + ' featured match(es) for "' + query + '". Need more? <a href="/blog/" class="underline">Search all 35+ articles in the full archive &rarr;</a>';
                 statusEl.classList.remove('hidden');
             } else {
                 statusEl.classList.add('hidden');
             }
-        }
-
-        function quickFilter(term) {
-            const input = document.getElementById('guide-search');
-            input.value = term;
-            filterGuides();
         }
     </script>
 </body>

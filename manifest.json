@@ -1,0 +1,17 @@
+{
+  "name": "Savings Tactic — Unit Price & Household Money Tools",
+  "short_name": "SavingsTactic",
+  "description": "Free offline-ready grocery unit price calculator, personal price-book tracker, and smart shopping tools.",
+  "start_url": "/blog/grocery-unit-price-calculator.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%232563eb'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='240' fill='white'%3EST%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

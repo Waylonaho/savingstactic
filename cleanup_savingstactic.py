@@ -3,10 +3,10 @@
 cleanup_savingstactic.py
 Run from the root of your SavingsTactic repository to:
 1. Remove deceptive 'Eligibility Confirmed' CPA/survey cards (#survey-card / afflat3c1.com) from /blog/*.html
-   and replace them with a clean, trustworthy Brevo PDF & Unit Calculator callout.
-2. Fix broken internal links across all HTML files.
+   and replace them with a clean Brevo PDF & Unit Calculator callout.
+2. Fix broken internal links & placeholder referral IDs across all HTML files.
 3. Strip leftover [span_x](start_span) / [span_x](end_span) citation artifacts from /cvs/index.html.
-4. Regenerate sitemap.xml including /, /about.html, /earn/, /cvs/, and all /blog/ guides.
+4. Regenerate sitemap.xml including /, /about.html, /contact.html, /earn/, /cvs/, and all /blog/ guides.
 """
 
 import glob
@@ -17,9 +17,9 @@ from datetime import datetime, timezone
 CLEAN_CTA_BLOCK = '''<!-- Clean Editorial Tool & PDF Callout -->
 <aside class="my-8 bg-slate-900 text-white rounded-2xl p-6 space-y-3">
     <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Free Shopper Toolkit</span>
-    <h3 class="text-lg font-extrabold text-white">Compare Unit Prices &amp; Download the 2026 Savings Cheat Sheet</h3>
+    <h3 class="text-lg font-extrabold text-white">Compare Unit Prices &amp; Save Target Prices in Your Browser</h3>
     <p class="text-xs text-slate-300 leading-relaxed">
-        Check whether a sale or coupon actually beats bulk pricing with our <a href="/blog/grocery-unit-price-calculator.html" class="text-emerald-300 underline font-bold">Free Grocery Unit Price Calculator</a>, or get our 2-page printable reference sheet sent straight to your inbox:
+        Check whether a sale or coupon actually beats bulk pricing with our <a href="/blog/grocery-unit-price-calculator.html" class="text-emerald-300 underline font-bold">Free Grocery Unit Price Calculator &amp; Price-Book</a>, or get our 2-page printable cheat sheet:
     </p>
     <form action="https://2a1fb247.sibforms.com/serve/MUIFAGkJe4oLNt1pk848WoRGu5xI05BpDiWX1DPuNkVgOVvSEKxOqRgl6VtvDZyG4cIltSteYCSvxjcs6tT6RBkuI5B7G-8gzOOrbSJU6PVdqCuLlkeXzgPS1dBikYkRZj_4vCLNwLJnwCXiveTJQbg3IGGhriG54OclSktcyblQozqrkml2GYsPffFySt9tHtvFxkiAWEVEj5Mmkg==" method="POST" class="flex flex-col sm:flex-row gap-2 pt-1">
         <input type="email" name="EMAIL" placeholder="Enter your email for the free PDF..." required class="bg-white text-slate-900 placeholder-slate-400 text-xs font-semibold px-3.5 py-2.5 rounded-xl flex-grow">
@@ -69,6 +69,7 @@ def rebuild_sitemap():
         ("https://www.savingstactic.com/blog/", "0.85", "weekly"),
         ("https://www.savingstactic.com/cvs/", "0.80", "weekly"),
         ("https://www.savingstactic.com/about.html", "0.70", "monthly"),
+        ("https://www.savingstactic.com/contact.html", "0.65", "monthly"),
     ]
 
     seen = {u[0] for u in urls}

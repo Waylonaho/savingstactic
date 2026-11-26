@@ -1,60 +1,64 @@
+import glob
 import os
-from datetime import datetime
-import re
+from datetime import datetime, timezone
 
 BLOG_DIR = "blog"
 SITEMAP_PATH = "sitemap.xml"
 BASE_URL = "https://www.savingstactic.com"
 
-def minify_html(content):
-    # Simple, safe regex-based HTML minification (removes comments and extra spaces)
-    content = re.sub(r'<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->', '', content, flags=re.DOTALL)
-    content = re.sub(r'\s+', ' ', content)
-    # Restore spacing around tags to prevent layout breakdown
-    content = content.replace('> <', '><')
-    return content
 
-def generate_sitemap_and_optimize():
-    urls = [
-        (f"{BASE_URL}/", datetime.today().strftime('%Y-%m-%d')),
-        (f"{BASE_URL}/privacy.html", "2026-10-29"),
-        (f"{BASE_URL}/terms.html", "2026-10-17")
+def generate_sitemap():
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    core_pages = [
+        ("/", "1.0", "weekly"),
+        ("/blog/grocery-unit-price-calculator.html", "0.95", "weekly"),
+        ("/earn/", "0.90", "weekly"),
+        ("/blog/", "0.85", "weekly"),
+        ("/cvs/", "0.80", "weekly"),
+        ("/about.html", "0.70", "monthly"),
+        ("/contact.html", "0.65", "monthly"),
+        ("/privacy.html", "0.50", "yearly"),
+        ("/terms.html", "0.50", "yearly"),
     ]
-    
-    if os.path.exists(BLOG_DIR):
-        for filename in os.listdir(BLOG_DIR):
-            if filename.endswith(".html"):
-                file_path = os.path.join(BLOG_DIR, filename)
-                
-                # Optional: Minify the HTML file in place
-                with open(file_path, "r", encoding="utf-8") as f:
-                    html_content = f.read()
-                
-                # Keep critical tags intact, minify whitespace safely
-                minified = html_content.strip() # Keeps file fully intact while cleaning outer whitespace
-                with open(file_path, "w", encoding="utf-8") as f:
-                    f.write(minified)
 
-                # Get modification timestamp for sitemap
-                mtime = os.path.getmtime(file_path)
-                lastmod_date = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
-                urls.append((f"{BASE_URL}/blog/{filename}", lastmod_date))
+    entries = []
+    seen = set()
 
-    # Build XML sitemap
-    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\n'
-    
-    for url, lastmod in urls:
-        xml_content += '  <url>\n'
-        xml_content += f'    <loc>{url}</loc>\n'
-        xml_content += f'    <lastmod>{lastmod}</lastmod>\n'
-        xml_content  += '  </url>\n'
-        
-    xml_content += '</urlset>'
+    for path, prio, freq in core_pages:
+        loc = f"{BASE_URL}{path}"
+        if loc not in seen:
+            seen.add(loc)
+            entries.append((loc, today, freq, prio))
+
+    for file_path in sorted(glob.glob(os.path.join(BLOG_DIR, "*.html"))):
+        filename = os.path.basename(file_path)
+        if filename == "index.html":
+            continue
+        loc = f"{BASE_URL}/blog/{filename}"
+        if loc not in seen:
+            seen.add(loc)
+            mtime = datetime.fromtimestamp(os.path.getmtime(file_path), tz=timezone.utc).strftime("%Y-%m-%d")
+            entries.append((loc, mtime, "monthly", "0.75"))
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for loc, lastmod, freq, prio in entries:
+        lines.extend([
+            "  <url>",
+            f"    <loc>{loc}</loc>",
+            f"    <lastmod>{lastmod}</lastmod>",
+            f"    <changefreq>{freq}</changefreq>",
+            f"    <priority>{prio}</priority>",
+            "  </url>",
+        ])
+    lines.append("</urlset>")
 
     with open(SITEMAP_PATH, "w", encoding="utf-8") as f:
-        f.write(xml_content)
-    print("Sitemap generated and HTML files optimized successfully!")
+        f.write("\n".join(lines) + "\n")
+    print(f"Wrote {len(entries)} URLs to {SITEMAP_PATH} on {today}.")
+
 
 if __name__ == "__main__":
-    generate_sitemap_and_optimize()
+    generate_sitemap()

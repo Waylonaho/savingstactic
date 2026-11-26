@@ -207,28 +207,5 @@
             <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Survey JS Logic -->
-    <script>
-        function nextStep(stepNumber, progressPercent) {
-            document.getElementById('step-1').classList.add('hidden');
-            document.getElementById('step-2').classList.add('hidden');
-            document.getElementById('step-3').classList.add('hidden');
-            
-            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
-            document.getElementById('survey-progress').style.width = `${progressPercent}%`;
-        }
-
-        function finishSurvey() {
-            document.getElementById('step-3').classList.add('hidden');
-            document.getElementById('step-loading').classList.remove('hidden');
-            document.getElementById('survey-progress').style.width = '100%';
-
-            setTimeout(() => {
-                document.getElementById('step-loading').classList.add('hidden');
-                document.getElementById('step-result').classList.remove('hidden');
-            }, 900);
-        }
-    </script>
 </body>
 </html>

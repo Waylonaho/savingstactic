@@ -131,6 +131,22 @@
                 </div>
             </div>
 
+            <!-- Phase 3 Practical Action Checklist -->
+<section class="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-6 space-y-3">
+    <h2 class="text-lg font-extrabold text-slate-900">Quick Action Checklist Before You Checkout</h2>
+    <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+        <li><strong>Check Unit Price First:</strong> Compare cost per ounce, pound, or count—never let a coupon or rebate push you into a higher unit price on a bigger or brand-name pack.</li>
+        <li><strong>Clip &amp; Verify Before Entering the Store:</strong> Load digital offers ahead of time, confirm exact size/UPC eligibility in the app, and set your exact store location.</li>
+        <li><strong>Separate Register Cash From Rebates:</strong> Track what you pay out of pocket at checkout separately from pending app rebates or gift card rewards.</li>
+        <li><strong>Keep Your Receipt Until Rewards Post:</strong> Snap or save receipts right away and verify points/rebates before discarding proof of purchase.</li>
+    </ol>
+    <div class="pt-2 flex flex-wrap gap-3 text-xs font-bold">
+        <a href="/blog/grocery-unit-price-calculator.html" class="text-blue-600 hover:underline">Open Unit Price Calculator &rarr;</a>
+        <a href="/blog/free-grocery-price-book-template.html" class="text-emerald-700 hover:underline">2026 Price-Book Template &rarr;</a>
+        <a href="/earn/" class="text-slate-800 hover:underline">Cashback &amp; Rewards Hub &rarr;</a>
+    </div>
+</section>
+
             <div class="bg-gray-100 rounded-xl p-4 text-xs text-gray-600 flex items-center justify-between">
                 <span>Written by <strong>Savings Tactic Editorial Team</strong></span>
                 <span>Verified for 2026 myWalgreens Pickup Systems</span>
@@ -156,28 +172,5 @@
             <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Survey JS Logic -->
-    <script>
-        function nextStep(stepNumber, progressPercent) {
-            document.getElementById('step-1').classList.add('hidden');
-            document.getElementById('step-2').classList.add('hidden');
-            document.getElementById('step-3').classList.add('hidden');
-            
-            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
-            document.getElementById('survey-progress').style.width = `${progressPercent}%`;
-        }
-
-        function finishSurvey() {
-            document.getElementById('step-3').classList.add('hidden');
-            document.getElementById('step-loading').classList.remove('hidden');
-            document.getElementById('survey-progress').style.width = '100%';
-
-            setTimeout(() => {
-                document.getElementById('step-loading').classList.add('hidden');
-                document.getElementById('step-result').classList.remove('hidden');
-            }, 900);
-        }
-    </script>
 </body>
 </html>

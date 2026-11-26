@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery Unit Price Calculator | Compare Price Per Ounce, Count &amp; Coupons</title>
-    <meta name="description" content="Free grocery unit price calculator. Compare package sizes across ounces, pounds, fluid ounces, count, and paper sheets—separating instant register coupons from pending rebates.">
+    <title>Grocery Unit Price Calculator &amp; Free Price-Book Tracker (2026)</title>
+    <meta name="description" content="Free grocery unit price calculator with built-in browser Price-Book tracker. Compare price per ounce, pound, load, or 100 paper sheets after instant coupons—and share results via link.">
     <link rel="canonical" href="https://www.savingstactic.com/blog/grocery-unit-price-calculator.html">
     <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Savings Tactic">
-    <meta property="og:title" content="Grocery Unit Price Calculator | Compare Price Per Ounce, Count &amp; Coupons">
-    <meta property="og:description" content="Normalize two grocery package sizes across weight, volume, count, or paper sheets and calculate true checkout cost after instant coupons.">
+    <meta property="og:title" content="Grocery Unit Price Calculator &amp; Free Price-Book Tracker">
+    <meta property="og:description" content="Compare package sizes across oz, lb, fl oz, loads, and paper sheets after coupons, save target prices in your browser Price-Book, and share comparisons by URL.">
     <meta property="og:url" content="https://www.savingstactic.com/blog/grocery-unit-price-calculator.html">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Grocery Unit Price Calculator | Compare Sizes &amp; Coupons">
-    <meta name="twitter:description" content="Free unit price calculator for groceries, detergent loads, and paper towels. Separates instant coupons from pending rebates.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
         .fade-in { animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
     </style>
-    <!-- Structured Data: WebApplication + BreadcrumbList + FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -30,7 +29,7 @@
           "@type": "WebApplication",
           "@id": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html#app",
           "url": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html",
-          "name": "Grocery Unit Price & Package Size Comparison Calculator",
+          "name": "Grocery Unit Price Calculator & Personal Price-Book Tracker",
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "All",
           "browserRequirements": "Requires JavaScript",
@@ -39,7 +38,7 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Compare grocery unit prices across ounces, pounds, grams, fluid ounces, quarts, gallons, milliliters, count, and paper sheets while separating instant register coupons from pending post-checkout rebates.",
+          "description": "Compare grocery unit prices across ounces, pounds, grams, fluid ounces, quarts, gallons, milliliters, detergent loads, and per 100 paper sheets while saving target stock-up prices locally in your browser.",
           "publisher": {
             "@type": "Organization",
             "name": "Savings Tactic",
@@ -64,7 +63,7 @@
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Grocery Unit Price Calculator",
+              "name": "Grocery Unit Price Calculator & Price-Book",
               "item": "https://www.savingstactic.com/blog/grocery-unit-price-calculator.html"
             }
           ]
@@ -75,26 +74,26 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do I compare unit prices when package sizes use different units?",
+              "name": "How do I calculate paper towel or toilet paper cost per 100 sheets?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Convert both items to the same base measurement—such as ounces for weight (1 pound = 16 ounces), fluid ounces for liquids (1 gallon = 128 fluid ounces), or per 100 sheets for paper goods—then divide the net checkout price by the total base units."
+                "text": "Divide the net checkout price by the total number of sheets in the multi-pack, then multiply by 100. For example, a 12-roll pack with 1,020 total sheets at $13.99 costs $1.372 per 100 sheets."
               }
             },
             {
               "@type": "Question",
-              "name": "Why should I separate instant coupons from cashback app rebates?",
+              "name": "How do I compare laundry detergent cost per load accurately?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Instant store or manufacturer coupons reduce the cash you pay at the register immediately, whereas app rebates (such as Ibotta or Fetch) require post-purchase receipt verification and minimum payout thresholds before withdrawal."
+                "text": "Use the Count / Loads tab and enter the number of standard loads printed on the bottle or pod tub rather than fluid ounces, since concentrated detergents require less liquid per wash."
               }
             },
             {
               "@type": "Question",
-              "name": "Is the bulk family size always cheaper per ounce at the grocery store?",
+              "name": "How does the browser Price-Book save my target grocery prices?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. While bulk packages often have a lower shelf unit price, a smaller package paired with a weekly sale and a digital manufacturer coupon frequently beats the bulk unit price—and avoids pantry spoilage on perishable staples."
+                "text": "Your saved items are stored locally in your web browser storage (localStorage) with no account or login required, and you can export or back up your list as a JSON file anytime."
               }
             }
           ]
@@ -105,7 +104,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Clean Unified Header -->
+    <!-- Unified Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3.5 flex justify-between items-center gap-4">
             <a href="/" class="flex items-center space-x-2.5">
@@ -113,15 +112,14 @@
                 <span class="text-lg font-extrabold tracking-tight text-slate-900">Savings<span class="text-blue-600">Tactic</span></span>
             </a>
             <nav aria-label="Primary Navigation" class="flex items-center gap-5 text-xs font-bold text-slate-600">
-                <a href="/blog/grocery-unit-price-calculator.html" class="text-emerald-700 hidden sm:inline">Unit Calculator</a>
-                <a href="/cvs/" class="hover:text-blue-600 transition hidden sm:inline">CVS Rules</a>
-                <a href="/blog/free-grocery-price-book-template.html" class="hover:text-blue-600 transition hidden md:inline">Price Book</a>
-                <a href="/blog/" class="bg-slate-900 hover:bg-slate-800 text-white px-3.5 py-2 rounded-lg transition">All Guides &rarr;</a>
+                <a href="#price-book-section" class="text-emerald-700 hover:underline">My Price-Book (<span id="nav-pb-count">0</span>)</a>
+                <a href="/earn/" class="hover:text-emerald-700 transition hidden sm:inline">Earn &amp; Cashback</a>
+                <a href="/blog/" class="hover:text-blue-600 transition hidden sm:inline">All Guides</a>
+                <a href="/about.html" class="hover:text-blue-600 transition hidden md:inline">Editorial Policy</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Container -->
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
 
         <!-- Breadcrumb -->
@@ -130,48 +128,63 @@
             <span>/</span>
             <a href="/blog/" class="hover:text-blue-600">Guides &amp; Calculators</a>
             <span>/</span>
-            <span class="text-slate-900 font-semibold">Grocery Unit Price Calculator</span>
+            <span class="text-slate-900 font-semibold">Unit Price Calculator &amp; Price-Book</span>
         </nav>
 
-        <!-- Focused Page Header -->
+        <!-- Page Header -->
         <div class="space-y-2.5">
             <div class="flex flex-wrap items-center gap-2 text-xs">
-                <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider text-[11px]">Free Browser Utility</span>
-                <span class="text-slate-500">• No sign-up required • Updated November 2026</span>
+                <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider text-[11px]">Offline-Ready Web App</span>
+                <span class="text-slate-500">&bull; Zero login required &bull; Saves locally in your browser</span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Grocery Unit Price &amp; Package Size Calculator
+                Grocery Unit Price Calculator &amp; Personal Price-Book
             </h1>
             <p class="text-slate-600 text-sm leading-relaxed max-w-3xl">
-                Compare two package sizes side by side across weight, liquid volume, item count, or paper sheets. Calculate your <strong>shelf unit price</strong> and <strong>out-of-pocket register cost</strong> first, while tracking <strong>pending cashback rebates</strong> separately.
+                Compare two package sizes across weight, liquid volume, detergent loads, or 100 paper sheets. Separate <strong>immediate checkout cost</strong> from <strong>pending app rebates</strong>, share your math via link, and save winning prices to your personal Price-Book.
             </p>
         </div>
 
-        <!-- Core Interactive Calculator -->
+        <!-- Interactive Calculator Card -->
         <section aria-label="Unit Price Comparison Calculator" class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm space-y-6">
             
-            <!-- Step 1: Measurement Mode + Presets -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <!-- Category Tabs & High-Intent Presets -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-5">
                 <div role="tablist" aria-label="Measurement Category" class="inline-flex flex-wrap gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
                     <button type="button" id="type-weight" onclick="setUnitType('weight')" class="px-3.5 py-2 rounded-lg bg-emerald-600 text-white shadow-sm transition">Weight (oz, lb, g)</button>
                     <button type="button" id="type-volume" onclick="setUnitType('volume')" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Volume (fl oz, qt, gal)</button>
-                    <button type="button" id="type-count" onclick="setUnitType('count')" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Count / Loads (ct)</button>
-                    <button type="button" id="type-paper" onclick="setUnitType('paper')" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Paper (Sheets / Sq Ft)</button>
+                    <button type="button" id="type-count" onclick="setUnitType('count')" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Loads / Count (ct)</button>
+                    <button type="button" id="type-paper" onclick="setUnitType('paper')" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Paper (Per 100 Sheets)</button>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2 text-xs">
-                    <span class="text-slate-400 font-semibold">Examples:</span>
-                    <button type="button" onclick="loadSample('pasta')" class="text-emerald-700 hover:underline font-bold">Pasta</button>
-                    <span class="text-slate-300">•</span>
-                    <button type="button" onclick="loadSample('juice')" class="text-emerald-700 hover:underline font-bold">Juice</button>
-                    <span class="text-slate-300">•</span>
+                    <span class="text-slate-400 font-semibold">Presets:</span>
+                    <button type="button" onclick="loadSample('pasta')" class="text-emerald-700 hover:underline font-bold">Pasta (oz vs lb)</button>
+                    <span class="text-slate-300">&bull;</span>
+                    <button type="button" onclick="loadSample('oliveoil')" class="text-emerald-700 hover:underline font-bold">Olive Oil</button>
+                    <span class="text-slate-300">&bull;</span>
+                    <button type="button" onclick="loadSample('detergent')" class="text-emerald-700 hover:underline font-bold">Detergent Loads</button>
+                    <span class="text-slate-300">&bull;</span>
                     <button type="button" onclick="loadSample('paper')" class="text-emerald-700 hover:underline font-bold">Paper Towels</button>
-                    <span class="text-slate-300">•</span>
+                    <span class="text-slate-300">&bull;</span>
                     <button type="button" onclick="resetCalculator()" class="text-slate-500 hover:text-rose-600 font-semibold">Clear</button>
                 </div>
             </div>
 
-            <!-- Two-Column Package Inputs -->
+            <!-- Optional Item Label for Price-Book & Sharing -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex-grow">
+                    <label for="item-label" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">Item / Product Name (Optional — for Price-Book &amp; Sharing)</label>
+                    <input type="text" id="item-label" placeholder="e.g., Extra Virgin Olive Oil, Bounty Paper Towels, Tide Pods..." oninput="syncShareState()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="flex items-center gap-2 self-end">
+                    <button type="button" onclick="copyShareUrl()" id="share-btn" class="bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs px-3.5 py-2 rounded-lg transition whitespace-nowrap">
+                        Copy Share Link
+                    </button>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Inputs -->
             <div class="grid md:grid-cols-2 gap-6">
                 
                 <!-- Option A -->
@@ -184,11 +197,11 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label for="a-price" class="block text-xs font-bold text-slate-700 mb-1">Shelf Price ($)</label>
-                            <input type="number" id="a-price" placeholder="1.99" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                            <input type="number" id="a-price" placeholder="1.99" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                         <div>
                             <label for="a-size" class="block text-xs font-bold text-slate-700 mb-1">Package Size</label>
-                            <input type="number" id="a-size" placeholder="16" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                            <input type="number" id="a-size" placeholder="16" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                     </div>
 
@@ -205,7 +218,7 @@
                         <div>
                             <label for="a-coupon" class="block text-[11px] font-bold text-emerald-800 mb-1">Instant Coupon ($)</label>
                             <input type="number" id="a-coupon" placeholder="0.00" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-emerald-300 rounded-xl p-2 text-xs font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                            <span class="text-[10px] text-slate-400 block mt-0.5">Deducted at checkout</span>
+                            <span class="text-[10px] text-slate-400 block mt-0.5">Deducted at register</span>
                         </div>
                         <div>
                             <label for="a-rebate" class="block text-[11px] font-bold text-amber-800 mb-1">Pending Rebate ($)</label>
@@ -242,11 +255,11 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label for="b-price" class="block text-xs font-bold text-slate-700 mb-1">Shelf Price ($)</label>
-                            <input type="number" id="b-price" placeholder="3.48" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                            <input type="number" id="b-price" placeholder="3.48" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                         <div>
                             <label for="b-size" class="block text-xs font-bold text-slate-700 mb-1">Package Size</label>
-                            <input type="number" id="b-size" placeholder="2" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                            <input type="number" id="b-size" placeholder="2" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
                         </div>
                     </div>
 
@@ -263,7 +276,7 @@
                         <div>
                             <label for="b-coupon" class="block text-[11px] font-bold text-emerald-800 mb-1">Instant Coupon ($)</label>
                             <input type="number" id="b-coupon" placeholder="0.00" min="0" step="0.01" inputmode="decimal" oninput="runComparison()" class="w-full bg-white border border-emerald-300 rounded-xl p-2 text-xs font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none">
-                            <span class="text-[10px] text-slate-400 block mt-0.5">Deducted at checkout</span>
+                            <span class="text-[10px] text-slate-400 block mt-0.5">Deducted at register</span>
                         </div>
                         <div>
                             <label for="b-rebate" class="block text-[11px] font-bold text-amber-800 mb-1">Pending Rebate ($)</label>
@@ -292,69 +305,101 @@
 
             </div>
 
-            <!-- Result Verdict Banner -->
-            <div id="verdict-banner" role="status" aria-live="polite" class="hidden p-5 rounded-2xl text-center border-2 fade-in">
-                <span id="verdict-tag" class="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block">Lowest Checkout Unit Price</span>
-                <h2 id="verdict-title" class="text-lg sm:text-xl font-black text-slate-900">Option A wins at checkout</h2>
-                <p id="verdict-text" class="text-xs text-slate-700 mt-1 max-w-xl mx-auto"></p>
-                <p id="verdict-rebate-note" class="text-[11px] text-amber-900 font-semibold mt-2"></p>
+            <!-- Result Verdict + 1-Click Price-Book Save -->
+            <div id="verdict-banner" role="status" aria-live="polite" class="hidden p-5 rounded-2xl text-center border-2 fade-in space-y-3">
+                <div>
+                    <span id="verdict-tag" class="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block">Lowest Checkout Unit Price</span>
+                    <h2 id="verdict-title" class="text-lg sm:text-xl font-black text-slate-900">Option A wins at checkout</h2>
+                    <p id="verdict-text" class="text-xs text-slate-700 mt-1 max-w-xl mx-auto"></p>
+                    <p id="verdict-rebate-note" class="text-[11px] text-amber-900 font-semibold mt-2"></p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-2.5 pt-1">
+                    <button type="button" onclick="saveWinnerToPriceBook()" id="save-pb-btn" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs px-4 py-2 rounded-xl transition">
+                        + Save Winning Unit Price to My Price-Book
+                    </button>
+                    <button type="button" onclick="copyShareUrl()" class="bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs px-4 py-2 rounded-xl transition">
+                        Share This Result Link
+                    </button>
+                </div>
             </div>
 
             <p class="text-[11px] text-slate-400 text-center">
-                *Verdict compares immediate checkout out-of-pocket cost (shelf price minus instant register coupons). Post-purchase app rebates are shown separately because they require receipt approval and minimum payout thresholds.
+                *Verdict compares immediate register out-of-pocket cost (shelf price minus instant coupons). Post-purchase app rebates are tracked separately.
             </p>
         </section>
 
-        <!-- Educational Breakdown & Worked Table -->
+        <!-- Persistent Browser Price-Book Tracker (Drives Weekly Repeat Visits) -->
+        <section id="price-book-section" aria-label="Personal Browser Price-Book" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Saved Locally in Your Browser</span>
+                    <h2 class="text-xl font-extrabold text-slate-900">My Personal Grocery Price-Book</h2>
+                    <p class="text-xs text-slate-600 mt-0.5">Save your best target unit prices above so you know immediately in the store aisle whether a sale is actually a stock-up deal.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button type="button" onclick="exportPriceBook()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3 py-1.5 rounded-lg transition">Export Backup</button>
+                    <button type="button" onclick="clearPriceBook()" class="text-rose-600 hover:underline font-semibold px-2 py-1.5">Clear All</button>
+                </div>
+            </div>
+
+            <div id="pb-empty" class="bg-slate-50 border border-dashed border-slate-300 rounded-xl p-6 text-center text-xs text-slate-500 space-y-1">
+                <p class="font-bold text-slate-700">Your Price-Book is currently empty.</p>
+                <p>Enter any two items in the calculator above and click <strong>"+ Save Winning Unit Price to My Price-Book"</strong> to build your personal benchmark list.</p>
+            </div>
+
+            <div id="pb-table-wrap" class="hidden overflow-x-auto border border-slate-200 rounded-xl">
+                <table class="min-w-full text-left text-xs">
+                    <thead class="bg-slate-100 text-slate-900 uppercase font-bold border-b border-slate-200">
+                        <tr>
+                            <th class="py-2.5 px-3.5">Staple / Item</th>
+                            <th class="py-2.5 px-3.5">Target Unit Price</th>
+                            <th class="py-2.5 px-3.5">Total Checkout</th>
+                            <th class="py-2.5 px-3.5">Saved Date</th>
+                            <th class="py-2.5 px-3.5 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pb-tbody" class="divide-y divide-slate-200 text-slate-700"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Educational Breakdown & Worked Reference Table -->
         <article class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 space-y-8 text-sm text-slate-700 leading-relaxed">
-            
             <section class="space-y-4">
-                <h2 class="text-xl font-extrabold text-slate-900">How to Calculate True Grocery Unit Price</h2>
+                <h2 class="text-xl font-extrabold text-slate-900">2026 Household Unit-Price Quick Reference</h2>
                 <p>
-                    Store shelf tags frequently display mismatched units—listing one pasta brand per <strong>ounce</strong> and the bag right next to it per <strong>pound</strong>. Converting both items to the same base measurement reveals the true cost per unit before you reach the register.
+                    Grocery shelf tags frequently mix units—displaying one package per <strong>ounce</strong>, the neighbor per <strong>pound</strong>, and paper goods per <strong>roll</strong> instead of per <strong>100 sheets</strong>. Use these conversion rules to spot hidden shrinkflation:
                 </p>
 
-                <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs font-mono text-slate-800 space-y-1.5">
-                    <div>1. Shelf Unit Price = Shelf Price &divide; Normalized Base Units</div>
-                    <div class="text-emerald-800 font-bold">2. Checkout Unit Price = (Shelf Price &minus; Instant Coupon) &divide; Base Units</div>
-                    <div class="text-amber-800">3. Post-Rebate Estimate = (Checkout Price &minus; Pending App Rebate) &divide; Base Units</div>
-                </div>
-
-                <h3 class="text-sm font-extrabold text-slate-900 pt-2">Worked Example: 16 oz Box With Coupon vs. 2 lb Bulk Bag</h3>
                 <div class="overflow-x-auto border border-slate-200 rounded-xl">
                     <table class="min-w-full bg-white text-left text-xs">
                         <thead class="bg-slate-100 text-slate-900 uppercase font-bold border-b border-slate-200">
                             <tr>
-                                <th class="py-2.5 px-3.5">Comparison Step</th>
-                                <th class="py-2.5 px-3.5">Option A: 16 oz Box</th>
-                                <th class="py-2.5 px-3.5">Option B: 2 lb (32 oz) Bag</th>
+                                <th class="py-2.5 px-3.5">Product Category</th>
+                                <th class="py-2.5 px-3.5">Best Comparison Unit</th>
+                                <th class="py-2.5 px-3.5">Common Trap to Avoid</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200 text-slate-700">
                             <tr>
-                                <td class="py-2.5 px-3.5 font-semibold text-slate-900">Normalized Size</td>
-                                <td class="py-2.5 px-3.5 font-mono">16 oz</td>
-                                <td class="py-2.5 px-3.5 font-mono">32 oz (2 lb &times; 16)</td>
+                                <td class="py-2.5 px-3.5 font-bold text-slate-900">Paper Towels &amp; Bath Tissue</td>
+                                <td class="py-2.5 px-3.5 font-mono text-emerald-800">Cost per 100 Sheets</td>
+                                <td class="py-2.5 px-3.5">"Mega Roll" labels vary wildly in sheet count between brands.</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3.5 font-semibold text-slate-900">1. Shelf Unit Price</td>
-                                <td class="py-2.5 px-3.5">$1.99 ($0.124 / oz)</td>
-                                <td class="py-2.5 px-3.5 font-semibold text-emerald-700">$3.48 ($0.109 / oz)</td>
+                                <td class="py-2.5 px-3.5 font-bold text-slate-900">Laundry Detergent &amp; Pods</td>
+                                <td class="py-2.5 px-3.5 font-mono text-emerald-800">Cost per Load (ct)</td>
+                                <td class="py-2.5 px-3.5">2X/4X concentrated jugs have fewer fluid ounces but more loads.</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3.5 font-semibold text-slate-900">Instant Digital Coupon</td>
-                                <td class="py-2.5 px-3.5 text-emerald-700 font-semibold">&minus;$0.50</td>
-                                <td class="py-2.5 px-3.5">$0.00</td>
-                            </tr>
-                            <tr class="bg-emerald-50/60">
-                                <td class="py-2.5 px-3.5 font-bold text-emerald-950">2. Register Checkout Cost</td>
-                                <td class="py-2.5 px-3.5 font-bold text-emerald-800">$1.49 ($0.093 / oz)</td>
-                                <td class="py-2.5 px-3.5 font-semibold text-slate-900">$3.48 ($0.109 / oz)</td>
+                                <td class="py-2.5 px-3.5 font-bold text-slate-900">Cooking Oils &amp; Beverages</td>
+                                <td class="py-2.5 px-3.5 font-mono text-emerald-800">Cost per Fluid Ounce (fl oz)</td>
+                                <td class="py-2.5 px-3.5">500 mL (16.9 fl oz) vs. 16 fl oz bottles look identical on the shelf.</td>
                             </tr>
                             <tr>
-                                <td class="py-2.5 px-3.5 font-semibold text-amber-900">3. Pending Rebate (If Approved)</td>
-                                <td class="py-2.5 px-3.5 text-amber-800">$0.25 ($0.077 / oz est.)</td>
-                                <td class="py-2.5 px-3.5">$0.00 ($0.109 / oz)</td>
+                                <td class="py-2.5 px-3.5 font-bold text-slate-900">Pantry Staples, Coffee &amp; Meat</td>
+                                <td class="py-2.5 px-3.5 font-mono text-emerald-800">Cost per Ounce (oz)</td>
+                                <td class="py-2.5 px-3.5">Coffee bags shrunk from 16 oz to 12 oz or 10.5 oz while keeping similar bag heights.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -363,33 +408,31 @@
 
             <!-- Related Internal Guides -->
             <section class="border-t border-slate-100 pt-6 space-y-3">
-                <h2 class="text-lg font-extrabold text-slate-900">Related Grocery &amp; Store Stacking Guides</h2>
+                <h2 class="text-lg font-extrabold text-slate-900">More Free Calculators &amp; Smart Money Guides</h2>
                 <div class="grid sm:grid-cols-3 gap-3 text-xs">
                     <a href="/blog/how-to-calculate-shrinkflation.html" class="p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 transition block">
                         <span class="font-bold text-slate-900 block">How to Calculate Shrinkflation</span>
-                        <span class="text-slate-500 mt-1 block">Spot hidden package weight cuts on pantry staples.</span>
+                        <span class="text-slate-500 mt-1 block">Measure hidden package weight cuts on recurring groceries.</span>
                     </a>
                     <a href="/blog/grocery-rebate-and-savings-ledger.html" class="p-3.5 rounded-xl border border-slate-200 hover:border-emerald-400 transition block">
                         <span class="font-bold text-slate-900 block">Out-of-Pocket Savings Ledger</span>
-                        <span class="text-slate-500 mt-1 block">Track register totals vs. pending Ibotta &amp; Fetch payouts.</span>
+                        <span class="text-slate-500 mt-1 block">Separate register spend from pending Ibotta &amp; Fetch payouts.</span>
                     </a>
-                    <a href="/blog/free-grocery-price-book-template.html" class="p-3.5 rounded-xl border border-slate-200 hover:border-emerald-400 transition block">
-                        <span class="font-bold text-slate-900 block">2026 Grocery Price-Book Template</span>
-                        <span class="text-slate-500 mt-1 block">Record baseline target prices for your top 50 items.</span>
+                    <a href="/earn/" class="p-3.5 rounded-xl border border-slate-200 hover:border-emerald-400 transition block">
+                        <span class="font-bold text-slate-900 block">Vetted Cashback Directory</span>
+                        <span class="text-slate-500 mt-1 block">Compare payout minimums for Ibotta, Fetch, Rakuten &amp; more.</span>
                     </a>
                 </div>
             </section>
 
-            <!-- Clean Single Lead Magnet + Price-Book Resource -->
+            <!-- Single Clean Lead Magnet -->
             <section class="bg-slate-900 text-white rounded-2xl p-6 sm:p-7 space-y-4">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div class="space-y-1.5 max-w-xl">
-                        <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Free Printable Reference</span>
-                        <h2 class="text-lg sm:text-xl font-extrabold text-white">Download the 2026 Grocery Unit Price Cheat Sheet (PDF)</h2>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Keep our 2-page unit conversion matrix and drugstore rolling cheat sheet on your phone. Need the full editable Google Sheets &amp; Excel price-book workbook? <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="text-emerald-300 underline font-bold">Get the complete 2026 Household System ($24) &rarr;</a>
-                        </p>
-                    </div>
+                <div class="space-y-1.5 max-w-xl">
+                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Free Printable Reference</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-white">Download the 2026 Grocery Unit Price Cheat Sheet (PDF)</h2>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Get our 2-page printable conversion chart and stock-up target guide. Want the full editable Google Sheets &amp; Excel household workbook? <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="text-emerald-300 underline font-bold">Get the 2026 Household System ($24) &rarr;</a>
+                    </p>
                 </div>
                 <form action="https://2a1fb247.sibforms.com/serve/MUIFAGkJe4oLNt1pk848WoRGu5xI05BpDiWX1DPuNkVgOVvSEKxOqRgl6VtvDZyG4cIltSteYCSvxjcs6tT6RBkuI5B7G-8gzOOrbSJU6PVdqCuLlkeXzgPS1dBikYkRZj_4vCLNwLJnwCXiveTJQbg3IGGhriG54OclSktcyblQozqrkml2GYsPffFySt9tHtvFxkiAWEVEj5Mmkg==" method="POST" class="flex flex-col sm:flex-row gap-2.5">
                     <input type="email" name="EMAIL" placeholder="Enter your email for instant PDF access..." required class="bg-white text-slate-900 placeholder-slate-400 text-xs font-semibold px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 flex-grow">
@@ -399,61 +442,59 @@
                 </form>
             </section>
 
-            <!-- Contextual Amazon Associates Gear Box (Disclosed) -->
+            <!-- Disclosed Amazon Associates Tools -->
             <section class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3" aria-label="Recommended Pantry Tools">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                     <h2 class="text-sm font-extrabold text-slate-900">Helpful Pantry Tools for Bulk Unit Savings</h2>
                     <span class="text-[10px] font-semibold text-slate-400 uppercase">Affiliate Links</span>
                 </div>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    Buying a 10 lb bulk bag only saves money if the food stays fresh and gets used. These two tools help keep bulk unit-price savings intact:
-                </p>
                 <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col justify-between gap-2.5">
+                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col justify-between gap-2">
                         <div>
                             <strong class="text-slate-900 block">Digital Kitchen Food Scale (11 lb / 5 kg)</strong>
                             <span class="text-slate-600 mt-1 block">Weigh bulk produce, meats, and portioned staples accurately to verify net package weights.</span>
                         </div>
                         <a href="https://www.amazon.com/s?k=digital+kitchen+scale&amp;tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="text-blue-600 hover:underline font-bold">Compare on Amazon &rarr;</a>
                     </div>
-                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col justify-between gap-2.5">
+                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col justify-between gap-2">
                         <div>
                             <strong class="text-slate-900 block">Airtight Pantry Storage Container Set</strong>
-                            <span class="text-slate-600 mt-1 block">Seal bulk flour, rice, oats, and pasta against humidity and pantry pests so bulk discounts don't go to waste.</span>
+                            <span class="text-slate-600 mt-1 block">Seal bulk flour, rice, oats, and pasta against humidity so bulk discounts don't go to waste.</span>
                         </div>
                         <a href="https://www.amazon.com/s?k=airtight+food+storage+containers+set&amp;tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="text-blue-600 hover:underline font-bold">Compare on Amazon &rarr;</a>
                     </div>
                 </div>
             </section>
-
         </article>
-
     </main>
 
-    <!-- Clean Unified Footer -->
+    <!-- Unified Footer -->
     <footer class="bg-white border-t border-slate-200 mt-12 py-8">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3">
             <p class="text-xs text-slate-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>Editorial &amp; Affiliate Disclosure:</strong> SavingsTactic.com is an independent consumer savings publication. Calculator outputs reflect user-entered figures and do not guarantee local store pricing or third-party rebate approval. As an Amazon Associate, SavingsTactic earns from qualifying purchases.
+                <strong>Editorial &amp; Affiliate Disclosure:</strong> SavingsTactic.com is an independent consumer finance and smart-shopping resource. Calculator outputs reflect user-entered figures and do not guarantee local store pricing. As an Amazon Associate, SavingsTactic earns from qualifying purchases.
             </p>
             <div class="flex flex-wrap justify-center gap-5 text-xs text-slate-500 font-semibold">
                 <a href="/" class="hover:text-blue-600">Home</a>
                 <span>&bull;</span>
-                <a href="/blog/" class="hover:text-blue-600">All Guides</a>
+                <a href="/earn/" class="hover:text-blue-600">Earn &amp; Cashback</a>
                 <span>&bull;</span>
-                <a href="/cvs/" class="hover:text-blue-600">CVS Hub</a>
+                <a href="/blog/" class="hover:text-blue-600">Guides</a>
                 <span>&bull;</span>
-                <a href="/privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                <a href="/about.html" class="hover:text-blue-600">Editorial Standards</a>
                 <span>&bull;</span>
-                <a href="/terms.html" class="hover:text-blue-600">Terms of Service</a>
+                <a href="/contact.html" class="hover:text-blue-600">Contact</a>
+                <span>&bull;</span>
+                <a href="/privacy.html" class="hover:text-blue-600">Privacy</a>
             </div>
             <p class="text-xs text-slate-400">&copy; 2026 SavingsTactic.com &mdash; All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Client-Side Unit Math Engine -->
     <script>
         let currentUnitType = 'weight';
+        let lastWinner = null;
+        const PB_STORAGE_KEY = 'savingstactic_price_book_v1';
 
         const unitConfigs = {
             weight: {
@@ -476,10 +517,10 @@
                 ]
             },
             count: {
-                baseName: 'ct',
-                baseLabel: 'Base: Per Item / Load (ct)',
+                baseName: 'load / ct',
+                baseLabel: 'Base: Per Load / Item (ct)',
                 options: [
-                    { value: 'ct', label: 'Single Count / Loads (ct)', factor: 1 },
+                    { value: 'ct', label: 'Loads / Single Count (ct)', factor: 1 },
                     { value: 'doz', label: 'Dozen (12 ct)', factor: 12 }
                 ]
             },
@@ -493,7 +534,7 @@
             }
         };
 
-        function setUnitType(type) {
+        function setUnitType(type, skipCalc = false) {
             currentUnitType = type;
             const cfg = unitConfigs[type];
             ['weight', 'volume', 'count', 'paper'].forEach(b => {
@@ -513,7 +554,7 @@
             if (type === 'weight' && cfg.options.length > 1) {
                 bSelect.value = 'lb';
             }
-            runComparison();
+            if (!skipCalc) runComparison();
         }
 
         function getConversionFactor(type, unitVal) {
@@ -543,14 +584,8 @@
                 return null;
             }
 
-            if (size <= 0) {
-                warnEl.innerText = 'Package size must be greater than zero.';
-                warnEl.classList.remove('hidden');
-                return null;
-            }
-
-            if (price < 0) {
-                warnEl.innerText = 'Shelf price cannot be negative.';
+            if (size <= 0 || price < 0) {
+                warnEl.innerText = size <= 0 ? 'Package size must be greater than zero.' : 'Shelf price cannot be negative.';
                 warnEl.classList.remove('hidden');
                 return null;
             }
@@ -565,10 +600,42 @@
             document.getElementById(`${prefix}-instant-unit`).innerText = `$${instantUnit.toFixed(3)} / ${baseName}`;
             document.getElementById(`${prefix}-rebate-unit`).innerText = `$${rebateUnit.toFixed(3)} / ${baseName}`;
 
-            return { price, size, coupon, rebate, baseUnits, baseName, shelfUnit, netCheckoutPrice, instantUnit, rebateUnit };
+            return { prefix, price, size, unitVal, coupon, rebate, baseUnits, baseName, shelfUnit, netCheckoutPrice, instantUnit, rebateUnit };
+        }
+
+        function syncShareState() {
+            const params = new URLSearchParams();
+            params.set('m', currentUnitType);
+            const label = document.getElementById('item-label').value.trim();
+            if (label) params.set('lbl', label);
+            ['a', 'b'].forEach(p => {
+                const pr = document.getElementById(`${p}-price`).value;
+                const sz = document.getElementById(`${p}-size`).value;
+                const un = document.getElementById(`${p}-unit`).value;
+                const cp = document.getElementById(`${p}-coupon`).value;
+                const rb = document.getElementById(`${p}-rebate`).value;
+                if (pr) params.set(`${p}p`, pr);
+                if (sz) params.set(`${p}s`, sz);
+                if (un) params.set(`${p}u`, un);
+                if (cp) params.set(`${p}c`, cp);
+                if (rb) params.set(`${p}r`, rb);
+            });
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function copyShareUrl() {
+            syncShareState();
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = document.getElementById('share-btn');
+                const orig = btn.innerText;
+                btn.innerText = 'Link Copied!';
+                setTimeout(() => { btn.innerText = orig; }, 2000);
+            });
         }
 
         function runComparison() {
+            syncShareState();
             const a = evaluateSide('a');
             const b = evaluateSide('b');
             const banner = document.getElementById('verdict-banner');
@@ -581,6 +648,7 @@
 
             cardA.className = "bg-slate-50/70 border border-slate-200 rounded-2xl p-5 space-y-4 transition";
             cardB.className = "bg-slate-50/70 border border-slate-200 rounded-2xl p-5 space-y-4 transition";
+            lastWinner = null;
 
             if (!a || !b) {
                 banner.classList.add('hidden');
@@ -592,31 +660,34 @@
             const diff = Math.abs(a.instantUnit - b.instantUnit);
 
             if (diff < 0.00001) {
-                banner.className = "p-5 rounded-2xl text-center border-2 border-slate-300 bg-slate-50 fade-in";
+                banner.className = "p-5 rounded-2xl text-center border-2 border-slate-300 bg-slate-50 fade-in space-y-3";
                 tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-slate-700 text-white";
                 tagEl.innerText = "Tie at Checkout";
                 titleEl.innerText = `Both Options Cost $${a.instantUnit.toFixed(3)} per ${unitName}`;
                 textEl.innerText = `After instant coupons, Option A ($${a.netCheckoutPrice.toFixed(2)}) and Option B ($${b.netCheckoutPrice.toFixed(2)}) have identical unit costs.`;
+                lastWinner = a;
             } else if (a.instantUnit < b.instantUnit) {
                 const pct = b.instantUnit > 0 ? (((b.instantUnit - a.instantUnit) / b.instantUnit) * 100).toFixed(1) : 0;
                 cardA.className = "bg-emerald-50/30 border-2 border-emerald-500 rounded-2xl p-5 space-y-4 transition";
-                banner.className = "p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in";
+                banner.className = "p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in space-y-3";
                 tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-emerald-600 text-white";
                 tagEl.innerText = "Lowest Checkout Unit Price";
                 titleEl.innerText = `Option A Wins ($${a.instantUnit.toFixed(3)} / ${unitName} — ${pct}% Cheaper)`;
                 textEl.innerText = `At the register, Option A costs $${a.instantUnit.toFixed(3)} per ${unitName} ($${a.netCheckoutPrice.toFixed(2)} total) vs. Option B at $${b.instantUnit.toFixed(3)} per ${unitName} ($${b.netCheckoutPrice.toFixed(2)} total).`;
+                lastWinner = a;
             } else {
                 const pct = a.instantUnit > 0 ? (((a.instantUnit - b.instantUnit) / a.instantUnit) * 100).toFixed(1) : 0;
                 cardB.className = "bg-emerald-50/30 border-2 border-emerald-500 rounded-2xl p-5 space-y-4 transition";
-                banner.className = "p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in";
+                banner.className = "p-5 rounded-2xl text-center border-2 border-emerald-500 bg-emerald-50 fade-in space-y-3";
                 tagEl.className = "text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1.5 inline-block bg-emerald-600 text-white";
                 tagEl.innerText = "Lowest Checkout Unit Price";
                 titleEl.innerText = `Option B Wins ($${b.instantUnit.toFixed(3)} / ${unitName} — ${pct}% Cheaper)`;
                 textEl.innerText = `At the register, Option B costs $${b.instantUnit.toFixed(3)} per ${unitName} ($${b.netCheckoutPrice.toFixed(2)} total) vs. Option A at $${a.instantUnit.toFixed(3)} per ${unitName} ($${a.netCheckoutPrice.toFixed(2)} total).`;
+                lastWinner = b;
             }
 
             if (a.rebate > 0 || b.rebate > 0) {
-                rebateNoteEl.innerText = `Separate Pending Rebate Estimate: If approved and paid out later, Option A drops to $${a.rebateUnit.toFixed(3)} / ${unitName} and Option B drops to $${b.rebateUnit.toFixed(3)} / ${unitName}.`;
+                rebateNoteEl.innerText = `Separate Pending Rebate Estimate: If approved later, Option A drops to $${a.rebateUnit.toFixed(3)} / ${unitName} and Option B drops to $${b.rebateUnit.toFixed(3)} / ${unitName}.`;
                 rebateNoteEl.classList.remove('hidden');
             } else {
                 rebateNoteEl.innerText = '';
@@ -624,9 +695,93 @@
             }
         }
 
+        // Price-Book Persistence Functions
+        function getPriceBook() {
+            try {
+                return JSON.parse(localStorage.getItem(PB_STORAGE_KEY) || '[]');
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveWinnerToPriceBook() {
+            if (!lastWinner) return;
+            let name = document.getElementById('item-label').value.trim();
+            if (!name) {
+                name = prompt('Enter a product name for your Price-Book (e.g., Olive Oil, Paper Towels):');
+                if (!name) return;
+                document.getElementById('item-label').value = name.trim();
+            }
+            const book = getPriceBook();
+            book.unshift({
+                id: Date.now(),
+                name: name.trim(),
+                unitPrice: `$${lastWinner.instantUnit.toFixed(3)} / ${lastWinner.baseName}`,
+                checkoutTotal: `$${lastWinner.netCheckoutPrice.toFixed(2)} (${lastWinner.size} ${lastWinner.unitVal})`,
+                date: new Date().toLocaleDateString()
+            });
+            localStorage.setItem(PB_STORAGE_KEY, JSON.stringify(book.slice(0, 100)));
+            renderPriceBook();
+            const btn = document.getElementById('save-pb-btn');
+            btn.innerText = 'Saved to Price-Book!';
+            setTimeout(() => { btn.innerText = '+ Save Winning Unit Price to My Price-Book'; }, 2000);
+        }
+
+        function deletePriceBookItem(id) {
+            const book = getPriceBook().filter(item => item.id !== id);
+            localStorage.setItem(PB_STORAGE_KEY, JSON.stringify(book));
+            renderPriceBook();
+        }
+
+        function clearPriceBook() {
+            if (!confirm('Clear all saved items from your browser Price-Book?')) return;
+            localStorage.removeItem(PB_STORAGE_KEY);
+            renderPriceBook();
+        }
+
+        function exportPriceBook() {
+            const book = getPriceBook();
+            const blob = new Blob([JSON.stringify(book, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'savingstactic-price-book.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function renderPriceBook() {
+            const book = getPriceBook();
+            document.getElementById('nav-pb-count').innerText = book.length;
+            const emptyEl = document.getElementById('pb-empty');
+            const wrapEl = document.getElementById('pb-table-wrap');
+            const tbody = document.getElementById('pb-tbody');
+
+            if (book.length === 0) {
+                emptyEl.classList.remove('hidden');
+                wrapEl.classList.add('hidden');
+                return;
+            }
+
+            emptyEl.classList.add('hidden');
+            wrapEl.classList.remove('hidden');
+            tbody.innerHTML = book.map(row => `
+                <tr>
+                    <td class="py-2.5 px-3.5 font-bold text-slate-900">${row.name}</td>
+                    <td class="py-2.5 px-3.5 font-mono font-bold text-emerald-700">${row.unitPrice}</td>
+                    <td class="py-2.5 px-3.5">${row.checkoutTotal}</td>
+                    <td class="py-2.5 px-3.5 text-slate-500">${row.date}</td>
+                    <td class="py-2.5 px-3.5 text-right">
+                        <button type="button" onclick="deletePriceBookItem(${row.id})" class="text-rose-600 hover:underline font-semibold">Remove</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
         function loadSample(scenario) {
             if (scenario === 'pasta') {
-                setUnitType('weight');
+                setUnitType('weight', true);
+                document.getElementById('item-label').value = 'Dried Pasta (16 oz vs 2 lb)';
                 document.getElementById('a-price').value = '1.99';
                 document.getElementById('a-size').value = '16';
                 document.getElementById('a-unit').value = 'oz';
@@ -638,21 +793,37 @@
                 document.getElementById('b-unit').value = 'lb';
                 document.getElementById('b-coupon').value = '0.00';
                 document.getElementById('b-rebate').value = '0.00';
-            } else if (scenario === 'juice') {
-                setUnitType('volume');
-                document.getElementById('a-price').value = '3.99';
-                document.getElementById('a-size').value = '64';
-                document.getElementById('a-unit').value = 'floz';
+            } else if (scenario === 'oliveoil') {
+                setUnitType('volume', true);
+                document.getElementById('item-label').value = 'Extra Virgin Olive Oil';
+                document.getElementById('a-price').value = '9.99';
+                document.getElementById('a-size').value = '500';
+                document.getElementById('a-unit').value = 'ml';
                 document.getElementById('a-coupon').value = '1.00';
                 document.getElementById('a-rebate').value = '0.00';
 
-                document.getElementById('b-price').value = '6.49';
-                document.getElementById('b-size').value = '1';
-                document.getElementById('b-unit').value = 'gal';
+                document.getElementById('b-price').value = '16.49';
+                document.getElementById('b-size').value = '33.8';
+                document.getElementById('b-unit').value = 'floz';
+                document.getElementById('b-coupon').value = '0.00';
+                document.getElementById('b-rebate').value = '0.00';
+            } else if (scenario === 'detergent') {
+                setUnitType('count', true);
+                document.getElementById('item-label').value = 'Liquid Laundry Detergent (Per Load)';
+                document.getElementById('a-price').value = '12.99';
+                document.getElementById('a-size').value = '64';
+                document.getElementById('a-unit').value = 'ct';
+                document.getElementById('a-coupon').value = '2.00';
+                document.getElementById('a-rebate').value = '0.00';
+
+                document.getElementById('b-price').value = '19.99';
+                document.getElementById('b-size').value = '107';
+                document.getElementById('b-unit').value = 'ct';
                 document.getElementById('b-coupon').value = '0.00';
                 document.getElementById('b-rebate').value = '0.00';
             } else if (scenario === 'paper') {
-                setUnitType('paper');
+                setUnitType('paper', true);
+                document.getElementById('item-label').value = 'Select-A-Size Paper Towels';
                 document.getElementById('a-price').value = '8.99';
                 document.getElementById('a-size').value = '720';
                 document.getElementById('a-unit').value = 'sheets';
@@ -669,6 +840,7 @@
         }
 
         function resetCalculator() {
+            document.getElementById('item-label').value = '';
             ['a', 'b'].forEach(p => {
                 document.getElementById(`${p}-price`).value = '';
                 document.getElementById(`${p}-size`).value = '';
@@ -677,6 +849,28 @@
             });
             runComparison();
         }
+
+        // Load URL parameters if shared link was opened
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPriceBook();
+            const q = new URLSearchParams(window.location.search);
+            if (q.has('m')) {
+                const mode = q.get('m');
+                if (unitConfigs[mode]) setUnitType(mode, true);
+                if (q.has('lbl')) document.getElementById('item-label').value = q.get('lbl');
+                ['a', 'b'].forEach(p => {
+                    if (q.has(`${p}p`)) document.getElementById(`${p}-price`).value = q.get(`${p}p`);
+                    if (q.has(`${p}s`)) document.getElementById(`${p}-size`).value = q.get(`${p}s`);
+                    if (q.has(`${p}u`)) document.getElementById(`${p}-unit`).value = q.get(`${p}u`);
+                    if (q.has(`${p}c`)) document.getElementById(`${p}-coupon`).value = q.get(`${p}c`);
+                    if (q.has(`${p}r`)) document.getElementById(`${p}-rebate`).value = q.get(`${p}r`);
+                });
+                runComparison();
+            }
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            }
+        });
     </script>
 </body>
 </html>

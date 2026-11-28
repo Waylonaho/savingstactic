@@ -22,85 +22,85 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
     </style>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebApplication",
+      "@id": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html#app",
+      "url": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html",
+      "name": "Grocery Unit Price Calculator & Personal Price-Book Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Compare grocery unit prices across ounces, pounds, grams, fluid ounces, quarts, gallons, milliliters, detergent loads, and per 100 paper sheets while saving target stock-up prices locally in your browser.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Savings Tactic",
+        "url": "https://www.savingstactic.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
         {
-          "@type": "WebApplication",
-          "@id": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html#app",
-          "url": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html",
-          "name": "Grocery Unit Price Calculator & Personal Price-Book Tracker",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "browserRequirements": "Requires JavaScript",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Compare grocery unit prices across ounces, pounds, grams, fluid ounces, quarts, gallons, milliliters, detergent loads, and per 100 paper sheets while saving target stock-up prices locally in your browser.",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Savings Tactic",
-            "url": "https://www.savingstactic.com/"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.savingstactic.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides & Calculators",
+          "item": "https://www.savingstactic.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Grocery Unit Price Calculator & Price-Book",
+          "item": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate paper towel or toilet paper cost per 100 sheets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide the net checkout price by the total number of sheets in the multi-pack, then multiply by 100. For example, a 12-roll pack with 1,020 total sheets at $13.99 costs $1.372 per 100 sheets."
           }
         },
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.savingstactic.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Guides & Calculators",
-              "item": "https://www.savingstactic.com/blog/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Grocery Unit Price Calculator & Price-Book",
-              "item": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html"
-            }
-          ]
+          "@type": "Question",
+          "name": "How do I compare laundry detergent cost per load accurately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the Count / Loads tab and enter the number of standard loads printed on the bottle or pod tub rather than fluid ounces, since concentrated detergents require less liquid per wash."
+          }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://www.savingstactic.com/tools/grocery-unit-price-calculator.html#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How do I calculate paper towel or toilet paper cost per 100 sheets?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Divide the net checkout price by the total number of sheets in the multi-pack, then multiply by 100. For example, a 12-roll pack with 1,020 total sheets at $13.99 costs $1.372 per 100 sheets."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I compare laundry detergent cost per load accurately?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use the Count / Loads tab and enter the number of standard loads printed on the bottle or pod tub rather than fluid ounces, since concentrated detergents require less liquid per wash."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does the browser Price-Book save my target grocery prices?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Your saved items are stored locally in your web browser storage (localStorage) with no account or login required, and you can export or back up your list as a JSON file anytime."
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "How does the browser Price-Book save my target grocery prices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your saved items are stored locally in your web browser storage (localStorage) with no account or login required, and you can export or back up your list as a JSON file anytime."
+          }
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 

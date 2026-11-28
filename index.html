@@ -18,31 +18,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>html { scroll-behavior: smooth; }</style>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://www.savingstactic.com/#website",
-          "url": "https://www.savingstactic.com/",
-          "name": "Savings Tactic",
-          "description": "Independent consumer savings publication offering free financial & shopping calculators, browser price-book trackers, and verified cashback guides.",
-          "publisher": { "@id": "https://www.savingstactic.com/#organization" }
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://www.savingstactic.com/#organization",
-          "name": "Savings Tactic",
-          "url": "https://www.savingstactic.com/",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "editorial@savingstactic.com",
-            "contactType": "editorial"
-          }
-        }
-      ]
+      "@type": "WebSite",
+      "@id": "https://www.savingstactic.com/#website",
+      "url": "https://www.savingstactic.com/",
+      "name": "Savings Tactic",
+      "description": "Independent consumer savings publication offering free financial & shopping calculators, browser price-book trackers, and verified cashback guides.",
+      "publisher": {
+        "@id": "https://www.savingstactic.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.savingstactic.com/#organization",
+      "name": "Savings Tactic",
+      "url": "https://www.savingstactic.com/",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "editorial@savingstactic.com",
+        "contactType": "editorial"
+      }
     }
-    </script>
+  ]
+}
+</script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
@@ -175,8 +177,8 @@
                     </p>
                     <ul class="space-y-2.5 text-xs font-semibold text-slate-800 border-t border-slate-100 pt-4">
                         <li><a href="/earn/" class="hover:text-emerald-700 flex justify-between"><span>2026 Verified Cashback &amp; Micro-Income Directory</span><span>&rarr;</span></a></li>
-                        <li><a href="/blog/best-receipt-scanning-apps-stacked.html" class="hover:text-emerald-700 flex justify-between"><span>How to Stack Receipt-Scanning Apps Without Violating Terms</span><span>&rarr;</span></a></li>
-                        <li><a href="/blog/cashback-portals-vs-credit-card-rewards.html" class="hover:text-emerald-700 flex justify-between"><span>Stacking Browser Cashback Portals With Card Rewards</span><span>&rarr;</span></a></li>
+                        <li><a href="/tactics/best-receipt-scanning-apps-stacked.html" class="hover:text-emerald-700 flex justify-between"><span>How to Stack Receipt-Scanning Apps Without Violating Terms</span><span>&rarr;</span></a></li>
+                        <li><a href="/earn/cashback-portals-vs-credit-card-rewards.html" class="hover:text-emerald-700 flex justify-between"><span>Stacking Browser Cashback Portals With Card Rewards</span><span>&rarr;</span></a></li>
                         <li><a href="/blog/" class="hover:text-emerald-700 flex justify-between"><span>Browse All Saving &amp; Earning Guides</span><span>&rarr;</span></a></li>
                     </ul>
                 </div>

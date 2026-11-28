@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery Rebate & Savings Ledger: Track Pending Cashback vs. Real Cost (2026)</title>
+    <title>Grocery Rebate &amp; Savings Ledger: Track Pending Cashback vs. Real Cost (2026)</title>
     <meta name="description" content="Free interactive grocery rebate ledger and 3-store price comparison chart. Separate instant register coupons from pending Ibotta or Fetch rebates without counting unpaid cash.">
     <link rel="canonical" href="https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Savings Tactic">
+    <meta property="og:title" content="Grocery Rebate &amp; Savings Ledger: Track Pending Cashback vs. Real Cost (2026)">
+    <meta property="og:description" content="Free browser-based grocery rebate tracker and 3-store price comparison matrix. Separate out-of-pocket register spend from pending or paid cashback.">
+    <meta property="og:url" content="https://www.savingstactic.com/blog/grocery-rebate-and-savings-ledger.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Structured Data: WebApplication + Article -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,7 +46,36 @@
             "url": "https://www.savingstactic.com/"
           },
           "datePublished": "2026-10-28",
-          "dateModified": "2026-10-28"
+          "dateModified": "2026-11-28"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why should I separate instant register coupons from pending grocery rebates?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Instant digital or paper coupons reduce your cash outflow immediately at checkout, whereas app rebates sit in pending status until verified and often require reaching a minimum cashout threshold (such as $20.00 on Ibotta) before withdrawal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I stack Walmart Cash and an Ibotta offer on the same grocery item?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generally no. Manufacturer rebates typically pay once per qualifying item, and redeeming Walmart Cash on an item can reverse or block an overlapping Ibotta offer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I compare grocery prices across three different stores accurately?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Divide each store's post-coupon out-of-pocket price by the exact net weight or count (ounces, pounds, or loads) so different package sizes are compared on the exact same base unit."
+              }
+            }
+          ]
         }
       ]
     }
@@ -61,7 +95,7 @@
                 <span>/</span>
                 <a href="/blog/free-grocery-price-book-template.html" class="hover:text-blue-600">Price-Book Tools</a>
                 <span>/</span>
-                <span class="text-gray-900">Rebate & Savings Ledger</span>
+                <span class="text-gray-900">Rebate &amp; Savings Ledger</span>
             </nav>
         </div>
     </header>
@@ -73,22 +107,22 @@
         <div class="space-y-3 text-center max-w-2xl mx-auto">
             <span class="bg-emerald-100 text-emerald-800 text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Free Privacy-First Utility</span>
             <h1 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-                Household Rebate & Savings Ledger: Separate Checkout Cost From Pending Cashback
+                Household Rebate &amp; Savings Ledger: Separate Checkout Cost From Pending Cashback
             </h1>
             <p class="text-xs md:text-sm text-gray-600">
                 Stop counting pending app rebates as money in the bank before they clear. Log your grocery trips below to separate <strong>verified register discounts</strong> from <strong>pending, paid, or reversed cashback</strong>.
             </p>
         </div>
 
-        <!-- MVP 4: INTERACTIVE REBATE & SAVINGS LEDGER -->
+        <!-- INTERACTIVE REBATE & SAVINGS LEDGER -->
         <section class="bg-white border-2 border-emerald-500 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-200 pb-4">
                 <div>
                     <h2 class="text-lg font-black text-gray-900">Interactive Household Rebate Ledger</h2>
-                    <p class="text-[11px] text-gray-500">100% Private: Data is stored only in your browser's local storage. No receipts or account logins required.</p>
+                    <p class="text-[11px] text-gray-500">Stored locally in your browser only—no receipts, bank logins, or account signups required.</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="exportLedgerCSV()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs py-2 px-3 rounded-lg border border-gray-300 transition">Export CSV ↓</button>
+                    <button onclick="exportLedgerCSV()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs py-2 px-3 rounded-lg border border-gray-300 transition">Export CSV &darr;</button>
                     <button onclick="clearLedger()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs py-2 px-3 rounded-lg border border-rose-200 transition">Clear All</button>
                 </div>
             </div>
@@ -119,7 +153,7 @@
 
             <!-- Add Entry Form -->
             <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-3">
-                <h3 class="text-xs font-extrabold uppercase text-gray-700">Add Purchase & Rebate Item</h3>
+                <h3 class="text-xs font-extrabold uppercase text-gray-700">Add Purchase &amp; Rebate Item</h3>
                 <div class="grid grid-cols-2 md:grid-cols-6 gap-2.5 text-xs">
                     <input type="text" id="led-store" placeholder="Store (e.g. Walmart)" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
                     <input type="text" id="led-item" placeholder="Item (e.g. Tide 42ct)" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
@@ -128,7 +162,7 @@
                     <input type="number" id="led-rebate" placeholder="App Rebate ($)" step="0.01" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
                     <select id="led-status" class="bg-white border border-gray-300 rounded-lg p-2 font-semibold">
                         <option value="Pending">Submitted / Pending</option>
-                        <option value="Paid">Approved & Paid</option>
+                        <option value="Paid">Approved &amp; Paid</option>
                         <option value="Reversed">Reversed / Rejected</option>
                     </select>
                 </div>
@@ -142,7 +176,7 @@
                 <table class="min-w-full bg-white border border-gray-200 rounded-xl text-left text-xs">
                     <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
                         <tr>
-                            <th class="py-2.5 px-3">Store & Item</th>
+                            <th class="py-2.5 px-3">Store &amp; Item</th>
                             <th class="py-2.5 px-3">Shelf ($)</th>
                             <th class="py-2.5 px-3">Instant Coupon</th>
                             <th class="py-2.5 px-3">Register OOP</th>
@@ -158,36 +192,82 @@
             </div>
         </section>
 
-        <!-- Opportunity #36: 3-Store Price Comparison Chart & Worked Example -->
+        <!-- SMART RECEIPT & CASHBACK STACKING BAR -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-md space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="bg-emerald-400 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Verified Cashback &amp; Receipt Stack</span>
+                <span class="text-xs font-semibold text-slate-300">Log every bonus &amp; payout in your ledger above</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-black text-white">4 Free Tools to Stack On Top of Grocery &amp; Gas Trips</h2>
+            <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Keep your out-of-pocket register total low first, then layer non-conflicting cashback portals and receipt apps so every trip builds toward a real payout:
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
+                <a href="https://www.rakuten.com/r/WAYLON40" target="_blank" rel="nofollow sponsored noopener" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-4 flex flex-col justify-between space-y-2 transition">
+                    <div>
+                        <span class="text-emerald-300 font-black uppercase text-[10px]">Online &amp; Pickup Portal</span>
+                        <h3 class="font-extrabold text-white text-sm mt-0.5">Rakuten Cash Back</h3>
+                        <p class="text-[11px] text-slate-300 mt-1">Activate before Walmart, Target, or drugstore pickup checkouts for portal cashback + welcome bonus.</p>
+                    </div>
+                    <span class="font-extrabold text-emerald-300">Claim Rakuten Link &rarr;</span>
+                </a>
+                <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex flex-col justify-between space-y-2">
+                    <div>
+                        <span class="text-amber-300 font-black uppercase text-[10px]">Every Paper Receipt</span>
+                        <h3 class="font-extrabold text-white text-sm mt-0.5">Fetch Rewards</h3>
+                        <p class="text-[11px] text-slate-300 mt-1">Snap any grocery, gas, or restaurant receipt for gift card points. Enter code <strong class="text-white font-mono">M9PDUJ</strong> at signup.</p>
+                    </div>
+                    <span class="font-mono font-bold text-amber-300">Code: M9PDUJ</span>
+                </div>
+                <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex flex-col justify-between space-y-2">
+                    <div>
+                        <span class="text-sky-300 font-black uppercase text-[10px]">Fuel &amp; Grocery Runs</span>
+                        <h3 class="font-extrabold text-white text-sm mt-0.5">Upside Cash Back</h3>
+                        <p class="text-[11px] text-slate-300 mt-1">Claim local gas station &amp; participating grocery offers before paying. Apply invite code <strong class="text-white font-mono">83P69</strong>.</p>
+                    </div>
+                    <span class="font-mono font-bold text-sky-300">Code: 83P69</span>
+                </div>
+                <a href="https://www.prizerebel.com/index.php?r=1801489" target="_blank" rel="nofollow sponsored noopener" class="bg-white/10 hover:bg-white/15 border border-white/20 rounded-2xl p-4 flex flex-col justify-between space-y-2 transition">
+                    <div>
+                        <span class="text-purple-300 font-black uppercase text-[10px]">Fast Gift Card Top-Ups</span>
+                        <h3 class="font-extrabold text-white text-sm mt-0.5">PrizeRebel Panels</h3>
+                        <p class="text-[11px] text-slate-300 mt-1">Redeem short consumer survey points for PayPal or store gift cards to cover checkout tax.</p>
+                    </div>
+                    <span class="font-extrabold text-purple-300">Join PrizeRebel &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Educational Article + 3-Store Comparison -->
         <article class="bg-white rounded-2xl border border-gray-200 p-6 md:p-10 space-y-8 text-sm text-gray-700 leading-relaxed">
-            
+
             <div class="space-y-3">
                 <h2 class="text-xl font-extrabold text-gray-900">1. Why You Should Never Subtract Pending Rebates From Your Grocery Budget Upfront</h2>
                 <p>
                     A major budgeting trap in grocery couponing is treating a pending app rebate as an immediate register discount. When you buy a $12.99 item with a $2.00 digital store coupon and submit your receipt for a $3.00 cashback offer, you still pay <strong>$10.99 out of pocket at the register</strong>.
                 </p>
                 <ul class="list-disc pl-5 space-y-1.5">
-                    <li><strong>Payout Threshold Locks:</strong> Per <a href="https://home.ibotta.com/terms" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's official terms of use</a> (checked October 28, 2026), users must accumulate at least <strong>$20.00 in verified earnings</strong> before withdrawing cash or gift cards. Meanwhile, <a href="https://fetch.com/terms-of-service" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Fetch's terms of service</a> (checked October 28, 2026) state that point minimums, eligible receipts, and available reward redemptions vary by account and offer—there is no universal fixed dollar guarantee on every receipt.</li>
-                    <li><strong>Offer Overlap Reversals:</strong> If you clip both Walmart Cash and an Ibotta offer on the same item, <a href="https://help.ibotta.com/" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's Walmart policy</a> states the manufacturer offer pays only once and overlapping redemptions can reverse the pending Ibotta credit.</li>
-                    <li><strong>Return Clawbacks:</strong> Returning an item from a bundled threshold trip can reverse your reward progress, as detailed in our <a href="/blog/what-happens-to-target-circle-bonus-when-you-return.html" class="text-blue-600 font-semibold hover:underline">Target Circle Return Policy Breakdown</a>.</li>
+                    <li><strong>Payout Threshold Locks:</strong> <a href="https://home.ibotta.com/terms" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's terms of use</a> generally require reaching <strong>$20.00 in verified earnings</strong> before withdrawing cash or gift cards. On <a href="https://fetch.com/terms-of-service" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Fetch</a>, point minimums, eligible receipts, and reward redemptions vary by account and active brand offers.</li>
+                    <li><strong>Offer Overlap Reversals:</strong> If you clip both Walmart Cash and an Ibotta offer on the same item, <a href="https://help.ibotta.com/" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">Ibotta's Walmart policy</a> notes that a manufacturer offer pays once and overlapping redemptions can reverse pending Ibotta credit.</li>
+                    <li><strong>Return Clawbacks:</strong> Returning an item from a bundled threshold trip can reverse reward progress—see our <a href="/blog/what-happens-to-target-circle-bonus-when-you-return.html" class="text-blue-600 font-semibold hover:underline">Target Circle Return Policy Breakdown</a>.</li>
                 </ul>
             </div>
 
-            <!-- Opportunity #36: 3-Store Comparison Grid -->
+            <!-- 3-Store Comparison Grid -->
             <div class="space-y-4 border-t border-gray-100 pt-6">
                 <h2 class="text-xl font-extrabold text-gray-900">2. How to Compare Grocery Prices Across Three Stores on One Trip</h2>
                 <p>
-                    When comparing prices across a discount grocer (like ALDI), a supercenter (like Walmart), and a promotional supermarket or wholesale club, package weights rarely match. To compare three stores fairly, normalize every item to the exact same base unit (ounces, pounds, or sheet count) before factoring in instant coupons.
+                    When comparing prices across a discount grocer (like ALDI), a supercenter (like Walmart), and a promotional supermarket or wholesale club, package weights rarely match. Normalize every item to the exact same base unit (ounces, pounds, or load count) before factoring in instant coupons.
                 </p>
                 <p class="text-xs text-gray-500 italic">
-                    Note: The table below is a worked mathematical illustration showing how to normalize different package sizes across three stores on a single date (October 28, 2026)—it is a calculation method example, not a guarantee of current local shelf prices in your region.
+                    Illustrative calculation example showing how to normalize different package sizes across three store types—actual shelf prices vary by store and week.
                 </p>
 
                 <div class="overflow-x-auto">
                     <table class="min-w-full bg-gray-50 border border-gray-200 rounded-xl text-left text-xs">
                         <thead class="bg-gray-100 text-gray-900 uppercase font-bold border-b border-gray-200">
                             <tr>
-                                <th class="py-3 px-3">Item & Base Unit</th>
+                                <th class="py-3 px-3">Item &amp; Base Unit</th>
                                 <th class="py-3 px-3">Store A (Discount Grocer)</th>
                                 <th class="py-3 px-3">Store B (Supercenter)</th>
                                 <th class="py-3 px-3">Store C (Promo + Coupon)</th>
@@ -199,7 +279,7 @@
                                 <td class="py-3 px-3 font-bold text-gray-900">Shredded Cheddar<br><span class="text-[10px] font-normal text-gray-500">Normalized per oz</span></td>
                                 <td class="py-3 px-3">12 oz @ $2.69<br><strong class="text-gray-900">$0.224 / oz</strong></td>
                                 <td class="py-3 px-3">16 oz @ $3.78<br><strong class="text-gray-900">$0.236 / oz</strong></td>
-                                <td class="py-3 px-3">8 oz @ $2.50 − $0.75 cpn<br><strong class="text-emerald-700">$0.219 / oz</strong></td>
+                                <td class="py-3 px-3">8 oz @ $2.50 &minus; $0.75 cpn<br><strong class="text-emerald-700">$0.219 / oz</strong></td>
                                 <td class="py-3 px-3 font-bold text-emerald-700">Store C ($0.219/oz)</td>
                             </tr>
                             <tr class="hover:bg-white">
@@ -213,7 +293,7 @@
                                 <td class="py-3 px-3 font-bold text-gray-900">Liquid Detergent<br><span class="text-[10px] font-normal text-gray-500">Normalized per load</span></td>
                                 <td class="py-3 px-3">64 loads @ $6.49<br><strong class="text-gray-900">$0.101 / load</strong></td>
                                 <td class="py-3 px-3">100 loads @ $11.97<br><strong class="text-gray-900">$0.120 / load</strong></td>
-                                <td class="py-3 px-3">84 loads @ $12.99 − $4 cpn<br><strong class="text-emerald-700">$0.107 / load</strong></td>
+                                <td class="py-3 px-3">84 loads @ $12.99 &minus; $4 cpn<br><strong class="text-emerald-700">$0.107 / load</strong></td>
                                 <td class="py-3 px-3 font-bold text-emerald-700">Store A ($0.101/load)</td>
                             </tr>
                         </tbody>
@@ -225,22 +305,44 @@
                 </p>
             </div>
 
-            <!-- Opportunity #33: Honest Comparison of Free Printable vs Paid Spreadsheet -->
+            <!-- AMAZON AFFILIATE HARDWARE BLOCK: RECEIPT SCANNER & DESK ORGANIZER -->
+            <div class="my-6 p-5 bg-amber-50 border-2 border-amber-200 rounded-2xl shadow-sm">
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <div class="sm:w-1/4 text-center">
+                        <span class="bg-amber-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Receipt Workflow Gear</span>
+                        <div class="mt-2 text-4xl">🧾</div>
+                    </div>
+                    <div class="sm:w-3/4 space-y-1.5">
+                        <h3 class="text-base font-bold text-gray-900 leading-snug">Receipt &amp; Coupon Filing Organizer + Portable Document Scanner</h3>
+                        <p class="text-xs text-gray-600">Never lose a $5 rebate receipt at the bottom of a grocery bag. Keep pending receipts separated from cleared ones until every cashback payout hits your account.</p>
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <a href="https://www.amazon.com/s?k=Accordion+Receipt+and+Coupon+Organizer+Wallet&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs px-4 py-2 rounded-xl transition shadow">
+                                Receipt Organizers on Amazon &rarr;
+                            </a>
+                            <a href="https://www.amazon.com/s?k=Portable+Receipt+Scanner+for+Home+Budgeting&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="bg-white hover:bg-gray-100 text-gray-900 border border-amber-300 font-extrabold text-xs px-4 py-2 rounded-xl transition">
+                                Portable Receipt Scanners &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Printable vs Paid Spreadsheet -->
             <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-400 rounded-2xl p-6 space-y-4">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div class="space-y-1">
-                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase"> Printable PDF vs. Editable Workbook</span>
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Printable PDF vs. Editable Workbook</span>
                         <h3 class="text-lg font-black text-gray-900">Which Price-Book Format Fits Your Workflow?</h3>
                         <p class="text-xs text-gray-700 max-w-xl leading-relaxed">
-                            Our <strong>Free 12-Page Printable PDF</strong> is ideal if you prefer writing store prices by hand on a clipboard. If you want pre-built Google Sheets/Excel formulas that automatically divide package units and calculate the CVS 98% spend rule on your phone, you can purchase our pre-formatted 4-tab spreadsheet for $7.
+                            Our <strong>Free Printable Price-Book Template</strong> is ideal if you prefer logging store prices by hand. If you want pre-built Google Sheets/Excel formulas that automatically divide package units and calculate the CVS 98% spend rule on your phone, you can grab our pre-formatted 4-tab spreadsheet for $7.
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
                         <a href="/blog/free-grocery-price-book-template.html" class="bg-white hover:bg-gray-100 text-emerald-800 border border-emerald-400 font-bold text-xs py-2.5 px-4 rounded-xl text-center transition">
-                            Get Free Printable PDF →
+                            Get Free Price-Book Template &rarr;
                         </a>
                         <a href="https://davidboyd13.gumroad.com/l/hcwfl" target="_blank" rel="nofollow sponsored noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-4 rounded-xl text-center shadow-sm transition">
-                            Buy Editable Workbook ($7) →
+                            Buy Editable Workbook ($7) &rarr;
                         </a>
                     </div>
                 </div>
@@ -254,16 +356,16 @@
     <footer class="bg-white border-t border-gray-200 mt-12 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>Editorial & Product Disclosure:</strong> SavingsTactic.com provides free web calculators and sells an optional editable spreadsheet template via Gumroad. Local ledger entries remain stored in your browser and are never transmitted to our servers.
+                <strong>Advertiser &amp; Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher. As an Amazon Associate, SavingsTactic earns from qualifying purchases. We may also earn compensation from partner/referral links (including Rakuten, Fetch, Upside, PrizeRebel, and Gumroad). Local ledger entries stay stored in your browser. Inquiries: <a href="mailto:partners@savingstactic.com" class="underline">partners@savingstactic.com</a>.
             </p>
             <div class="flex justify-center space-x-6 text-xs text-gray-500">
                 <a href="/" class="hover:underline font-semibold">Home</a>
-                <span>•</span>
+                <span>&bull;</span>
                 <a href="/privacy.html" class="hover:underline font-semibold">Privacy Policy</a>
-                <span>•</span>
+                <span>&bull;</span>
                 <a href="/terms.html" class="hover:underline font-semibold">Terms of Service</a>
             </div>
-            <p class="text-xs text-gray-400">© 2026 SavingsTactic.com — All Rights Reserved.</p>
+            <p class="text-xs text-gray-400">&copy; 2026 SavingsTactic.com &mdash; All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -319,7 +421,7 @@
                 if (entry.status === 'Pending') {
                     statusBadge = `<span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-[10px]">Pending</span>`;
                 } else if (entry.status === 'Paid') {
-                    statusBadge = `<span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded text-[10px]">Paid ✓</span>`;
+                    statusBadge = `<span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded text-[10px]">Paid &check;</span>`;
                 } else {
                     statusBadge = `<span class="bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded text-[10px]">Reversed</span>`;
                 }

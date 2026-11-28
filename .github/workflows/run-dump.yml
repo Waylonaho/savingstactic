@@ -1,3 +1,20 @@
+name: Generate Repository Dump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Run Dump Script
         run: |
           if [ -f "scripts/dump.py" ]; then
@@ -6,24 +23,33 @@
             python dump.py
           else
             python - << 'EOF'
-            import os
+          import os
 
-            out = []
-            for dp, _, fns in os.walk("."):
-                if ".git" in dp or "node_modules" in dp or "__pycache__" in dp:
-                    continue
-                for fn in sorted(fns):
-                    if fn.endswith((".html", ".json", ".xml", ".txt", ".py", ".yml", ".yaml")):
-                        path = os.path.join(dp, fn)
-                        out.append(f"\n===== {path} =====\n")
-                        try:
-                            with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                                out.append(f.read()[:6000])
-                        except Exception as e:
-                            out.append(f"[Error reading file: {e}]")
+          out = []
+          for dp, _, fns in os.walk("."):
+              if ".git" in dp or "node_modules" in dp or "__pycache__" in dp:
+                  continue
+              for fn in sorted(fns):
+                  if fn.endswith((".html", ".json", ".xml", ".txt", ".py", ".yml", ".yaml")):
+                      path = os.path.join(dp, fn)
+                      out.append(f"\n===== {path} =====\n")
+                      try:
+                          with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                              out.append(f.read()[:6000])
+                      except Exception as e:
+                          out.append(f"[Error reading file: {e}]")
 
-            with open("repo_dump.txt", "w", encoding="utf-8") as f:
-                f.write("\n".join(out))
-            print("Wrote fallback repo_dump.txt")
-            EOF
+          with open("repo_dump.txt", "w", encoding="utf-8") as f:
+              f.write("\n".join(out))
+          print("Wrote fallback repo_dump.txt")
+          EOF
           fi
+
+      - name: Upload Dump File as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-dump
+          path: |
+            repo_dump.txt
+            full_repo_dump*.txt
+          if-no-files-found: ignore

@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 """
 fix_remaining_issues.py
-Cleans HTML entities in JSON-LD, updates stale October 2026 dates/labels
-to November 2026, checks IndexNow key consistency, and audits HTML integrity.
+GitHub Actions-ready script to clean HTML entities in JSON-LD,
+update stale October 2026 dates/labels to November 2026, verify IndexNow,
+and fail the workflow if truncated/broken HTML files are detected.
 """
 
 import html
 import json
 import os
 import re
+import sys
+from pathlib import Path
 
-ROOT = os.getcwd()
+ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path(__file__).resolve().parent.parent))
 TODAY_ISO = "2026-11-28"
 CURRENT_MONTH_YEAR = "November 2026"
-
 HTML_DIRS = ["", "tools", "tactics", "cvs", "earn", "blog"]
 
 
@@ -46,7 +48,6 @@ def clean_jsonld_blocks(content: str) -> tuple[str, int]:
                 fixes += 1
             return new_block
         except json.JSONDecodeError:
-            # Fallback regex unescape if JSON block has minor syntax issues
             unescaped = re.sub(
                 r'("(?:name|headline|description)"\s*:\s*")([^"]*&\w+;[^"]*)(")',
                 lambda m: f"{m.group(1)}{html.unescape(m.group(2))}{m.group(3)}",
@@ -62,7 +63,6 @@ def clean_jsonld_blocks(content: str) -> tuple[str, int]:
 def refresh_october_2026(content: str) -> tuple[str, int]:
     updates = 0
 
-    # 1. Update JSON-LD dateModified from 2026-10-XX to 2026-11-28
     new_content, n1 = re.subn(
         r'("dateModified"\s*:\s*")2026-10-\d{2}(")',
         rf"\g<1>{TODAY_ISO}\g<2>",
@@ -70,7 +70,6 @@ def refresh_october_2026(content: str) -> tuple[str, int]:
     )
     updates += n1
 
-    # 2. Update visible "Updated for October 2026..." or "Updated October 2026" badges
     new_content, n2 = re.subn(
         r"\b(Updated(?:\s+for)?\s+)October\s+2026\b",
         rf"\g<1>{CURRENT_MONTH_YEAR}",
@@ -82,56 +81,49 @@ def refresh_october_2026(content: str) -> tuple[str, int]:
     return new_content, updates
 
 
-def check_indexnow():
-    script_path = os.path.join(ROOT, "scripts", "indexnow_index.py")
-    if not os.path.exists(script_path):
-        print("[IndexNow] scripts/indexnow_index.py not found.")
-        return
+def check_indexnow() -> list[str]:
+    notes = []
+    script_path = ROOT / "scripts" / "indexnow_index.py"
+    if not script_path.exists():
+        notes.append("[IndexNow] scripts/indexnow_index.py not found.")
+        return notes
 
-    with open(script_path, "r", encoding="utf-8") as f:
-        code = f.read()
-
+    code = script_path.read_text(encoding="utf-8")
     m = re.search(r'INDEXNOW_KEY\s*=\s*["\']([a-f0-9]{32})["\']', code, re.IGNORECASE)
     if not m:
-        print("[IndexNow] Could not parse INDEXNOW_KEY in scripts/indexnow_index.py.")
-        return
+        notes.append("[IndexNow] Could not parse INDEXNOW_KEY in scripts/indexnow_index.py.")
+        return notes
 
     key = m.group(1)
-    key_file = os.path.join(ROOT, f"{key}.txt")
-    if not os.path.exists(key_file):
-        print(f"[IndexNow] WARNING: Missing root verification file {key}.txt")
-        return
+    key_file = ROOT / f"{key}.txt"
+    if not key_file.exists():
+        notes.append(f"[IndexNow] WARNING: Missing root verification file {key}.txt")
+        return notes
 
-    with open(key_file, "r", encoding="utf-8") as f:
-        file_val = f.read().strip()
-
+    file_val = key_file.read_text(encoding="utf-8").strip()
     if file_val != key:
-        print(f"[IndexNow] WARNING: {key}.txt content ({file_val}) != INDEXNOW_KEY ({key})")
+        notes.append(f"[IndexNow] WARNING: {key}.txt content ({file_val}) != INDEXNOW_KEY ({key})")
     elif key == "c8a2e79b4d1f46829f0e123456789abc":
-        print(f"[IndexNow] NOTE: Key matches {key}.txt, verify this isn't a sample key in Bing Webmaster Tools.")
+        notes.append(f"[IndexNow] NOTE: Key matches {key}.txt — confirm this is your real Bing Webmaster Tools key.")
     else:
-        print(f"[IndexNow] OK: {key}.txt matches scripts/indexnow_index.py.")
+        notes.append(f"[IndexNow] OK: {key}.txt matches scripts/indexnow_index.py.")
+
+    return notes
 
 
-def process_site():
+def main() -> int:
     entity_files = 0
     date_files = 0
     warnings = []
 
     for sub in HTML_DIRS:
-        folder = os.path.join(ROOT, sub) if sub else ROOT
-        if not os.path.isdir(folder):
+        folder = ROOT / sub if sub else ROOT
+        if not folder.is_dir():
             continue
 
-        for fn in sorted(os.listdir(folder)):
-            if not fn.endswith(".html"):
-                continue
-
-            fpath = os.path.join(folder, fn)
-            rel = os.path.relpath(fpath, ROOT)
-
-            with open(fpath, "r", encoding="utf-8", errors="replace") as f:
-                original = f.read()
+        for fpath in sorted(folder.glob("*.html")):
+            rel = fpath.relative_to(ROOT).as_posix()
+            original = fpath.read_text(encoding="utf-8", errors="replace")
 
             updated, e_count = clean_jsonld_blocks(original)
             updated, d_count = refresh_october_2026(updated)
@@ -142,11 +134,9 @@ def process_site():
                 date_files += 1
 
             if updated != original:
-                with open(fpath, "w", encoding="utf-8") as f:
-                    f.write(updated)
+                fpath.write_text(updated, encoding="utf-8")
                 print(f"Updated {rel} (JSON-LD entities: {e_count}, Oct->Nov dates: {d_count})")
 
-            # Integrity & truncation checks
             stripped = updated.strip()
             if not stripped.lower().endswith("</html>"):
                 warnings.append(f"[TRUNCATED HTML] {rel} — missing closing </html>")
@@ -165,15 +155,18 @@ def process_site():
     print("\n--- Summary ---")
     print(f"JSON-LD entity cleanups: {entity_files} file(s)")
     print(f"October -> November 2026 updates: {date_files} file(s)")
-    check_indexnow()
+    for note in check_indexnow():
+        print(note)
 
     if warnings:
-        print("\n--- Files Requiring Manual Inspection ---")
+        print("\n--- Structural Errors Found ---")
         for w in warnings:
-            print(" ", w)
-    else:
-        print("\nAll HTML files passed structural & link checks.")
+            print(f"::error::{w}")
+        return 1
+
+    print("\nAll HTML files passed structural & link checks.")
+    return 0
 
 
 if __name__ == "__main__":
-    process_site()
+    sys.exit(main())

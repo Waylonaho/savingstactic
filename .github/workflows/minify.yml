@@ -22,7 +22,7 @@ jobs:
           python-version: '3.10'
 
       - name: Run Python Optimization & Sitemap Script
-        run: python generate_sitemap.py
+        run: python scripts/generate_sitemap.py
 
       - name: Commit Changes
         run: |

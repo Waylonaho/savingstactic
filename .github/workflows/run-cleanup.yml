@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run cleanup script
-        run: python3 cleanup_savingstactic.py
+        run: python3 scripts/cleanup_savingstactic.py
 
       - name: Commit and push updated HTML and sitemap
         run: |

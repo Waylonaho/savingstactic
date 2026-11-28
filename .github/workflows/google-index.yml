@@ -51,7 +51,7 @@ jobs:
         run: |
           export CHANGED_FILES=$(echo "$CHANGED_FILES" | tr ' ' '\n')
           export DELETED_FILES=$(echo "$DELETED_FILES" | tr ' ' '\n')
-          python google_index.py
+          python scripts/google_index.py
 
       - name: Run IndexNow Submission Script
         env:
@@ -60,4 +60,4 @@ jobs:
         run: |
           export CHANGED_FILES=$(echo "$CHANGED_FILES" | tr ' ' '\n')
           export DELETED_FILES=$(echo "$DELETED_FILES" | tr ' ' '\n')
-          python indexnow_index.py
+          python scripts/indexnow_index.py

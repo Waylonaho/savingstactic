@@ -16,7 +16,7 @@ jobs:
           python-version: '3.10'
 
       - name: Run Dump Script
-        run: python dump.py
+        run: python scripts/dump.py
 
       - name: Upload Dump File as Artifact
         uses: actions/upload-artifact@v4

@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
 
       - name: Run Phase 3 upgrade script
-        run: python phase3_upgrade_savingstactic.py
+        run: python scripts/phase3_upgrade_savingstactic.py
 
       - name: Commit and push changes
         run: |

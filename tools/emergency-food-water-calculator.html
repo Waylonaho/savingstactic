@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Food &amp; Water Ration Calculator (3 to 90 Days) | Savings Tactic</title>
+    <meta name="description" content="Calculate exact gallons of water, daily calories, and bulk pantry quantities for a 3, 14, 30, or 90-day power outage. Compare DIY grocery stockpiling vs. pre-packed survival kits.">
+    <link rel="canonical" href="https://www.savingstactic.com/tools/emergency-food-water-calculator.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #ffffff !important; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "90-Day Emergency Pantry & Water Ration Calculator",
+          "url": "https://www.savingstactic.com/tools/emergency-food-water-calculator.html",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "description": "Interactive preparedness calculator that computes water storage needs, caloric requirements, bulk staple pounds, and DIY grocery stockpile vs. freeze-dried kit estimates.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Article",
+          "headline": "Emergency Food & Water Ration Calculator: How to Build a 90-Day Pantry Without Overspending",
+          "description": "Unit-price math for extended grid outages, winter storms, and supply disruptions—comparing DIY bulk grocery stockpiling against freeze-dried emergency kits.",
+          "author": {
+            "@type": "Organization",
+            "name": "Savings Tactic Editorial Team"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Savings Tactic",
+            "url": "https://www.savingstactic.com/"
+          },
+          "datePublished": "2026-11-21",
+          "dateModified": "2026-11-28",
+          "mainEntityOfPage": "https://www.savingstactic.com/tools/emergency-food-water-calculator.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much water do you actually need per person for a 30-day or 90-day outage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FEMA and the Red Cross recommend a baseline of 1 gallon per person per day (half for drinking, half for basic hygiene and cooking). For multi-week outages, storing 14 days of water in rigid containers paired with a 0.1-micron hollow-fiber filter is far more practical than storing 90 gallons per person."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it cheaper to buy freeze-dried survival buckets or build a DIY grocery stockpile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Building a DIY deep pantry using grocery sales and warehouse bulk staples (white rice, dried pinto/black beans, rolled oats, canned proteins, peanut butter, and cooking oil) typically costs $2.40 to $3.50 per person per day for 2,000+ calories—roughly 60% to 75% less than pre-packed commercial survival buckets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should you do with refrigerated and frozen food first when the power goes out?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "According to USDA food safety guidelines, an unopened refrigerator keeps food safe for about 4 hours, a half-full freezer holds temperature for 24 hours, and a full freezer holds for 48 hours. Eat refrigerated perishables on Day 1, cook thawing freezer meats on Days 2–3, and transition to shelf-stable pantry cans and dry staples from Day 4 onward."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm no-print">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center gap-3">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="bg-blue-600 text-white font-black text-xl px-3 py-1 rounded-md tracking-wider">ST</span>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Savings<span class="text-blue-600">Tactic</span></span>
+            </a>
+            <nav aria-label="Primary Navigation" class="flex items-center gap-4 md:gap-6 text-xs font-bold text-gray-600">
+                <a href="/tools/grocery-unit-price-calculator.html" class="hover:text-blue-600 transition hidden md:inline">Unit Price Calculator</a>
+                <a href="/tactics/best-budget-solar-generators-power-outage.html" class="hover:text-amber-600 transition hidden sm:inline">Backup Power Guide</a>
+                <a href="/cvs/" class="hover:text-blue-600 transition hidden md:inline">CVS Hub</a>
+                <a href="/blog/" class="bg-gray-900 hover:bg-gray-800 text-white px-3.5 py-2 rounded-lg transition">All Guides &rarr;</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
+
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="text-xs font-semibold text-gray-500 flex flex-wrap items-center gap-2 no-print">
+            <a href="/" class="hover:text-blue-600">Home</a>
+            <span>/</span>
+            <a href="/blog/" class="hover:text-blue-600">Guides &amp; Calculators</a>
+            <span>/</span>
+            <span class="text-gray-900">Emergency Food &amp; Water Ration Calculator</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="bg-white rounded-3xl border border-gray-200 p-6 md:p-10 shadow-sm space-y-5">
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-amber-100 text-amber-900 text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                    Emergency Prep Math &amp; Unit Cost Tool
+                </span>
+                <span class="text-xs font-semibold text-gray-500">Updated November 28, 2026 &bull; FEMA &amp; USDA Reference Math</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                Emergency Food &amp; Water Ration Calculator (3 to 90 Days)
+            </h1>
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed max-w-3xl">
+                Whether you are preparing for a severe winter ice storm, a multi-week regional grid disruption, or supply chain delays, panic-buying overpriced "survival buckets" drains your budget fast. Enter your household size below to compute estimated water gallons, daily calorie targets, and a <strong>line-by-line DIY grocery stockpile list</strong> that typically costs 60%&ndash;70% less.
+            </p>
+        </section>
+
+        <!-- Interactive Ration & Cost Calculator -->
+        <section id="calculator-app" class="bg-white rounded-3xl border-2 border-emerald-500 p-6 md:p-8 shadow-md space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-gray-200 pb-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Interactive Household Planner</span>
+                    <h2 class="text-2xl font-black text-gray-900">Step 1: Configure Your Household &amp; Duration</h2>
+                </div>
+                <div class="flex items-center gap-2 no-print">
+                    <button type="button" onclick="savePlanToBrowser()" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                        Save Plan
+                    </button>
+                    <button type="button" onclick="window.print()" class="bg-gray-900 hover:bg-gray-800 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                        Print Checklist
+                    </button>
+                </div>
+            </div>
+
+            <!-- Inputs Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                    <label for="adults-count" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Adults (13+ yrs)</label>
+                    <input type="number" id="adults-count" min="1" max="20" value="2" oninput="calculateRations()" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-base font-black text-gray-900">
+                    <span class="text-[11px] text-gray-500 mt-1 block">2,200 kcal &bull; 1.0 gal/day</span>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                    <label for="kids-count" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Children (2&ndash;12 yrs)</label>
+                    <input type="number" id="kids-count" min="0" max="20" value="1" oninput="calculateRations()" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-base font-black text-gray-900">
+                    <span class="text-[11px] text-gray-500 mt-1 block">1,500 kcal &bull; 0.75 gal/day</span>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                    <label for="pets-count" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Dogs / Cats</label>
+                    <input type="number" id="pets-count" min="0" max="15" value="1" oninput="calculateRations()" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-base font-black text-gray-900">
+                    <span class="text-[11px] text-gray-500 mt-1 block">0.5 gal water/day</span>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                    <label for="duration-days" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Outage Duration</label>
+                    <select id="duration-days" onchange="calculateRations()" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-sm font-black text-gray-900">
+                        <option value="3">3 Days (72-Hr Kit)</option>
+                        <option value="14">14 Days (2 Weeks)</option>
+                        <option value="30" selected>30 Days (1 Month)</option>
+                        <option value="90">90 Days (Full Quarter)</option>
+                    </select>
+                    <span class="text-[11px] text-gray-500 mt-1 block">Select target window</span>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                    <label for="climate-mode" class="block text-xs font-extrabold uppercase text-gray-700 mb-1">Climate / Activity</label>
+                    <select id="climate-mode" onchange="calculateRations()" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-sm font-black text-gray-900">
+                        <option value="1.0" selected>Standard Indoor</option>
+                        <option value="1.15">Cold Winter (+15% Cal)</option>
+                        <option value="1.30">Hot / Heavy Labor (+30%)</option>
+                    </select>
+                    <span class="text-[11px] text-gray-500 mt-1 block">Adjusts water &amp; calories</span>
+                </div>
+            </div>
+
+            <p id="save-toast" class="hidden text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl"></p>
+
+            <!-- Summary KPI Strip -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4">
+                    <span class="text-[11px] font-extrabold uppercase text-blue-800">Total Water Needed</span>
+                    <div id="kpi-water" class="text-2xl md:text-3xl font-black text-blue-950 mt-1">97.5 Gal</div>
+                    <p id="kpi-water-sub" class="text-[11px] text-blue-800 mt-1">~738 standard 16.9 oz bottles</p>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+                    <span class="text-[11px] font-extrabold uppercase text-amber-800">Total Calories Needed</span>
+                    <div id="kpi-calories" class="text-2xl md:text-3xl font-black text-amber-950 mt-1">177,000 kcal</div>
+                    <p id="kpi-calories-sub" class="text-[11px] text-amber-800 mt-1">5,900 kcal/day household total</p>
+                </div>
+
+                <div class="bg-emerald-50 border border-emerald-300 rounded-2xl p-4">
+                    <span class="text-[11px] font-extrabold uppercase text-emerald-800">DIY Grocery Stockpile Est.</span>
+                    <div id="kpi-diy-cost" class="text-2xl md:text-3xl font-black text-emerald-950 mt-1">$248</div>
+                    <p id="kpi-diy-sub" class="text-[11px] text-emerald-800 mt-1">$2.80 / person / day (bulk sales)</p>
+                </div>
+
+                <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4">
+                    <span class="text-[11px] font-extrabold uppercase text-rose-800">Pre-Packed Survival Bucket Est.</span>
+                    <div id="kpi-bucket-cost" class="text-2xl md:text-3xl font-black text-rose-950 mt-1">$885</div>
+                    <p id="kpi-savings-badge" class="text-[11px] font-bold text-emerald-700 mt-1">Est. ~$637 saved with DIY math</p>
+                </div>
+            </div>
+
+            <!-- Practical Water Storage Reality Alert -->
+            <div id="water-reality-box" class="bg-slate-900 text-white rounded-2xl p-5 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Space &amp; Weight Reality Check</span>
+                    <h3 class="text-sm font-extrabold">Water Weighs 8.34 lbs Per Gallon</h3>
+                </div>
+                <p id="water-advice-text" class="text-xs text-slate-300 leading-relaxed">
+                    Storing 97.5 gallons of water weighs <strong>813 lbs</strong> and takes up roughly 13 cubic feet. Rather than stacking 20+ cases of flimsy plastic bottles that leak after 12 months, store <strong>14 days of hard water (45.5 gallons)</strong> in stackable BPA-free jugs and pair it with a <strong>0.1-micron hollow-fiber filter</strong> capable of purifying 100,000 gallons from rain barrels, bathtubs, or local creeks.
+                </p>
+            </div>
+
+            <!-- Generated Shopping & Ration Breakdown Table -->
+            <div class="space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <h3 class="text-lg font-black text-gray-900">Your Balanced DIY Deep-Pantry Shopping List</h3>
+                    <span class="text-xs font-semibold text-gray-500">Macro Ratio: 55% Complex Carbs &bull; 25% Fats &bull; 20% Protein</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-xl text-left text-xs">
+                        <thead class="bg-gray-100 text-gray-900 uppercase font-extrabold">
+                            <tr>
+                                <th class="py-3 px-4">Pantry Staple Category</th>
+                                <th class="py-3 px-4">Exact Quantity Needed</th>
+                                <th class="py-3 px-4">Shelf Life</th>
+                                <th class="py-3 px-4">Target Unit Buy Price</th>
+                                <th class="py-3 px-4">Est. Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ration-table-body" class="divide-y divide-gray-200 text-gray-700 font-medium">
+                            <!-- Populated dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-Value Gear & Bulk Supplies Section (Amazon Associates Monetization) -->
+        <section id="essential-gear" class="space-y-5">
+            <div class="border-b border-gray-200 pb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600">High-ROI Emergency Hardware</span>
+                <h2 class="text-2xl font-black text-gray-900">6 High-Leverage Gear Items That Replace Bulky Stockpiles</h2>
+                <p class="text-xs text-gray-600 mt-1">
+                    Smart preparedness relies on reusable hardware rather than single-use consumables. Below are practical, shelf-stable items that solve water purification, off-grid cooking, and long-term calorie storage.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Item 1: Sawyer Squeeze Water Filter -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Water Purification</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$40&ndash;$45</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">Sawyer Products SP129 Squeeze Water Filtration System</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>Why it beats bottled water:</strong> Filters 0.1-micron absolute (removing 99.99999% of bacteria and protozoa) up to <strong>100,000 gallons</strong> with no replacement cartridges required&mdash;just backflush with the included syringe. Threads onto standard 28mm soda/water bottles.
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=Sawyer+Products+SP129+Squeeze+Water+Filtration+System&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Check Price on Amazon &rarr;
+                    </a>
+                </div>
+
+                <!-- Item 2: WaterBrick Stackable Containers -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Indoor Water Storage</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$25&ndash;$55</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">WaterBrick 3.5-Gallon Stackable BPA-Free Water Containers</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>Why it beats grocery jugs:</strong> Thin grocery gallon jugs split at the seams within 6&ndash;12 months. High-density polyethylene (HDPE) WaterBricks interlock under beds or inside closets and weigh ~29 lbs full so anyone can carry them.
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=WaterBrick+3.5+Gallon+Stackable+Water+Container&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Check Price on Amazon &rarr;
+                    </a>
+                </div>
+
+                <!-- Item 3: Augason Farms #10 Cans -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">25-Year Shelf Life</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$18&ndash;$35 / Can</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">Augason Farms Dehydrated &amp; Freeze-Dried #10 Cans</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>Best-value long-term add-ons:</strong> Skip expensive pre-mixed "entree buckets" loaded with salty pasta. Buy individual #10 cans of <strong>Morning Moo's Milk Alternative, Whole Egg Powder, and Freeze-Dried Chicken</strong> to upgrade cheap grocery rice and beans.
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=Augason+Farms+No+10+Can+Emergency+Food&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Compare #10 Cans on Amazon &rarr;
+                    </a>
+                </div>
+
+                <!-- Item 4: Butane / Dual-Fuel Camp Stove -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Off-Grid Cooking</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$35&ndash;$45</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">Gas One Dual-Fuel Portable Propane &amp; Butane Stove</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>Critical rule:</strong> Rice, dried beans, and oats are inedible without boiling water. A dual-fuel stove runs on either 8 oz butane canisters or standard 1 lb green propane cylinders (always ventilate properly and keep a battery carbon monoxide detector nearby).
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=Gas+One+Dual+Fuel+Portable+Camp+Stove+Propane+Butane&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Check Stove Prices on Amazon &rarr;
+                    </a>
+                </div>
+
+                <!-- Item 5: Mylar Bags + Oxygen Absorbers -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-purple-100 text-purple-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Bulk Food Sealing</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$18&ndash;$25</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">7-Mil Heavy-Duty Mylar Bags + 2000cc Oxygen Absorbers</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>Turn $15 warehouse rice into a multi-decade asset:</strong> Store-bought plastic rice bags allow weevils and moisture inside within 12 months. Heat-sealing dry rice, oats, and pinto beans in 7-mil Mylar bags with oxygen absorbers inside a 5-gallon food-grade bucket preserves them for decades.
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=7+mil+mylar+bags+with+oxygen+absorbers+5+gallon&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Check Mylar Kits on Amazon &rarr;
+                    </a>
+                </div>
+
+                <!-- Item 6: NOAA Weather Radio & Manual Can Opener -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-rose-100 text-rose-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Grid-Down Essentials</span>
+                            <span class="text-xs font-extrabold text-gray-900">~$25&ndash;$35</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900">Emergency Hand-Crank / Solar NOAA Weather Radio + Manual Opener</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            <strong>When cell towers go dark:</strong> Local cellular towers run on limited backup batteries during regional blackouts. An AM/FM/NOAA weather radio keeps you updated on boil-water advisories and utility restoration timelines without draining your phone.
+                        </p>
+                    </div>
+                    <a href="https://www.amazon.com/s?k=NOAA+Emergency+Weather+Radio+Solar+Hand+Crank+LED&tag=savingstactic-20" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition">
+                        Check NOAA Radios on Amazon &rarr;
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Rakuten + Fetch + Upside Bulk Stockpile Cashback Box -->
+        <section class="bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-md space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="bg-emerald-400 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Pantry &amp; Fuel Stockpile Stack</span>
+                <span class="text-xs font-bold text-purple-200">Works on Walmart, Sam's Club, Target &amp; Gas Runs</span>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 space-y-2">
+                    <h2 class="text-xl md:text-2xl font-black text-white leading-snug">
+                        Stack Portal Cashback, Receipt Points &amp; Gas Rebates on Bulk Stockup Trips
+                    </h2>
+                    <p class="text-xs md:text-sm text-purple-100 leading-relaxed">
+                        Ordering bulk rice, canned proteins, or water containers online for Walmart pickup, Sam's Club, or Target? Activate <strong>Rakuten</strong> before checkout to earn portal cashback + welcome bonus on qualifying orders. Then snap your receipt in <strong>Fetch (code M9PDUJ)</strong> for gift card points and claim gas cash-back on <strong>Upside (code 83P69)</strong> when topping off your tank and fuel cans.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 flex flex-col gap-2">
+                    <a href="https://www.rakuten.com/r/WAYLON40" target="_blank" rel="nofollow sponsored noopener" class="block w-full text-center bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs md:text-sm py-3.5 px-5 rounded-xl shadow-md transition">
+                        Activate Rakuten Bonus &rarr;
+                    </a>
+                    <span class="text-[10px] text-purple-200 text-center">Fetch: <strong class="font-mono">M9PDUJ</strong> &bull; Upside: <strong class="font-mono">83P69</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Deep-Dive Guide -->
+        <article class="bg-white rounded-3xl border border-gray-200 p-6 md:p-10 shadow-sm space-y-8 leading-relaxed">
+
+            <div class="space-y-3 border-b border-gray-200 pb-6">
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900">
+                    How to Build a 30-to-90-Day Pantry Gradually Without Overspending
+                </h2>
+                <p class="text-sm text-gray-700">
+                    You do not need to panic or spend thousands on pre-packed survival buckets. By applying <strong>unit-price grocery math</strong> and a <strong>3-phase food rotation schedule</strong>, an average household can build a practical 30-to-90-day pantry gradually over 6 to 8 regular grocery trips&mdash;using shelf-stable items you already eat.
+                </p>
+            </div>
+
+            <!-- The 3-Phase Blackout Food Timeline -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-black text-gray-900">The 3-Phase Blackout Food Timeline (Zero Waste Protocol)</h3>
+                <p class="text-sm text-gray-700">
+                    The biggest mistake people make during a blackout is opening canned food on Day 1 while refrigerated and frozen groceries spoil. Follow USDA temperature guidelines:
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-5 space-y-2">
+                        <span class="bg-rose-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Phase 1: Hours 0&ndash;24</span>
+                        <h4 class="text-base font-extrabold text-gray-900">Fridge Perishables First</h4>
+                        <p class="text-xs text-gray-700">
+                            Keep fridge doors shut. An unopened fridge stays under 40&deg;F for about <strong>4 hours</strong>. Eat dairy, leftovers, deli meats, and opened condiments first. Move high-value meats into your freezer right when power drops.
+                        </p>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-2">
+                        <span class="bg-amber-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Phase 2: Days 2&ndash;4</span>
+                        <h4 class="text-base font-extrabold text-gray-900">Freezer Thaw &amp; Grill</h4>
+                        <p class="text-xs text-gray-700">
+                            A full freezer holds safe temperatures for roughly <strong>48 hours</strong> (24 hours if half-full). Once meat begins thawing (still cold with ice crystals), cook it outdoors on a propane grill or camp stove.
+                        </p>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-2">
+                        <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Phase 3: Days 5&ndash;90</span>
+                        <h4 class="text-base font-extrabold text-gray-900">Deep Pantry &amp; Bulk Staples</h4>
+                        <p class="text-xs text-gray-700">
+                            Transition to canned proteins (tuna, chicken, chili), peanut butter, rolled oats, white rice, and dried beans. Pair staples with bouillon cubes, hot sauce, and spices to prevent menu fatigue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Hidden Mistakes -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-black text-gray-900">5 Costly Prepper Mistakes That Waste Money</h3>
+                <ul class="space-y-3 text-sm text-gray-700">
+                    <li class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <strong class="text-gray-900">1. Storing Brown Rice Instead of White Rice:</strong> Brown rice retains its natural bran oils, which go rancid in 6 to 12 months. Properly sealed white jasmine or long-grain rice lasts <strong>25+ years</strong> and costs under $0.65&ndash;$0.75/lb in 25-lb warehouse bags.
+                    </li>
+                    <li class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <strong class="text-gray-900">2. Ignoring Cooking Fats &amp; Calorie Density:</strong> Rice and beans are nearly fat-free. Without olive oil, coconut oil, ghee, or peanut butter, your body cannot absorb fat-soluble vitamins and will feel constantly hungry. One 40-oz jar of peanut butter packs roughly <strong>6,650 calories</strong> for ~$4.50.
+                    </li>
+                    <li class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <strong class="text-gray-900">3. Forgetting Extra Water for Dehydrated Foods:</strong> Every cup of dry rice or freeze-dried food requires ~2 cups of water just to rehydrate&mdash;on top of your 1 gallon/day drinking baseline.
+                    </li>
+                    <li class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <strong class="text-gray-900">4. Paying Retail for Batteries, First Aid &amp; OTC Meds:</strong> Use our <a href="/cvs/" class="text-blue-600 font-bold hover:underline">CVS ExtraBucks Rolling Guide</a> to stock medical and hygiene supplies for 70%&ndash;90% off.
+                    </li>
+                    <li class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <strong class="text-gray-900">5. Having Food Without a Backup Power Plan:</strong> If you rely on a chest freezer, CPAP machine, or well pump, check our companion <a href="/tactics/best-budget-solar-generators-power-outage.html" class="text-blue-600 font-bold hover:underline">Budget Solar Generator &amp; Wattage Runtime Guide &rarr;</a> to size a LiFePO4 power station for your exact appliances.
+                    </li>
+                </ul>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                <strong>Advertiser &amp; Editorial Disclosure:</strong> SavingsTactic.com is an independent digital media publisher. As an Amazon Associate, SavingsTactic earns from qualifying purchases at zero additional cost to you. Inquiries: <a href="mailto:partners@savingstactic.com" class="underline">partners@savingstactic.com</a>.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500 font-semibold">
+                <a href="/" class="hover:underline">Home</a>
+                <span>&bull;</span>
+                <a href="/blog/" class="hover:underline">All Guides</a>
+                <span>&bull;</span>
+                <a href="/tactics/best-budget-solar-generators-power-outage.html" class="hover:underline">Solar Generator Guide</a>
+                <span>&bull;</span>
+                <a href="/cvs/" class="hover:underline">CVS Hub</a>
+                <span>&bull;</span>
+                <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
+            </div>
+            <p class="text-xs text-gray-400">&copy; 2026 SavingsTactic.com &mdash; All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateRations() {
+            const adults = Math.max(0, parseInt(document.getElementById('adults-count').value) || 0);
+            const kids = Math.max(0, parseInt(document.getElementById('kids-count').value) || 0);
+            const pets = Math.max(0, parseInt(document.getElementById('pets-count').value) || 0);
+            const days = parseInt(document.getElementById('duration-days').value) || 30;
+            const mult = parseFloat(document.getElementById('climate-mode').value) || 1.0;
+
+            const dailyWater = ((adults * 1.0) + (kids * 0.75) + (pets * 0.5)) * mult;
+            const totalWater = dailyWater * days;
+            const bottles = Math.ceil((totalWater * 128) / 16.9);
+
+            const dailyCalories = Math.round(((adults * 2200) + (kids * 1500)) * mult);
+            const totalCalories = dailyCalories * days;
+
+            const riceLbs = Math.ceil((totalCalories * 0.30) / 1650);
+            const riceCost = riceLbs * 0.75;
+
+            const beansLbs = Math.ceil((totalCalories * 0.15) / 1550);
+            const beansCost = beansLbs * 1.15;
+
+            const oatsLbs = Math.ceil((totalCalories * 0.15) / 1700);
+            const oatsCost = oatsLbs * 1.25;
+
+            const fatsLbs = Math.ceil((totalCalories * 0.22) / 2800);
+            const fatsCost = fatsLbs * 2.40;
+
+            const cansCount = Math.ceil((totalCalories * 0.18) / 450);
+            const cansCost = cansCount * 1.65;
+
+            const humanCount = Math.max(1, adults + kids);
+            const spicesCost = Math.ceil(humanCount * days * 0.18);
+
+            const totalDiyCost = Math.round(riceCost + beansCost + oatsCost + fatsCost + cansCost + spicesCost);
+            const perPersonPerDay = (totalDiyCost / (humanCount * days)).toFixed(2);
+
+            const bucketCost = Math.round((totalCalories / 2000) * 9.50);
+            const savings = Math.max(0, bucketCost - totalDiyCost);
+
+            document.getElementById('kpi-water').textContent = totalWater.toFixed(1) + ' Gal';
+            document.getElementById('kpi-water-sub').textContent = '~' + bottles.toLocaleString() + ' standard 16.9 oz bottles';
+            document.getElementById('kpi-calories').textContent = totalCalories.toLocaleString() + ' kcal';
+            document.getElementById('kpi-calories-sub').textContent = dailyCalories.toLocaleString() + ' kcal/day household total';
+            document.getElementById('kpi-diy-cost').textContent = '$' + totalDiyCost.toLocaleString();
+            document.getElementById('kpi-diy-sub').textContent = '$' + perPersonPerDay + ' / person / day (bulk sales)';
+            document.getElementById('kpi-bucket-cost').textContent = '$' + bucketCost.toLocaleString();
+            document.getElementById('kpi-savings-badge').textContent = 'Est. ~$' + savings.toLocaleString() + ' saved with DIY math';
+
+            const weightLbs = Math.round(totalWater * 8.34);
+            const twoWeekGal = (dailyWater * Math.min(days, 14)).toFixed(1);
+            document.getElementById('water-advice-text').innerHTML =
+                'Storing <strong>' + totalWater.toFixed(1) + ' gallons</strong> of water weighs <strong>' + weightLbs.toLocaleString() + ' lbs</strong>. ' +
+                (days > 14
+                    ? 'Rather than stacking dozens of leaky store jugs, store <strong>14 days of hard water (' + twoWeekGal + ' gallons)</strong> in stackable BPA-free containers and pair it with a <strong>0.1-micron hollow-fiber filter</strong> capable of purifying 100,000 gallons.'
+                    : 'Store this full <strong>' + totalWater.toFixed(1) + '-gallon supply</strong> in stackable BPA-free containers plus a backup hollow-fiber filter in case municipal boil-water advisories extend past two weeks.');
+
+            const rows = [
+                ['White Long-Grain or Jasmine Rice', riceLbs + ' lbs', '25+ Years (Mylar)', '$0.75 / lb', '$' + riceCost.toFixed(2)],
+                ['Dried Pinto, Black Beans &amp; Lentils', beansLbs + ' lbs', '10&ndash;25 Years', '$1.15 / lb', '$' + beansCost.toFixed(2)],
+                ['Rolled Oats &amp; Dry Pasta', oatsLbs + ' lbs', '2&ndash;10 Years', '$1.25 / lb', '$' + oatsCost.toFixed(2)],
+                ['Peanut Butter &amp; Olive/Canola Oil', fatsLbs + ' lbs (~' + Math.ceil(fatsLbs / 2.5) + ' jars)', '18&ndash;24 Months', '$2.40 / lb', '$' + fatsCost.toFixed(2)],
+                ['Canned Chicken, Tuna, Chili &amp; Beans', cansCount + ' cans (12&ndash;15 oz)', '3&ndash;5 Years', '$1.65 / can', '$' + cansCost.toFixed(2)],
+                ['Salt, Sugar, Bouillon &amp; Electrolytes', '1 Pantry Kit', '5+ Years', 'Bulk Bundle', '$' + spicesCost.toFixed(2)]
+            ];
+
+            const tbody = document.getElementById('ration-table-body');
+            tbody.innerHTML = rows.map(r => `
+                <tr>
+                    <td class="py-3 px-4 font-bold text-gray-900">${r[0]}</td>
+                    <td class="py-3 px-4 font-extrabold text-emerald-700">${r[1]}</td>
+                    <td class="py-3 px-4">${r[2]}</td>
+                    <td class="py-3 px-4">${r[3]}</td>
+                    <td class="py-3 px-4 font-bold text-gray-900">${r[4]}</td>
+                </tr>
+            `).join('');
+        }
+
+        function savePlanToBrowser() {
+            const state = {
+                adults: document.getElementById('adults-count').value,
+                kids: document.getElementById('kids-count').value,
+                pets: document.getElementById('pets-count').value,
+                days: document.getElementById('duration-days').value,
+                climate: document.getElementById('climate-mode').value
+            };
+            localStorage.setItem('st_emergency_plan_v1', JSON.stringify(state));
+            const toast = document.getElementById('save-toast');
+            toast.textContent = 'Saved your household ration plan to this browser. It will automatically reload next time you visit.';
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 4500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('st_emergency_plan_v1');
+            if (saved) {
+                try {
+                    const s = JSON.parse(saved);
+                    if (s.adults) document.getElementById('adults-count').value = s.adults;
+                    if (s.kids !== undefined) document.getElementById('kids-count').value = s.kids;
+                    if (s.pets !== undefined) document.getElementById('pets-count').value = s.pets;
+                    if (s.days) document.getElementById('duration-days').value = s.days;
+                    if (s.climate) document.getElementById('climate-mode').value = s.climate;
+                } catch (e) {}
+            }
+            calculateRations();
+        });
+    </script>
+</body>
+</html>

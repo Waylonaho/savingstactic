@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+     
+      - name: Rewrite stale /blog/ links to hub URLs
+        run: python scripts/fix_old_blog_links.py
 
       - name: Run cleanup & HTML integrity audit
         run: python scripts/fix_remaining_issues.py

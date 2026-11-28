@@ -1,0 +1,34 @@
+name: Standardize Headers & BreadcrumbList Schema
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  standardize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run standardization script
+        run: python scripts/standardize_headers_and_schema.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "Standardize header nav, robots meta, and BreadcrumbList schema"
+            git push
+          else
+            echo "No changes to commit."
+          fi

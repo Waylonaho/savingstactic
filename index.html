@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savings Tactic | Practical Calculators, Price-Book Tools &amp; Side-Income Guides</title>
-    <meta name="description" content="Free offline-ready financial calculators, grocery unit-price &amp; price-book tracker, smart shopping guides, and vetted cashback &amp; side-income resources.">
+    <title>Savings Tactic | Free Unit-Price Calculators, Price-Book &amp; Cashback Guides</title>
+    <meta name="description" content="Compare grocery unit prices, track target stock-up prices, and learn proven coupon, loyalty, and cashback strategies with free browser tools—updated November 2026.">
     <link rel="canonical" href="https://www.savingstactic.com/">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563eb">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Savings Tactic">
-    <meta property="og:title" content="Savings Tactic | Practical Calculators &amp; Smart Money Tools">
-    <meta property="og:description" content="Free interactive calculators, browser Price-Book tracker, and vetted ways to earn extra cash from everyday spending.">
+    <meta property="og:title" content="Savings Tactic | Smart Math &amp; Practical Systems to Save and Earn More">
+    <meta property="og:description" content="Free offline-ready calculators, personal Price-Book tracker, and vetted grocery, drugstore, and cashback guides.">
     <meta property="og:url" content="https://www.savingstactic.com/">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>html { scroll-behavior: smooth; }</style>
     <script type="application/ld+json">
@@ -26,9 +26,14 @@
       "@id": "https://www.savingstactic.com/#website",
       "url": "https://www.savingstactic.com/",
       "name": "Savings Tactic",
-      "description": "Independent consumer savings publication offering free financial & shopping calculators, browser price-book trackers, and verified cashback guides.",
+      "description": "Independent consumer savings publication offering free financial and shopping calculators, browser price-book trackers, and verified cashback guides.",
       "publisher": {
         "@id": "https://www.savingstactic.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.savingstactic.com/blog/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     },
     {
@@ -48,38 +53,96 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <header class="bg-white/95 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center gap-4">
-            <a href="/" class="flex items-center space-x-2.5">
+            <a href="/" class="flex items-center space-x-2.5 shrink-0">
                 <span class="bg-blue-600 text-white font-black text-lg px-2.5 py-1 rounded-lg tracking-wider">ST</span>
                 <span class="text-lg font-extrabold tracking-tight text-slate-900">Savings<span class="text-blue-600">Tactic</span></span>
             </a>
-            <nav aria-label="Primary Navigation" class="flex items-center gap-5 text-xs font-bold text-slate-600">
-                <a href="#tools" class="hover:text-blue-600 transition">Free Calculators</a>
+
+            <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-6 text-xs font-bold text-slate-600">
+                <a href="#tools" class="hover:text-blue-600 transition">Calculators</a>
                 <a href="/earn/" class="hover:text-emerald-700 transition">Earn &amp; Cashback</a>
-                <a href="/blog/" class="hover:text-blue-600 transition hidden sm:inline">Guides</a>
-                <a href="/about.html" class="hover:text-blue-600 transition hidden md:inline">Editorial Policy</a>
-                <a href="/contact.html" class="hover:text-blue-600 transition hidden md:inline">Contact</a>
-                <a href="/tools/grocery-unit-price-calculator.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg transition">Unit Calculator &rarr;</a>
+                <a href="/cvs/" class="hover:text-rose-600 transition">CVS Hub</a>
+                <a href="/blog/" class="hover:text-blue-600 transition">All Guides</a>
+                <a href="/about.html" class="hover:text-blue-600 transition">Editorial Policy</a>
             </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="/tools/grocery-unit-price-calculator.html" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition shadow-xs">
+                    Unit Calculator &rarr;
+                </a>
+                <button type="button" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false" class="md:hidden p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-nav" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-2 text-xs font-bold text-slate-700">
+            <a href="#tools" class="block py-1.5 hover:text-blue-600">Free Calculators</a>
+            <a href="/earn/" class="block py-1.5 hover:text-emerald-700">Earn &amp; Cashback</a>
+            <a href="/cvs/" class="block py-1.5 hover:text-rose-600">CVS Hub</a>
+            <a href="/blog/" class="block py-1.5 hover:text-blue-600">All Guides &amp; Archive</a>
+            <a href="/about.html" class="block py-1.5 hover:text-blue-600">Editorial Policy</a>
+            <a href="/contact.html" class="block py-1.5 hover:text-blue-600">Contact</a>
         </div>
     </header>
 
     <main class="flex-grow">
+        <!-- Hero + Instant Search -->
         <section class="bg-white border-b border-slate-200 py-12 sm:py-16">
-            <div class="max-w-5xl mx-auto px-4 text-center space-y-5">
-                <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">
-                    <span>Independent Consumer Tools &amp; Guides</span>
+            <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold px-3.5 py-1 rounded-full">
+                    <span>Updated November 2026</span>
                     <span>&bull;</span>
-                    <span>Offline-Ready &bull; No Login Required</span>
+                    <span>Offline-Ready Browser Tools</span>
+                    <span>&bull;</span>
+                    <span>No Account Required</span>
                 </div>
+
                 <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
                     Smart Math &amp; Practical Systems to <span class="text-blue-600">Save</span> and <span class="text-emerald-600">Earn</span> More Money
                 </h1>
+
                 <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                    Stop guessing at shelf tags, loyalty rules, and side-income apps. Use our free browser calculators, persistent Price-Book tracker, and transparent cash-back guides built for real household budgets.
+                    Cut through shelf-tag tricks, coupon fine print, and rebate rules. Compare true unit prices, track stock-up targets locally in your browser, and stack cashback safely.
                 </p>
-                <div class="flex flex-wrap justify-center gap-3 pt-2">
+
+                <!-- Search Bar -->
+                <form action="/blog/" method="GET" class="max-w-2xl mx-auto pt-1">
+                    <label for="home-search" class="sr-only">Search calculators, stores, and guides</label>
+                    <div class="relative flex items-center bg-slate-50 border border-slate-300 focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-100 focus-within:bg-white rounded-2xl p-1.5 shadow-xs transition">
+                        <span class="pl-3.5 text-slate-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </span>
+                        <input
+                            id="home-search"
+                            name="q"
+                            type="search"
+                            placeholder="Search unit calculator, CVS ExtraBucks, Walgreens, Ibotta, GTA 6..."
+                            class="w-full bg-transparent px-3 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none"
+                        >
+                        <button type="submit" class="bg-slate-900 hover:bg-blue-600 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl transition shrink-0">
+                            Search
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 mt-3 text-[11px] font-semibold text-slate-500">
+                        <span>Popular:</span>
+                        <a href="/tools/grocery-unit-price-calculator.html" class="underline hover:text-blue-600">Unit Price Calculator</a>
+                        <span>&bull;</span>
+                        <a href="/blog/?q=CVS" class="underline hover:text-blue-600">CVS ExtraBucks</a>
+                        <span>&bull;</span>
+                        <a href="/blog/?q=Walgreens" class="underline hover:text-blue-600">Walgreens Cash</a>
+                        <span>&bull;</span>
+                        <a href="/blog/?q=Ibotta" class="underline hover:text-blue-600">Ibotta &amp; Rebates</a>
+                    </div>
+                </form>
+
+                <div class="flex flex-wrap justify-center gap-3 pt-1">
                     <a href="/tools/grocery-unit-price-calculator.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-6 py-3 rounded-xl shadow-sm transition">
                         Open Unit Calculator &amp; Price-Book
                     </a>
@@ -87,22 +150,39 @@
                         Explore Vetted Cashback Apps &rarr;
                     </a>
                 </div>
+
+                <!-- Trust Strip -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto pt-4 text-left">
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-xl px-4 py-3">
+                        <p class="text-xs font-extrabold text-slate-900">100% Browser-Saved Tools</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Your Price-Book and calculations stay on your device with zero login walls.</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-xl px-4 py-3">
+                        <p class="text-xs font-extrabold text-slate-900">Real POS &amp; Rebate Math</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Clear rules on spend thresholds, coupon stacking, and rebate clawbacks.</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-xl px-4 py-3">
+                        <p class="text-xs font-extrabold text-slate-900">Transparent Disclosures</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">We clearly label affiliate/referral links and never pay to fake a review.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Calculators & Tools -->
         <section id="tools" class="max-w-6xl mx-auto px-4 py-12 space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-4">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Interactive Web Utilities</span>
                     <h2 class="text-2xl font-extrabold text-slate-900 mt-0.5">Free Money &amp; Shopping Calculators</h2>
                 </div>
-                <p class="text-xs text-slate-500">Saves locally in your browser. Zero sign-up walls.</p>
+                <a href="/blog/#tools" class="text-xs font-bold text-blue-600 hover:underline">See all tools &amp; playbooks &rarr;</a>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="/tools/grocery-unit-price-calculator.html" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-6 shadow-sm transition flex flex-col justify-between space-y-4">
                     <div class="space-y-2.5">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between gap-2">
                             <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Updated V2 App</span>
                             <span class="text-xs font-mono text-slate-400">Price-Book + Share URL</span>
                         </div>
@@ -116,7 +196,7 @@
 
                 <a href="/tools/grocery-rebate-and-savings-ledger.html" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-6 shadow-sm transition flex flex-col justify-between space-y-4">
                     <div class="space-y-2.5">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between gap-2">
                             <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Cashflow Guide</span>
                             <span class="text-xs font-mono text-slate-400">Rebate Ledger</span>
                         </div>
@@ -130,7 +210,7 @@
 
                 <a href="/tools/free-grocery-price-book-template.html" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-6 shadow-sm transition flex flex-col justify-between space-y-4">
                     <div class="space-y-2.5">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between gap-2">
                             <span class="bg-amber-100 text-amber-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Price Tracking</span>
                             <span class="text-xs font-mono text-slate-400">Baseline Targets</span>
                         </div>
@@ -144,6 +224,7 @@
             </div>
         </section>
 
+        <!-- Save vs Earn Pathways -->
         <section class="max-w-6xl mx-auto px-4 py-8 space-y-6">
             <div class="border-b border-slate-200 pb-4">
                 <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Browse By Goal</span>
@@ -151,7 +232,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 space-y-4">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 space-y-4 shadow-2xs">
                     <div class="flex items-center gap-2.5">
                         <span class="bg-blue-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">SAVE</span>
                         <h3 class="text-lg font-extrabold text-slate-900">Supermarket, Retail &amp; Loyalty Mechanics</h3>
@@ -160,14 +241,14 @@
                         Plain-English breakdowns of store pricing rules, shrinkflation math, digital coupon stacking, and loyalty credit expiration policies.
                     </p>
                     <ul class="space-y-2.5 text-xs font-semibold text-slate-800 border-t border-slate-100 pt-4">
-                        <li><a href="/tactics/how-to-calculate-shrinkflation.html" class="hover:text-blue-600 flex justify-between"><span>How to Calculate Shrinkflation on Everyday Groceries</span><span>&rarr;</span></a></li>
-                        <li><a href="/tactics/pickup-vs-in-store-digital-coupon-rules.html" class="hover:text-blue-600 flex justify-between"><span>Curbside Pickup vs. In-Store Digital Coupon Rules</span><span>&rarr;</span></a></li>
-                        <li><a href="/tactics/publix-bogo-coupon-stacking.html" class="hover:text-blue-600 flex justify-between"><span>Supermarket BOGO &amp; Manufacturer Coupon Stacking Rules</span><span>&rarr;</span></a></li>
-                        <li><a href="/cvs/" class="hover:text-blue-600 flex justify-between"><span>Drugstore &amp; CVS Policy Reference Hub</span><span>&rarr;</span></a></li>
+                        <li><a href="/tactics/how-to-calculate-shrinkflation.html" class="hover:text-blue-600 flex justify-between py-0.5"><span>How to Calculate Shrinkflation on Everyday Groceries</span><span>&rarr;</span></a></li>
+                        <li><a href="/tactics/pickup-vs-in-store-digital-coupon-rules.html" class="hover:text-blue-600 flex justify-between py-0.5"><span>Curbside Pickup vs. In-Store Digital Coupon Rules</span><span>&rarr;</span></a></li>
+                        <li><a href="/tactics/publix-bogo-coupon-stacking.html" class="hover:text-blue-600 flex justify-between py-0.5"><span>Supermarket BOGO &amp; Manufacturer Coupon Stacking Rules</span><span>&rarr;</span></a></li>
+                        <li><a href="/cvs/" class="hover:text-blue-600 flex justify-between py-0.5"><span>Drugstore &amp; CVS Policy Reference Hub</span><span>&rarr;</span></a></li>
                     </ul>
                 </div>
 
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 space-y-4">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 space-y-4 shadow-2xs">
                     <div class="flex items-center gap-2.5">
                         <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">EARN</span>
                         <h3 class="text-lg font-extrabold text-slate-900">Receipt Rebates, Cashback Portals &amp; Micro-Earnings</h3>
@@ -176,17 +257,18 @@
                         Realistic reviews of legitimate cashback apps, online shopping portals, and spare-time earning platforms—including minimum payout thresholds and realistic expectations.
                     </p>
                     <ul class="space-y-2.5 text-xs font-semibold text-slate-800 border-t border-slate-100 pt-4">
-                        <li><a href="/earn/" class="hover:text-emerald-700 flex justify-between"><span>2026 Verified Cashback &amp; Micro-Income Directory</span><span>&rarr;</span></a></li>
-                        <li><a href="/tactics/best-receipt-scanning-apps-stacked.html" class="hover:text-emerald-700 flex justify-between"><span>How to Stack Receipt-Scanning Apps Without Violating Terms</span><span>&rarr;</span></a></li>
-                        <li><a href="/earn/cashback-portals-vs-credit-card-rewards.html" class="hover:text-emerald-700 flex justify-between"><span>Stacking Browser Cashback Portals With Card Rewards</span><span>&rarr;</span></a></li>
-                        <li><a href="/blog/" class="hover:text-emerald-700 flex justify-between"><span>Browse All Saving &amp; Earning Guides</span><span>&rarr;</span></a></li>
+                        <li><a href="/earn/" class="hover:text-emerald-700 flex justify-between py-0.5"><span>2026 Verified Cashback &amp; Micro-Income Directory</span><span>&rarr;</span></a></li>
+                        <li><a href="/tactics/best-receipt-scanning-apps-stacked.html" class="hover:text-emerald-700 flex justify-between py-0.5"><span>How to Stack Receipt-Scanning Apps Without Violating Terms</span><span>&rarr;</span></a></li>
+                        <li><a href="/earn/cashback-portals-vs-credit-card-rewards.html" class="hover:text-emerald-700 flex justify-between py-0.5"><span>Stacking Browser Cashback Portals With Card Rewards</span><span>&rarr;</span></a></li>
+                        <li><a href="/blog/" class="hover:text-emerald-700 flex justify-between py-0.5"><span>Browse All Saving &amp; Earning Guides</span><span>&rarr;</span></a></li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- Lead Magnet & Workbook Card -->
         <section class="max-w-6xl mx-auto px-4 py-8">
-            <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-10 grid md:grid-cols-2 gap-8 items-center">
+            <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-10 grid md:grid-cols-2 gap-8 items-center shadow-sm">
                 <div class="space-y-3">
                     <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">Free Printable Toolkit</span>
                     <h2 class="text-2xl font-extrabold text-white">Get the 2026 Smart Shopper &amp; Unit Price Cheat Sheet (PDF)</h2>
@@ -223,6 +305,8 @@
                 <span>&bull;</span>
                 <a href="/earn/" class="hover:text-blue-600">Earn &amp; Cashback</a>
                 <span>&bull;</span>
+                <a href="/cvs/" class="hover:text-blue-600">CVS Hub</a>
+                <span>&bull;</span>
                 <a href="/blog/" class="hover:text-blue-600">Guides</a>
                 <span>&bull;</span>
                 <a href="/about.html" class="hover:text-blue-600">Editorial Standards</a>
@@ -236,10 +320,30 @@
             <p class="text-xs text-slate-400">&copy; 2026 SavingsTactic.com &mdash; All Rights Reserved.</p>
         </div>
     </footer>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
         }
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => {
+                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', String(!expanded));
+                mobileNav.classList.toggle('hidden');
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const searchInput = document.getElementById('home-search');
+            const tag = document.activeElement ? document.activeElement.tagName : '';
+            if (e.key === '/' && searchInput && !['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
     </script>
 </body>
 </html>

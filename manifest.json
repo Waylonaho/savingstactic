@@ -1,8 +1,8 @@
 {
-  "name": "Savings Tactic — Unit Price & Household Money Tools",
+  "name": "Savings Tactic \u2014 Unit Price & Household Money Tools",
   "short_name": "SavingsTactic",
   "description": "Free offline-ready grocery unit price calculator, personal price-book tracker, and smart shopping tools.",
-  "start_url": "/blog/grocery-unit-price-calculator.html",
+  "start_url": "/tools/grocery-unit-price-calculator.html",
   "display": "standalone",
   "background_color": "#f8fafc",
   "theme_color": "#2563eb",

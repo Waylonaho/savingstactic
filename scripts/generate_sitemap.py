@@ -2,19 +2,20 @@ import glob
 import os
 from datetime import datetime, timezone
 
-BLOG_DIR = "blog"
-SITEMAP_PATH = "sitemap.xml"
 BASE_URL = "https://www.savingstactic.com"
+SITEMAP_PATH = "sitemap.xml"
+HUB_FOLDERS = ["tools", "tactics", "cvs", "earn", "blog"]
 
 
 def generate_sitemap():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     core_pages = [
         ("/", "1.0", "weekly"),
-        ("/blog/grocery-unit-price-calculator.html", "0.95", "weekly"),
+        ("/tools/", "0.95", "weekly"),
+        ("/tactics/", "0.90", "weekly"),
+        ("/cvs/", "0.90", "weekly"),
         ("/earn/", "0.90", "weekly"),
         ("/blog/", "0.85", "weekly"),
-        ("/cvs/", "0.80", "weekly"),
         ("/about.html", "0.70", "monthly"),
         ("/contact.html", "0.65", "monthly"),
         ("/privacy.html", "0.50", "yearly"),
@@ -30,15 +31,17 @@ def generate_sitemap():
             seen.add(loc)
             entries.append((loc, today, freq, prio))
 
-    for file_path in sorted(glob.glob(os.path.join(BLOG_DIR, "*.html"))):
-        filename = os.path.basename(file_path)
-        if filename == "index.html":
-            continue
-        loc = f"{BASE_URL}/blog/{filename}"
-        if loc not in seen:
-            seen.add(loc)
-            mtime = datetime.fromtimestamp(os.path.getmtime(file_path), tz=timezone.utc).strftime("%Y-%m-%d")
-            entries.append((loc, mtime, "monthly", "0.75"))
+    for folder in HUB_FOLDERS:
+        for file_path in sorted(glob.glob(os.path.join(folder, "*.html"))):
+            filename = os.path.basename(file_path)
+            if filename == "index.html":
+                continue
+            loc = f"{BASE_URL}/{folder}/{filename}"
+            if loc not in seen:
+                seen.add(loc)
+                mtime = datetime.fromtimestamp(os.path.getmtime(file_path), tz=timezone.utc).strftime("%Y-%m-%d")
+                prio = "0.85" if folder == "tools" else "0.80"
+                entries.append((loc, mtime, "monthly", prio))
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
